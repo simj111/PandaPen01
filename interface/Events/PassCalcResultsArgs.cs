@@ -5,10 +5,23 @@ using System.Text;
 
 namespace Interfaces.Events
 {
-    public delegate void PassCalcResultsHandler(double source, PassCalcResultsArgs args);
+    public delegate void PassCalcResultsHandler(double HBarValue, double EBarValue, double FBarValue, PassCalcResultsArgs args);
 
-    public class PassCalcResultsArgs
+    public class PassCalcResultsArgs : EventArgs
 	{
+        private string _information;
 
+         public string information
+        {
+            get 
+            {
+                return _information;
+            }
+        }
+
+        public PassCalcResultsArgs(string information)
+        {
+            _information = information;
+        }
 	}
 }

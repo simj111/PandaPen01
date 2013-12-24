@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\AnimalTypeArgs.cs" />
     <Compile Include="Events\ButtonPressEventArgs.cs" />
+    <Compile Include="Events\EventTypes.cs" />
     <Compile Include="Events\FinalPassArgs.cs" />
+    <Compile Include="Events\FirstPassArgs.cs" />
     <Compile Include="Events\PassCalcResultsArgs.cs" />
     <Compile Include="IBarManager.cs" />
     <Compile Include="ICalculate.cs" />

@@ -8,11 +8,22 @@ namespace Interfaces.Events
 {
     public delegate void ButtonPressEventHandler(System.Windows.Forms.Button source, ButtonPressEventArgs args);
 
-
-
-	public class ButtonPressEventArgs
+    public class ButtonPressEventArgs : EventArgs
 	{
         private string _information;
+
+        public string information
+        {
+            get 
+            {
+                return _information;
+            }
+        }
+
+        public ButtonPressEventArgs(string information)
+        {
+            _information = information;
+        }
 
 
 	}

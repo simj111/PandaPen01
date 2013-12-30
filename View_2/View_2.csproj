@@ -78,17 +78,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Animal%28Model%29\Animal%28Model%29.csproj">
+    <ProjectReference Include="..\Animal%28Model%29\AnimalModel.csproj">
       <Project>{0F34A930-B577-4C35-A848-564671E3E7DA}</Project>
-      <Name>Animal%28Model%29</Name>
+      <Name>AnimalModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\AnimalFactory\AnimalFactory.csproj">
       <Project>{55814D79-4F05-438A-BE18-0401AB170184}</Project>
       <Name>AnimalFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BarManager\BarManager.csproj">
-      <Project>{31C8C243-AC0F-474D-A563-7DB36056AC06}</Project>
-      <Name>BarManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\interface\Interfaces.csproj">
       <Project>{EC58A9C8-86E3-4AB6-8780-33870B6C36B7}</Project>

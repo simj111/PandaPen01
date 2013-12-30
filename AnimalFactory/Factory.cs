@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using interfaces.Interface;
-using interfaces.Events;
-using Animal_Model;
+using Interfaces;
+using Interfaces.Events;
+using AnimalModel;
 
 namespace AnimalFactory
 {
@@ -21,11 +21,12 @@ namespace AnimalFactory
 
         public void GeneratAnimals(string Animal)
         {
+            FindTypes();
             if (typeoflist.Any(str => str.Contains(Animal)))
             {
                 if (Animal == "Panda")
                 {
-                    IAnimalModle Panda = new Animal_Model.Panda();
+                    IAnimalModle Panda = new AnimalModel.Panda();
                     list.Add(Panda);
                
 

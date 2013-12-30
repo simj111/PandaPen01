@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Interfaces
 {
-	interface IController
+	public interface IController
 	{
 	}
 }

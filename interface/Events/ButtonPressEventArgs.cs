@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Interfaces.Events
 {
-    public delegate void ButtonPressEventHandler(System.Windows.Forms.Button source, ButtonPressEventArgs args);
+    public delegate void ButtonPressEventHandler(Form f, ButtonPressEventArgs args);
 
     public class ButtonPressEventArgs : EventArgs
 	{

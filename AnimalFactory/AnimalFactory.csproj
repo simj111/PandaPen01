@@ -40,13 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Animal%28Model%29\Animal%28Model%29.csproj">
+    <ProjectReference Include="..\Animal%28Model%29\AnimalModel.csproj">
       <Project>{0F34A930-B577-4C35-A848-564671E3E7DA}</Project>
-      <Name>Animal%28Model%29</Name>
+      <Name>AnimalModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\interface\Interfaces.csproj">
       <Project>{EC58A9C8-86E3-4AB6-8780-33870B6C36B7}</Project>

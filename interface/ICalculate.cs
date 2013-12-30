@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Interfaces.Events;
 
 namespace Interfaces
 {
-	interface ICalculate
+	public interface ICalculate
 	{
-
+       
 	}
 }

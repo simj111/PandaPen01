@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Interfaces
 {
-	interface IBarManager
+	public interface IBarManager
 	{
+        void Subscribe(IViewEvents f);
 	}
 }

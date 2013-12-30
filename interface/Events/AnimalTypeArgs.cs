@@ -7,7 +7,7 @@ namespace Interfaces.Events
 {
     public delegate void AnimalTypeHandler(string source, AnimalTypeArgs args);
 
-    class AnimalTypeArgs : EventArgs
+    public class AnimalTypeArgs : EventArgs
 	{
         public string _animalType;
 

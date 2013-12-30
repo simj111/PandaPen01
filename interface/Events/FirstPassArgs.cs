@@ -7,7 +7,7 @@ namespace Interfaces.Events
 {
     public delegate void FirstPassHandler(string imagesource, double HBarValue, double EBarValue, double FBarValue, FirstPassArgs args);
 
-    class FirstPassArgs : EventArgs
+    public class FirstPassArgs : EventArgs
 	{
         public string _information;
 

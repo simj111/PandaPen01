@@ -80,9 +80,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Panda.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Animal%28Model%29\AnimalModel.csproj">
       <Project>{0F34A930-B577-4C35-A848-564671E3E7DA}</Project>
       <Name>AnimalModel</Name>
@@ -95,6 +92,10 @@
       <Project>{EC58A9C8-86E3-4AB6-8780-33870B6C36B7}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\lionpic.png" />
+    <Content Include="Resources\pandapic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

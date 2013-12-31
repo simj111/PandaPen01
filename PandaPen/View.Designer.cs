@@ -31,6 +31,7 @@
 
         private void InitializeComponent()
         {  
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             this.panel1 = new System.Windows.Forms.Panel();
             this.animalPicBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.Controls.Add(this.animalPicBox);
             this.panel1.Location = new System.Drawing.Point(12, 67);
             this.panel1.Name = "panel1";
@@ -61,10 +62,12 @@
             // 
             // animalPicBox
             // 
-            this.animalPicBox.Image = global::PandaPen.Properties.Resources.Panda;
-            this.animalPicBox.Location = new System.Drawing.Point(110, 179);
+            this.animalPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.animalPicBox.Image = ((System.Drawing.Image)(resources.GetObject("animalPicBox.Image")));
+            this.animalPicBox.Location = new System.Drawing.Point(18, 14);
             this.animalPicBox.Name = "animalPicBox";
-            this.animalPicBox.Size = new System.Drawing.Size(46, 50);
+            this.animalPicBox.Size = new System.Drawing.Size(231, 215);
+            this.animalPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.animalPicBox.TabIndex = 0;
             this.animalPicBox.TabStop = false;
             // 

@@ -44,7 +44,6 @@
     <Compile Include="Events\AnimalTypeArgs.cs" />
     <Compile Include="Events\ButtonPressEventArgs.cs" />
     <Compile Include="Events\EventTypes.cs" />
-    <Compile Include="Events\FinalPassArgs.cs" />
     <Compile Include="Events\FirstPassArgs.cs" />
     <Compile Include="Events\PassCalcResultsArgs.cs" />
     <Compile Include="IAnimalModle.cs" />

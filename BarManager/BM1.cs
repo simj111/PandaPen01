@@ -19,7 +19,6 @@ namespace BarManager
         {
             if (args.information == "Eat")
             {
-
             }
             else if (args.information == "Sleep")
             {

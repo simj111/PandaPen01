@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Interfaces.Events
 {
-    public delegate void AnimalTypeHandler(string source, AnimalTypeArgs args);
+
+    public delegate void AnimalTypeHandler(Form source, AnimalTypeArgs args);
 
     public class AnimalTypeArgs : EventArgs
 	{
@@ -17,6 +19,10 @@ namespace Interfaces.Events
             {
                 return _animalType;
             }
+        }
+        public AnimalTypeArgs(string animalType)
+        {
+            _animalType = animalType;
         }
 	}
 }

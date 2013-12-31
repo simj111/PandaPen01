@@ -5,23 +5,43 @@ using System.Text;
 
 namespace Interfaces.Events
 {
-    public delegate void PassCalcResultsHandler(double HBarValue, double EBarValue, double FBarValue, PassCalcResultsArgs args);
+    public delegate void PassCalcResultsHandler(IAnimalModle source, PassCalcResultsArgs HBarValue, PassCalcResultsArgs EBarValue, PassCalcResultsArgs FBarValue);
 
     public class PassCalcResultsArgs : EventArgs
 	{
-        private string _information;
+        private double _HBarValue;
 
-         public string information
+        public double HBarValue
         {
             get 
             {
-                return _information;
+                return _HBarValue;
+            }
+        }
+        private double _EBarValue;
+
+        public double EBarValue
+        {
+            get
+            {
+                return _EBarValue;
             }
         }
 
-        public PassCalcResultsArgs(string information)
+        private double _FBarValue;
+
+        public double FBarValue
         {
-            _information = information;
+            get
+            {
+                return _FBarValue;
+            }
+        }
+        public PassCalcResultsArgs(double HBarValue, double EBarValue, double FBarValue)
+        {
+            _HBarValue = HBarValue;
+            _EBarValue = EBarValue;
+            _FBarValue = FBarValue;
         }
 	}
 }

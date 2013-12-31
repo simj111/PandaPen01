@@ -21,6 +21,14 @@ namespace BarManager
             {
 
             }
+            else if (args.information == "Sleep")
+            {
+
+            }
+            else if (args.information == "Exercise")
+            {
+
+            }
         }
 
     }

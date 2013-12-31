@@ -30,10 +30,19 @@ namespace PandaPen
 
         private void sBtn_Click(object sender, EventArgs e)
         {
+            ButtonPressEventArgs information = new ButtonPressEventArgs("Sleep");
 
+            btnPress(this, information);
         }
 
         private void eBtn_Click(object sender, EventArgs e)
+        {
+            ButtonPressEventArgs information = new ButtonPressEventArgs("Exercise");
+
+            btnPress(this, information);
+        }
+
+        private void animalType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

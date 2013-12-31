@@ -27,11 +27,13 @@ namespace PandaPen
             IBarManager barmanager;
             Factory AFac1 = new Factory();
             AFac1.GeneratAnimals("Panda");
+      
             List<IAnimalModle> listTest;
-            listTest = AFac1.list;
+            listTest = AFac1.animallist;
             foreach(IAnimalModle ani in listTest)
             {
                 barmanager = ani.bars();
+
                 barmanager.Subscribe(_view);
             }
 

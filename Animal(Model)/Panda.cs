@@ -5,22 +5,23 @@ using System.Text;
 using Interfaces;
 using Interfaces.Events;
 using BarManager;
+using CalculatorLibrary;
 
 namespace AnimalModel
 {
     public class Panda : IAnimalModle
     {
         public IBarManager barmanager;
-        public Panda()
+        
+        public Panda(IBarManager myBarManager, ICalculate calculator)
         {
-
+            barmanager = myBarManager;
             
         }
 
         public IBarManager bars()
         {
-            IBarManager myBarManager = new BM1();
-            barmanager = myBarManager;
+      
             return barmanager;
         }
         //string infomation;

@@ -15,6 +15,7 @@ namespace PandaPen
     {
 
         public event ButtonPressEventHandler btnPress;
+        public event AnimalTypeHandler selectAnimal;
 
         public View()
         {
@@ -44,7 +45,9 @@ namespace PandaPen
 
         private void animalType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            AnimalTypeArgs information = new AnimalTypeArgs(animalType.Text);
 
+            selectAnimal(this, information);
         }
 
 

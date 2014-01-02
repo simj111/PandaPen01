@@ -39,7 +39,8 @@ namespace AnimalFactory
                 else if (Animal == "Lion")
                 {
                     IBarManager barmanager = new BM1();
-                    IAnimalModle Lion = new AnimalModel.Lion(barmanager);
+                    ICalculate calculator = new PandaCalculate();
+                    IAnimalModle Lion = new AnimalModel.Lion(barmanager, calculator);
                     animallist.Add(Lion);
                 }
             }

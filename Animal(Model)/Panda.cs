@@ -47,5 +47,21 @@ namespace AnimalModel
             
         //    //TODO add in subscribe for numerical infoamtion
 
-       }
+
+
+        public string Name()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Calculate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetPicture()
+        {
+            throw new NotImplementedException();
+        }
+    }
     }

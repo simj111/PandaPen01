@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Interfaces;
 using AnimalFactory;
+using Interfaces.Events;
 
 
 
@@ -24,10 +25,9 @@ namespace PandaPen
         Factory AFac1 = null;
         public Controller()
         {
-           
-
-            //Make sure this is at bottom of constructor
             CreatView();
+
+            Subscribe(_view as IViewEvents);
             ComposeContainer();
         }
       
@@ -44,11 +44,15 @@ namespace PandaPen
 
 public void Subscribe(IViewEvents f)
         {
-            f.selectAnimal += new AnimalTypeHandler(RecieveEvents);
+            f.selectAnimal += new AnimalTypeHandler(ReciveEvents());
         }
 
-        public void ReciveEvents()
+public void ReciveEvents(Form f, AnimalTypeArgs args)
         {
+
+            if (args._animalTypes == "Eat")
+            {
+            }
 
         }
 

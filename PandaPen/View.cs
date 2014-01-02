@@ -45,9 +45,9 @@ namespace PandaPen
 
         private void animalType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AnimalTypeArgs information = new AnimalTypeArgs(animalType.Text);
+            AnimalTypeArgs animalTypes = new AnimalTypeArgs(animalType.Text);
 
-            selectAnimal(this, information);
+            selectAnimal(this, animalTypes);
         }
 
 

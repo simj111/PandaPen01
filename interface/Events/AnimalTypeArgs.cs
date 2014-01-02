@@ -11,18 +11,18 @@ namespace Interfaces.Events
 
     public class AnimalTypeArgs : EventArgs
 	{
-        public string _animalType;
+        public string _animalTypes;
 
-        public string animalType
+        public string animalTypes
         {
             get
             {
-                return _animalType;
+                return _animalTypes;
             }
         }
-        public AnimalTypeArgs(string animalType)
+        public AnimalTypeArgs(string animalTypes)
         {
-            _animalType = animalType;
+            _animalTypes = animalTypes;
         }
 	}
 }

@@ -7,5 +7,6 @@ namespace Interfaces
 {
 	public interface IController
 	{
+		void Subscribe(IViewEvents f);
 	}
 }

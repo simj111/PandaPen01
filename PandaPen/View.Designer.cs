@@ -214,6 +214,10 @@
             this.PerformLayout();
 
         }
+        public void ReciveInfomation()
+        {
+
+        }
         #endregion
         private System.Windows.Forms.ComboBox animalType;
         private System.Windows.Forms.Panel panel1;

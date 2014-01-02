@@ -7,5 +7,14 @@ namespace PandaPen
 {
     class ViewModel
     {
+        private View VM = null; 
+        
+        public ViewModel( View Modle)
+        {
+            VM = Modle;
+        }
+
+
+
     }
 }

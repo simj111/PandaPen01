@@ -15,7 +15,7 @@ namespace PandaPen
     {
         public List<View> typeoflist = new List<View>();
         public List<ViewModel> animallist = new List<ViewModel>();
-        string Animal = "Panda";
+       
 
         /// <summary>
         /// Data Members Which Contain The View
@@ -33,7 +33,7 @@ namespace PandaPen
       
         public void CreatView()
         {
-            View _view = new View();
+            _view = new View();
             ViewM = new ViewModel(_view);
         }
 
@@ -44,14 +44,15 @@ namespace PandaPen
 
 public void Subscribe(IViewEvents f)
         {
-            f.selectAnimal += new AnimalTypeHandler(ReciveEvents());
+            f.selectAnimal += new AnimalTypeHandler(ReciveEvents);
         }
 
 public void ReciveEvents(Form f, AnimalTypeArgs args)
         {
 
-            if (args._animalTypes == "Eat")
+            if (args.animalTypes == "Panda")
             {
+                CreatFactoryAndModles(args.animalTypes);
             }
 
         }

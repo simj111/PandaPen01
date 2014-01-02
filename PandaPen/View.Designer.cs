@@ -178,13 +178,13 @@
             // 
             this.animalType.FormattingEnabled = true;
             this.animalType.Items.AddRange(new object[] {
-            "panda",
-            "lion"});
+            "Panda",
+            "Lion"});
             this.animalType.Location = new System.Drawing.Point(12, 37);
             this.animalType.Name = "animalType";
             this.animalType.Size = new System.Drawing.Size(121, 21);
             this.animalType.TabIndex = 12;
-            this.animalType.Text = "Panda";
+            this.animalType.Text = "Please Select Animal";
             this.animalType.SelectedIndexChanged += new System.EventHandler(this.animalType_SelectedIndexChanged);
             // 
             // View

@@ -177,9 +177,6 @@
             // animalType
             // 
             this.animalType.FormattingEnabled = true;
-            this.animalType.Items.AddRange(new object[] {
-            "Panda",
-            "Lion"});
             this.animalType.Location = new System.Drawing.Point(12, 37);
             this.animalType.Name = "animalType";
             this.animalType.Size = new System.Drawing.Size(121, 21);
@@ -219,7 +216,7 @@
 
         }
         #endregion
-        private System.Windows.Forms.ComboBox animalType;
+
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.PictureBox animalPicBox;
         private System.Windows.Forms.Label label1;
@@ -234,6 +231,7 @@
         public System.Windows.Forms.Button sBtn;
         public System.Windows.Forms.Button eBtn;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox animalType;
     }
 }
 

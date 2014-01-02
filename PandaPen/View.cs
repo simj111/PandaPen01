@@ -26,14 +26,9 @@ namespace PandaPen
         {
           
             ButtonPressEventArgs information = new ButtonPressEventArgs("Eat");
-            if (information != null)
-            {
+            
             btnPress(this, information);
-            }
-            else 
-            {
 
-            }
         }
 
         private void sBtn_Click(object sender, EventArgs e)

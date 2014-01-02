@@ -23,10 +23,14 @@ namespace PandaPen
         View _view = null;
         ViewModel ViewM = null;
         Factory AFac1 = null;
+        List<IAnimalModle> listTest = null;
         public Controller()
         {
             CreatView();
-
+            AFac1 = new Factory();
+            
+            AddAnimalsToBox(AFac1.typeoflist);
+            
             Subscribe(_view as IViewEvents);
             ComposeContainer();
         }
@@ -52,18 +56,18 @@ public void ReciveEvents(Form f, AnimalTypeArgs args)
 
             if (args.animalTypes == "Panda")
             {
-                CreatFactoryAndModles(args.animalTypes);
+                CreateFactoryAndModels(args.animalTypes);
             }
 
         }
 
-        public void CreatFactoryAndModles(string recviedFromCombo)
+        public void CreateFactoryAndModels(string recviedFromCombo)
         {   
             
             IBarManager barmanager;
-            Factory AFac1 = new Factory();
+            
             AFac1.GeneratAnimals(recviedFromCombo);
-            List<IAnimalModle> listTest;
+            
             listTest = AFac1.animallist;
             foreach(IAnimalModle ani in listTest)
             {
@@ -71,10 +75,23 @@ public void ReciveEvents(Form f, AnimalTypeArgs args)
 
                 barmanager.Subscribe(_view);
             }
+           
         }
 
+        /// <summary>
+        /// Add the list of animals, that the factory contains, into the combo box of the view.
+        /// </summary>
+        /// <param name="animalList">Used to acquire the string of animal names</param>
+        public void AddAnimalsToBox(List<string> animalList)
+        {
+            foreach (string animals in animalList)
+            {
+            _view.animalType.Items.AddRange(new object[] {animals});
+            }
+        }
         public void ComposeContainer()
         {
+            
             //Make sure this is at bottom of method
             Application.Run(_view);
         }

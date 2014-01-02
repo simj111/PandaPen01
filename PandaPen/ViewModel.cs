@@ -16,11 +16,17 @@ namespace PandaPen
             VM = Modle;
         }
 
-        public void Subscribe(IAnimalModle source)
+        public void Subscribe(IAnimalModle Animal)
+        {
+            Animal.fPass += new FirstPassHandler(CheckIfValid);
+
+        }
+        public void Subscribe( ICalculate Calculate)
         {
 
-            source.fPass += new FirstPassHandler(CheckIfValid);
+
         }
+          
         public void CheckIfValid(IAnimalModle source, FirstPassArgs args)
         {
             //gotthereInTheEND

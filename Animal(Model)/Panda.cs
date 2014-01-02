@@ -5,18 +5,35 @@ using System.Text;
 using Interfaces;
 using Interfaces.Events;
 using BarManager;
+using Interfaces.Events;
 using CalculatorLibrary;
 
 namespace AnimalModel
 {
     public class Panda : IAnimalModle
     {
+        
+       public event FirstPassHandler fPass;
+        private string _imageName = "Panda";
+        private double _inHBarVal = 15;
+        private double _inEBarVal = 60;
+        private double _inFBarVal = 5;
+        private double _happinessBarVal = 0;
+
         public IBarManager barmanager;
         
         public Panda(IBarManager myBarManager, ICalculate calculator)
         {
             barmanager = myBarManager;
+           
+
             
+        }
+
+        public void FristPassSetUP()
+        {
+            FirstPassArgs args = new FirstPassArgs(_imageName,_inHBarVal,_inEBarVal,_inFBarVal,_happinessBarVal);
+            fPass(this, args);
         }
 
         public IBarManager bars()
@@ -24,6 +41,8 @@ namespace AnimalModel
       
             return barmanager;
         }
+
+        
         //string infomation;
 
         //private event ButtonPressEventHandler _informationChangeEvent;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Interfaces.Events
 {
-    public delegate void FirstPassHandler(IAnimalModle source, FirstPassArgs imagesource, FirstPassArgs HBarValue, FirstPassArgs EBarValue, FirstPassArgs FBarValue);
+    public delegate void FirstPassHandler(IAnimalModle source, FirstPassArgs args);
 
     public class FirstPassArgs : EventArgs
 	{
@@ -48,13 +48,23 @@ private double _HBarValue;
             }
         }
 
+        private double _HapnninesBar;
+        public double HapnninesBar
+        {
+            get
+            {
+                return HapnninesBar;
+            }
+        }
 
-        public FirstPassArgs(string imagesource, double HBarValue, double EBarValue, double FBarValue)
+
+        public FirstPassArgs(string imagesource, double HBarValue, double EBarValue, double FBarValue, double HapnninesBar)
         {
             _imagesource = imagesource;
             _HBarValue = HBarValue;
             _EBarValue = EBarValue;
             _FBarValue = FBarValue;
+            _HapnninesBar = HapnninesBar;
         }
 	
 }

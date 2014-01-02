@@ -13,7 +13,8 @@ namespace Interfaces
        String Name();
        void Calculate();
        void GetPicture();
-       event FirstPassHandler fPass();
+       event FirstPassHandler fPass;
+       void FristPassSetUP();
        //stuff
        ///kkkk
        ////ppp

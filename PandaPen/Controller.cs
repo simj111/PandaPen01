@@ -46,12 +46,12 @@ namespace PandaPen
                 
         }
 
-public void Subscribe(IViewEvents f)
+        public void Subscribe(IViewEvents f)
         {
             f.selectAnimal += new AnimalTypeHandler(ReciveEvents);
         }
 
-public void ReciveEvents(Form f, AnimalTypeArgs args)
+        public void ReciveEvents(Form f, AnimalTypeArgs args)
         {
 
             if (args.animalTypes == "Panda")
@@ -72,8 +72,9 @@ public void ReciveEvents(Form f, AnimalTypeArgs args)
             foreach(IAnimalModle ani in listTest)
             {
                 barmanager = ani.bars();
-
                 barmanager.Subscribe(_view);
+                ViewM.Subscribe(ani);  
+                ani.FristPassSetUP();
             }
            
         }

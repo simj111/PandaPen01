@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Interfaces;
-using BarManager;
+using Interfaces.Events;
 
 namespace AnimalModel
 {
    public class Lion : IAnimalModle
     {
         public IBarManager barmanager;
+        public event FirstPassHandler fPass;
         private string _imageName = "Lion";
         private double _inHBarVal = 5;
         private double _inEBarVal = 60;
@@ -41,6 +39,12 @@ namespace AnimalModel
         }
 
         public void GetPicture()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void FristPassSetUP()
         {
             throw new NotImplementedException();
         }

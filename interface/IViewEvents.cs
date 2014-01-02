@@ -8,5 +8,6 @@ namespace Interfaces
 	public interface IViewEvents
 	{
         event ButtonPressEventHandler btnPress;
+        event AnimalTypeHandler selectAnimal;
 	}
 }

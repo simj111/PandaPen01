@@ -10,7 +10,7 @@ using AnimalFactory;
 
 namespace PandaPen
 {
-    class Controller
+    class Controller : IController
     {
         public List<View> typeoflist = new List<View>();
         public List<ViewModel> animallist = new List<ViewModel>();
@@ -42,7 +42,10 @@ namespace PandaPen
                 
         }
 
-
+public void Subscribe(IViewEvents f)
+        {
+            f.selectAnimal += new AnimalTypeHandler(RecieveEvents);
+        }
 
         public void ReciveEvents()
         {

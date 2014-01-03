@@ -7,7 +7,7 @@ namespace Interfaces
 {
     interface IViewModel
     {
-        void ConvertResults(double HBarValue, double EBarValue, double FBarValue);
+        void ConvertResults(double HBarValue, double EBarValue, double FBarValue, double Happiness);
         void Subscribe ();
         void SendResults();
 

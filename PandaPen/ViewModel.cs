@@ -7,33 +7,47 @@ using Interfaces.Events;
 
 namespace PandaPen
 {
-    class ViewModel
+    class ViewModel : IViewEvents
     {
-        private View VM = null; 
-        
-        public ViewModel( View Modle)
+        private View VF = null;
+        public event PassCalcResultsHandler Resuts;
+        public ViewModel( View TheForm)
         {
-            VM = Modle;
+            VF = TheForm;
         }
 
         public void Subscribe(IAnimalModle Animal)
         {
-            Animal.fPass += new FirstPassHandler(CheckIfValid);
+            Animal.fPass += new FirstPassHandler(ReciveFirstInput);
 
         }
+
         public void Subscribe( ICalculate Calculate)
         {
-
+            
 
         }
-          
-        public void CheckIfValid(IAnimalModle source, FirstPassArgs args)
+
+        public void ReciveFirstInput(IAnimalModle source, FirstPassArgs args)
         {
-            //gotthereInTheEND
-            int alpa = 1;
+            double alpa = args.EBarValue;
+            double Beta = args.FBarValue;
+            double Delta = args.HBarValue;
+            double Gamma = args.HapnninesBar;
+            
+            VF.energyBar.Value = Convert.ToInt32(alpa);
+            VF.fitnessBar.Value = Convert.ToInt32(Beta);
+            VF.hungryBar.Value = Convert.ToInt32(Delta);
+            VF.happinessBar.Value = Convert.ToInt32(Gamma);
+           
+            
         }
 
 
 
+
+        public event ButtonPressEventHandler btnPress;
+
+        public event AnimalTypeHandler selectAnimal;
     }
 }

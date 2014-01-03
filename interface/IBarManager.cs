@@ -11,5 +11,6 @@ namespace Interfaces
 	{
         void Subscribe(IViewEvents f);
         void CheckIfValid(Form f, ButtonPressEventArgs args);
+        void ConnectANIMAL(IAnimalModle LINKEDANIMAL);
 	}
 }

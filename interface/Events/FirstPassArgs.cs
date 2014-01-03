@@ -53,7 +53,7 @@ private double _HBarValue;
         {
             get
             {
-                return HapnninesBar;
+                return _HapnninesBar;
             }
         }
 

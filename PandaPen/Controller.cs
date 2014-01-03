@@ -54,7 +54,7 @@ namespace PandaPen
         public void ReciveEvents(Form f, AnimalTypeArgs args)
         {
 
-            if (args.animalTypes == "Panda")
+            if (args.animalTypes != null )
             {
                 CreateFactoryAndModels(args.animalTypes);
             }
@@ -71,7 +71,7 @@ namespace PandaPen
             listTest = AFac1.animallist;
             foreach(IAnimalModle ani in listTest)
             {
-                barmanager = ani.bars();
+                barmanager = ani.Getbars();
                 barmanager.Subscribe(_view);
                 ViewM.Subscribe(ani);  
                 ani.FristPassSetUP();

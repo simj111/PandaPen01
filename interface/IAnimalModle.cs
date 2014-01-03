@@ -9,10 +9,10 @@ namespace Interfaces
 
    public interface IAnimalModle
     {
-       IBarManager bars();
-       String Name();
-       void Calculate();
-       void GetPicture();
+
+       IBarManager Getbars();
+       string Name(string _imageName, double ID);
+       void Calculate(string Animal);              
        event FirstPassHandler fPass;
        void FristPassSetUP();
        //stuff

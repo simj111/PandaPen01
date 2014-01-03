@@ -11,34 +11,22 @@ namespace CalculatorLibrary
         double Hungervalue;
         double Energyvalue;
         double Happiness;
-        
-        public PandaCalculate()
+
+
+
+
+
+
+        public void CalculateValues(double[] numbers,string Operations)
         {
-
-
-
-
-
-
-
-
+          
         }
 
-        public void CalculateValues()
+
+
+        public void CalculateHappines(double[] numbers)
         {
-            
-
-
-
-
+  
         }
-
-        public void CalculateHappiness()
-        {
-
-
-
-        }
-
     }
 }

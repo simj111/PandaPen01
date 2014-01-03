@@ -14,7 +14,7 @@ namespace AnimalFactory
     {
         public List<string> typeoflist = new List<string>();
         public List<IAnimalModle> animallist = new List<IAnimalModle>();
-
+        double ID = 0;
         public Factory()
         {
             FindTypes();
@@ -29,19 +29,31 @@ namespace AnimalFactory
         {
             
             if (typeoflist.Any(str => str.Contains(Animal)))
-            {
+            {    ++ID;
+
                 if (Animal == "Panda")
-                {IBarManager barmanager = new BM1();
-                ICalculate calculator = new PandaCalculate();
-                IAnimalModle Panda = new AnimalModel.Panda(barmanager, calculator);
+                {
+                    IAnimalModle Panda = null;
+                    IBarManager barmanager = new BM1();
+                    ICalculate calculator = new PandaCalculate();
+                    Panda = new AnimalModel.Panda(barmanager, calculator, ID);
+               
                     animallist.Add(Panda);
                 }
                 else if (Animal == "Lion")
                 {
-                    IBarManager barmanager = new BM1();
+                    IBarManager barmanger;
+                    IAnimalModle Lion; 
+                    barmanger = new BM1();
                     ICalculate calculator = new PandaCalculate();
-                    IAnimalModle Lion = new AnimalModel.Lion(barmanager, calculator);
-                    animallist.Add(Lion);
+                    Lion = new AnimalModel.Lion(barmanger, calculator, ID);
+                    animallist.Add(Lion); 
+                   
+                    
+                    
+                   
+                    
+                   
                 }
             }
            

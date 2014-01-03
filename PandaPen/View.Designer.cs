@@ -104,6 +104,7 @@
             this.hungryBar.Name = "hungryBar";
             this.hungryBar.Size = new System.Drawing.Size(136, 23);
             this.hungryBar.TabIndex = 4;
+            
             // 
             // energyBar
             // 

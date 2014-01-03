@@ -8,6 +8,7 @@ namespace Interfaces
 {
 	public interface ICalculate
 	{
-        void CalculateValues();
+        void CalculateValues(double[] numbers, string Operations);
+        void CalculateHappines(double[] numbers);
 	}
 }

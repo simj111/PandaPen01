@@ -12,21 +12,27 @@ namespace AnimalModel
 {
     public class Panda : IAnimalModle
     {
-        
-       public event FirstPassHandler fPass;
-        private string _imageName = "Panda";
-        private double _inHBarVal = 15;
-        private double _inEBarVal = 60;
-        private double _inFBarVal = 5;
-        private double _happinessBarVal = 0;
+             private string IDVIDUALName;
+          private string _imageName = "Panda";
+          private double _inHBarVal = 15;
+          private double _inEBarVal = 60;
+          private double _inFBarVal = 5;
+         private double _happinessBarVal = 0;
 
+       
+        public ICalculate Calculator;
         public IBarManager barmanager;
+
+       public event FirstPassHandler fPass;
+
+      
         
-        public Panda(IBarManager myBarManager, ICalculate calculator)
+        public Panda(IBarManager myBarManager, ICalculate calculator, double ID)
         {
             barmanager = myBarManager;
-           
-
+            Name(_imageName, ID);
+            myBarManager.ConnectANIMAL(this);
+            Calculator = calculator;
             
         }
 
@@ -36,51 +42,35 @@ namespace AnimalModel
             fPass(this, args);
         }
 
-        public IBarManager bars()
+        public IBarManager Getbars()
         {
       
             return barmanager;
         }
 
-        
-        //string infomation;
-
-        //private event ButtonPressEventHandler _informationChangeEvent;
-
-        //public void informationHandler(IAttempt1Interface obj, ButtonPressEventArgs args)
-        //{
-        //    infomation = args.information;
-        //}
-
-        //public void Subscribe(string eventType, ButtonPressEventHandler e)
-        //{
+       
+       public string Name(string _imageName, double ID)
+        {
            
-        //    if (eventType == EventTypes.BUTTON_EVENT)
-        //    {
-        //        ButtonPressEventHandler handler = e as ButtonPressEventHandler;
-        //        _informationChangeEvent += handler;
 
-        //        //if you subscribe we will let you know immediately  
-        //    }
-        //    }
-            
-        //    //TODO add in subscribe for numerical infoamtion
-
-
-
-        public string Name()
-        {
-            throw new NotImplementedException();
+               IDVIDUALName = _imageName + ID.ToString();
+               return IDVIDUALName;
         }
 
-        public void Calculate()
+
+        public void Calculate(string Operations)
         {
-            throw new NotImplementedException();
+            double[] numbers = new double[3] { _inHBarVal, _inEBarVal, _inFBarVal };
+            Calculator.CalculateValues(numbers, Operations);
+        
+        
         }
+          
+        
 
         public void GetPicture()
         {
-            throw new NotImplementedException();
+
         }
     }
     }

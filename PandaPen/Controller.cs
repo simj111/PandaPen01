@@ -20,25 +20,33 @@ namespace PandaPen
         /// <summary>
         /// Data Members Which Contain The View
         /// </summary>
+        /// 
+        DefaultView first = new DefaultView();
         View _view = null;
         ViewModel ViewM = null;
         Factory AFac1 = null;
         List<IAnimalModle> listTest = null;
         public Controller()
         {
-            CreatView();
+            first.Show();
+           
             AFac1 = new Factory();
             
             AddAnimalsToBox(AFac1.typeoflist);
+            Subscribe(first as IViewEvents);
+             ComposeContainer();
             
-            Subscribe(_view as IViewEvents);
-            ComposeContainer();
+           
         }
-      
-        public void CreatView()
+
+        public void CreatView(string recviedFromCombo)
         {
-            _view = new View();
-            ViewM = new ViewModel(_view);
+            if (recviedFromCombo != null)
+            {
+                _view = new View();
+                ViewM = new ViewModel(_view);
+                _view.Show();
+            }
         }
 
         public void CreateSelector()
@@ -55,8 +63,9 @@ namespace PandaPen
         {
 
             if (args.animalTypes != null )
-            {
+            {    CreatView(args._animalTypes);
                 CreateFactoryAndModels(args.animalTypes);
+               
             }
 
         }
@@ -87,14 +96,14 @@ namespace PandaPen
         {
             foreach (string animals in animalList)
             {
-            _view.animalType.Items.AddRange(new object[] {animals});
+           first.animalType.Items.AddRange(new object[] {animals});
             }
         }
         public void ComposeContainer()
         {
             
             //Make sure this is at bottom of method
-            Application.Run(_view);
+            Application.Run(first);
         }
 
 

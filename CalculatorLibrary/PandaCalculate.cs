@@ -13,10 +13,6 @@ namespace CalculatorLibrary
         double Happiness;
 
 
-
-
-
-
         public void CalculateValues(double[] numbers,string Operations)
         {
           

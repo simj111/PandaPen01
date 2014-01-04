@@ -34,7 +34,6 @@ namespace PandaPen
         private void InitializeComponent()
         {  
             this.panel1 = new System.Windows.Forms.Panel();
-            this.animalPicBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@ namespace PandaPen
             this.eBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.animalType = new System.Windows.Forms.ComboBox();
+            this.animalPicBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).BeginInit();
             this.SuspendLayout();
@@ -60,16 +60,6 @@ namespace PandaPen
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(271, 232);
             this.panel1.TabIndex = 0;
-            // 
-            // animalPicBox
-            // 
-            this.animalPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.animalPicBox.Location = new System.Drawing.Point(18, 14);
-            this.animalPicBox.Name = "animalPicBox";
-            this.animalPicBox.Size = new System.Drawing.Size(231, 215);
-            this.animalPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.animalPicBox.TabIndex = 0;
-            this.animalPicBox.TabStop = false;
             // 
             // label1
             // 
@@ -173,7 +163,6 @@ namespace PandaPen
             this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Animal Type";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // animalType
             // 
@@ -184,6 +173,17 @@ namespace PandaPen
             this.animalType.TabIndex = 12;
             this.animalType.Text = "Please Select Animal";
             this.animalType.SelectedIndexChanged += new System.EventHandler(this.animalType_SelectedIndexChanged);
+            // 
+            // animalPicBox
+            // 
+            this.animalPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.animalPicBox.Location = new System.Drawing.Point(18, 14);
+            this.animalPicBox.Name = "animalPicBox";
+            this.animalPicBox.Size = new System.Drawing.Size(231, 215);
+            this.animalPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.animalPicBox.TabIndex = 0;
+            this.animalPicBox.TabStop = false;
+            
             // 
             // View
             // 

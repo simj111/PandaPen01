@@ -48,7 +48,7 @@ namespace AnimalFactory
                     ICalculate calculator = new PandaCalculate();
                     Lion = new AnimalModel.Lion(barmanger, calculator, ID);
                     animallist.Add(Lion); 
-                   
+                    
                     
                     
                    

@@ -40,10 +40,10 @@ namespace AnimalModel
         }       
        public void FristPassSetUP()
         {
-
-            FirstPassArgs args = new FirstPassArgs(_imageName, _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal);
+            double[] numbers = new double[4] { _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
+            string imagename = _imageName;
+            FirstPassArgs args = new FirstPassArgs(imagename, numbers);
             fPass(this, args);
-
 
         }
 

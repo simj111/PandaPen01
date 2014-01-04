@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using Interfaces.Events;
+using Interfaces;
+
+namespace PandaPen
+{
+    public partial class DefaultView : Form, IViewEvents
+         
+    {
+        public event AnimalTypeHandler selectAnimal;
+         public event ButtonPressEventHandler btnPress;
+        
+        public DefaultView()
+        {
+            InitializeComponent();
+        }
+
+     
+            private void animalType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AnimalTypeArgs animalTypes = new AnimalTypeArgs(animalType.Text);
+
+            selectAnimal (this, animalTypes);
+        }
+
+           
+    }
+    }

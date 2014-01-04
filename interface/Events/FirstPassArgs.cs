@@ -19,52 +19,21 @@ namespace Interfaces.Events
             }
         }
 
-private double _HBarValue;
-
-        public double HBarValue
-        {
-            get 
-            {
-                return _HBarValue;
-            }
-        }
-        private double _EBarValue;
-
-        public double EBarValue
+        private double[] _values;
+        public double[] values
         {
             get
             {
-                return _EBarValue;
-            }
-        }
-
-        private double _FBarValue;
-
-        public double FBarValue
-        {
-            get
-            {
-                return _FBarValue;
-            }
-        }
-
-        private double _HapnninesBar;
-        public double HapnninesBar
-        {
-            get
-            {
-                return _HapnninesBar;
+                return _values;
             }
         }
 
 
-        public FirstPassArgs(string imagesource, double HBarValue, double EBarValue, double FBarValue, double HapnninesBar)
+
+        public FirstPassArgs(string imagesource, double[] values)
         {
             _imagesource = imagesource;
-            _HBarValue = HBarValue;
-            _EBarValue = EBarValue;
-            _FBarValue = FBarValue;
-            _HapnninesBar = HapnninesBar;
+            _values = values;
         }
 	
 }

@@ -5,7 +5,6 @@ using System.Text;
 using Interfaces;
 using Interfaces.Events;
 using BarManager;
-using Interfaces.Events;
 using CalculatorLibrary;
 
 namespace AnimalModel
@@ -38,7 +37,9 @@ namespace AnimalModel
 
         public void FristPassSetUP()
         {
-            FirstPassArgs args = new FirstPassArgs(_imageName,_inHBarVal,_inEBarVal,_inFBarVal,_happinessBarVal);
+            double[] numbers = new double[4]{_inHBarVal,_inEBarVal,_inFBarVal,_happinessBarVal};
+            string imagename = _imageName;
+            FirstPassArgs args = new FirstPassArgs(imagename, numbers);
             fPass(this, args);
         }
 
@@ -65,8 +66,6 @@ namespace AnimalModel
         
         
         }
-          
-        
 
         public void GetPicture()
         {

@@ -10,7 +10,7 @@ namespace Interfaces.Events
 
     public class ButtonPressEventArgs : EventArgs
 	{
-        private string _information;
+         private string _information;
 
         public string information
         {
@@ -20,9 +20,26 @@ namespace Interfaces.Events
             }
         }
 
-        public ButtonPressEventArgs(string information)
+        private string _IniatilID;
+
+        public string IniatilID
+        {
+            get
+            {
+                return _IniatilID;
+            }
+        }
+
+        
+
+       
+       
+    
+
+        public ButtonPressEventArgs(string information, string IniatilID )
         {
             _information = information;
+            _IniatilID = IniatilID;
         }
 
 

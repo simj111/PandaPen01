@@ -9,28 +9,27 @@ namespace AnimalModel
     
         public IBarManager barmanager;
         public event FirstPassHandler fPass;
-        public string INDIDUALName;
         private string _imageName = "Lion";
         private double _inHBarVal = 5;
         private double _inEBarVal = 60;
         private double _inFBarVal = 75;
         private double _happinessBarVal = 0;
-        string INDIVDUALNAME;
+        public string INDIDUALName01;
         private double ID;
         
-        public Lion(IBarManager myBarManager, ICalculate calculator, double ID)
+        public Lion(IBarManager myBarManager, ICalculate calculator, int ID)
         {
             barmanager = myBarManager;
             Name(_imageName, ID);
-            myBarManager.ConnectANIMAL(this);
+            myBarManager.ConnectANIMAL(this, INDIDUALName01);
         }
 
         public string Name(string _imageName, double ID)
         {
 
-
-            INDIDUALName = _imageName + ID.ToString();
-            return INDIDUALName;
+     
+            INDIDUALName01 = _imageName + ID.ToString();
+            return INDIDUALName01;
         }
 
         public IBarManager Getbars()
@@ -52,7 +51,8 @@ namespace AnimalModel
        public void Calculate(string Operations)
        {
            double[] numbers = new double[3] { _inHBarVal, _inEBarVal, _inFBarVal };
-
+           int i = 0;
+           i++;
 
        }
 

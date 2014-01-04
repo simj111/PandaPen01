@@ -47,31 +47,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
-    <Compile Include="DefaultView.cs">
+    <Compile Include="Views\DefaultView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DefaultView.Designer.cs">
+    <Compile Include="Views\DefaultView.Designer.cs">
       <DependentUpon>DefaultView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View.cs">
+    <Compile Include="Views\View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View.Designer.cs">
+    <Compile Include="Views\View.Designer.cs">
       <DependentUpon>View.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View2.cs">
+    <Compile Include="Views\View2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View2.Designer.cs">
+    <Compile Include="Views\View2.Designer.cs">
       <DependentUpon>View2.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel.cs" />
-    <EmbeddedResource Include="DefaultView.resx">
+    <Compile Include="Views_Modles\ViewModel.cs" />
+    <EmbeddedResource Include="Views\DefaultView.resx">
       <DependentUpon>DefaultView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View.resx">
+    <EmbeddedResource Include="Views\View.resx">
       <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -84,7 +84,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View2.resx">
+    <EmbeddedResource Include="Views\View2.resx">
       <DependentUpon>View2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

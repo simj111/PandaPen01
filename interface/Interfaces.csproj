@@ -51,7 +51,7 @@
     <Compile Include="ICalculate.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="ISelector.cs" />
-    <Compile Include="IViewEvents.cs" />
+    <Compile Include="IThreeViewEvents.cs" />
     <Compile Include="IViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BM1.cs" />
+    <Compile Include="GoldfishBM1.cs" />
+    <Compile Include="LionBM2.cs" />
+    <Compile Include="PandaBM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

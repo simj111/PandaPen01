@@ -9,8 +9,8 @@ namespace Interfaces
 {
 	public interface IBarManager
 	{
-        void Subscribe(IViewEvents f);
+        void Subscribe(IThreeBarViewEvents f);
         void CheckIfValid(Form f, ButtonPressEventArgs args);
-        void ConnectANIMAL(IAnimalModle LINKEDANIMAL);
+        void ConnectANIMAL(IAnimalModle LINKEDANIMAL , string Name);
 	}
 }

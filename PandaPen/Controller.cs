@@ -15,7 +15,8 @@ namespace PandaPen
     {
         public List<View> typeoflist = new List<View>();
         public List<ViewModel> animallist = new List<ViewModel>();
-       
+        int Number = 0;
+        int i = 0;
 
         /// <summary>
         /// Data Members Which Contain The View
@@ -33,7 +34,7 @@ namespace PandaPen
             AFac1 = new Factory();
             
             AddAnimalsToBox(AFac1.typeoflist);
-            Subscribe(first as IViewEvents);
+            Subscribe(first as IThreeBarViewEvents);
              ComposeContainer();
             
            
@@ -43,7 +44,10 @@ namespace PandaPen
         {
             if (recviedFromCombo != null)
             {
-                _view = new View();
+                
+                i++;
+                string Name = recviedFromCombo + i.ToString();
+                _view = new View(Name);
                 ViewM = new ViewModel(_view);
                 _view.Show();
             }
@@ -54,7 +58,7 @@ namespace PandaPen
                 
         }
 
-        public void Subscribe(IViewEvents f)
+        public void Subscribe(IThreeBarViewEvents f)
         {
             f.selectAnimal += new AnimalTypeHandler(ReciveEvents);
         }
@@ -71,11 +75,12 @@ namespace PandaPen
         }
 
         public void CreateFactoryAndModels(string recviedFromCombo)
-        {   
-            
+        {
+         
+            Number++;
             IBarManager barmanager;
             
-            AFac1.GeneratAnimals(recviedFromCombo);
+            AFac1.GeneratAnimals(recviedFromCombo, Number);
             
             listTest = AFac1.animallist;
             foreach(IAnimalModle ani in listTest)

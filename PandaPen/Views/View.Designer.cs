@@ -46,8 +46,6 @@ namespace PandaPen
             this.fBtn = new System.Windows.Forms.Button();
             this.sBtn = new System.Windows.Forms.Button();
             this.eBtn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.animalType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).BeginInit();
             this.SuspendLayout();
@@ -165,33 +163,11 @@ namespace PandaPen
             this.eBtn.UseVisualStyleBackColor = true;
             this.eBtn.Click += new System.EventHandler(this.eBtn_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Animal Type";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // animalType
-            // 
-            this.animalType.FormattingEnabled = true;
-            this.animalType.Location = new System.Drawing.Point(12, 37);
-            this.animalType.Name = "animalType";
-            this.animalType.Size = new System.Drawing.Size(121, 21);
-            this.animalType.TabIndex = 12;
-            this.animalType.Text = "Please Select Animal";
-            this.animalType.SelectedIndexChanged += new System.EventHandler(this.animalType_SelectedIndexChanged);
-            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 415);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.animalType);
             this.Controls.Add(this.eBtn);
             this.Controls.Add(this.sBtn);
             this.Controls.Add(this.fBtn);
@@ -206,6 +182,7 @@ namespace PandaPen
             this.Controls.Add(this.panel1);
             this.Name = "View";
             this.Text = "View";
+            //this.Load += new System.EventHandler(this.View_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).EndInit();
             this.ResumeLayout(false);
@@ -227,8 +204,6 @@ namespace PandaPen
         public System.Windows.Forms.Button fBtn;
         public System.Windows.Forms.Button sBtn;
         public System.Windows.Forms.Button eBtn;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.ComboBox animalType;
     }
 }
 

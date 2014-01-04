@@ -7,7 +7,7 @@ using Interfaces.Events;
 
 namespace PandaPen
 {
-    class ViewModel : IViewEvents
+    class ViewModel : IThreeBarViewEvents
     {
         private double[] Number01 = new double[4];
         private View VF = null;

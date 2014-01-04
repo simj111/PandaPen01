@@ -11,9 +11,16 @@ using Interfaces;
 
 namespace PandaPen
 {
-    public partial class DefaultView : Form, IViewEvents
+    /// <summary>
+    /// This the Defualt View and is the frist View you see
+    /// </summary>
+    public partial class DefaultView : Form, IThreeBarViewEvents
          
     {
+        /// <summary>
+        /// These Data Members Contain two Events the Annimal type Events is used to select the view to display.
+        /// </summary>
+
         public event AnimalTypeHandler selectAnimal;
          public event ButtonPressEventHandler btnPress;
         
@@ -21,7 +28,11 @@ namespace PandaPen
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// used to Generate the Game Views
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
      
             private void animalType_SelectedIndexChanged(object sender, EventArgs e)
         {

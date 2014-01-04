@@ -6,51 +6,54 @@ using Interfaces;
 using Interfaces.Events;
 using System.Windows.Forms;
 
-
 namespace BarManager
 {
-    public class BM1 : IBarManager
-    {
+    public class  LionBM2 : IBarManager
+    {   int Number = 0;
+        string InvidID;
         IAnimalModle Animal;
 
-        public void Subscribe(IViewEvents f)
+        public void Subscribe(IThreeBarViewEvents f)
         {
             f.btnPress += new ButtonPressEventHandler(CheckIfValid);
         }
 
         public void CheckIfValid(Form f, ButtonPressEventArgs args)
         {
-            if (args.information == "Eat")
+
+             if (args.information == "Eat" && args.IniatilID == InvidID)
             {
                 PassOutCalucaltion("Test01");
             }
-            else if (args.information == "Sleep")
+            else if (args.information == "Sleep" && args.IniatilID == InvidID)
             {
                 PassOutCalucaltion("Test01");
             }
-            else if (args.information == "Exercise")
+            else if (args.information == "Exercise" && args.IniatilID == InvidID)
             {
                 PassOutCalucaltion("Test01");
             }
+        
         }
         public void PassOutCalucaltion(string Clacualtion)
         {
-            if (Animal == null)
-            {
-
-            }
+           
 
             Animal.Calculate(Clacualtion);
 
         }
 
 
-        public void ConnectANIMAL(IAnimalModle LINKEDANIMAL)
+        public void  ConnectANIMAL(IAnimalModle LINKEDANIMAL, string Name)
         {
             Animal = LINKEDANIMAL;
+            InvidID = Name;
         }
 
 
 
     }
 }
+
+    
+

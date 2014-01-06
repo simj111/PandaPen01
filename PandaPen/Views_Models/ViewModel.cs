@@ -7,27 +7,25 @@ using Interfaces.Events;
 
 namespace PandaPen
 {
-    class ViewModel : IThreeBarViewEvents
+    class ViewModel : IViewModel
     {
         private double[] Number01 = new double[4];
+        private double[] calculate = new double[4];
         private View VF = null;
-        public event PassCalcResultsHandler Resuts;
+
+
         public ViewModel( View TheForm)
         {
             VF = TheForm;
         }
 
-        public void Subscribe(IAnimalModle Animal)
+        public void Subscribe(IAnimalModle Animal, ICalculate Calculate)
         {
             Animal.fPass += new FirstPassHandler(ReciveFirstInput);
+            Calculate.resPass += new PassCalcResultsHandler(ConvertResultsFromCalc);
 
         }
 
-        public void Subscribe( ICalculate Calculate)
-        {
-            
-
-        }
 
         public void ReciveFirstInput(IAnimalModle source, FirstPassArgs args)
         {
@@ -37,51 +35,23 @@ namespace PandaPen
             
                 Number01[i] = args.values[i];
             }
-            //double Alpha = args.values[0];
-            //double Beta = args.values[1];
-            //double Delta = args.values[2];
-            //double Gamma = args.values[3];
+           
             string imageName = args.imagesource;
 
             for (int i = 0; i < args.values.Length; i++)
             {
-                if (Number01[i] < 0)
+
+                if (Number01[i] > 100)
+                {
+                    Number01[i] = 99;
+                } 
+                else if (Number01[i] < 0)
                 {
                     Number01[i] = 0;
                 }
-
-                else if (Number01[i] > 100)
-                {
-                    Number01[1] = 100;
-                } 
             }
-            PassOutData();
-           
-           
 
-
-            //if (Alpha < 0)
-            //{
-            //    Alpha = 0;
-            //    VF.hungryBar.Value = Convert.ToInt32(Alpha);
-            //}
-            //else if (Alpha > 100)
-            //{
-            //    Alpha = 100;
-            //    VF.hungryBar.Value = Convert.ToInt32(Alpha);
-            //}
-            //else if (Alpha >= 0 || Alpha <= 100)
-            //{
-            //    VF.hungryBar.Value = Convert.ToInt32(Alpha);
-            //}
-
-
-            //VF.energyBar.Value = Convert.ToInt32(Beta);
-            //VF.fitnessBar.Value = Convert.ToInt32(Delta);
-            //VF.happinessBar.Value = Convert.ToInt32(Gamma);
-
-
-
+            SendResults();
 
             if (imageName == "Panda")
             {
@@ -95,7 +65,7 @@ namespace PandaPen
             
         }
 
-        public void PassOutData()
+        public void SendResults()
         {
             VF.hungryBar.Value = Convert.ToInt32(Number01[0]);
             VF.energyBar.Value = Convert.ToInt32(Number01[1]);
@@ -104,9 +74,30 @@ namespace PandaPen
             
         }
 
+        public void ConvertResultsFromCalc(ICalculate source, PassCalcResultsArgs args)
+        {
+            for (int i = 0; i < args.values.Length; i++)
+            {
 
-        public event ButtonPressEventHandler btnPress;
+                Number01[i] = args.values[i];
+            }
 
-        public event AnimalTypeHandler selectAnimal;
+
+            for (int i = 0; i < args.values.Length; i++)
+            {
+               
+              if (Number01[i] >= 100)
+                {
+                    Number01[i] = 99;
+                }
+
+              else if (Number01[i] <= 0)
+              {
+                  Number01[i] = 1;
+              }
+            }
+
+            SendResults();
+        }
     }
 }

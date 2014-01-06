@@ -41,15 +41,15 @@ namespace BarManager
         {
             if (args.information == "Eat" && args.IniatilID == InvidID)
             {
-                PassOutCalucaltion("Test01");
+                PassOutCalucaltion(args.information);
             }
             else if (args.information == "Sleep" && args.IniatilID == InvidID)
             {
-                PassOutCalucaltion("Test01");
+                PassOutCalucaltion(args.information);
             }
             else if (args.information == "Exercise" && args.IniatilID == InvidID)
             {
-                PassOutCalucaltion("Test01");
+                PassOutCalucaltion(args.information);
             }
         }
         /// <summary>
@@ -58,13 +58,7 @@ namespace BarManager
         /// <param name="Clacualtion"></param>
         public void PassOutCalucaltion(string Clacualtion)
         {
-            if (Animal == null)
-            {
-
-            }
-
             Animal.Calculate(Clacualtion);
-
         }
 
         /// <summary>

@@ -4,32 +4,24 @@ using System.Linq;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
-using BarManager;
-using CalculatorLibrary;
 
 namespace AnimalModel
 {
-    /// <summary>
-    /// This Class is the Panda Animal Modle its main role is to store data and Carry out Calculations refering to the Panda Animal.
-    /// </summary>
-
-    public class Panda : IAnimalModle
+    class GoldFish : IAnimalModle
     {
-
         /// <summary>
         /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
         /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
         /// The Events are the FristPassHandler is used to send out the Intial values when the system is Constrcuted
         /// </summary>
           private string IDVIDUALName;
-          private string _imageName = "Panda";
+          private string _imageName = "GoldFish";
           private double _inHBarVal = 15;
           private double _inEBarVal = 60;
           private double _inFBarVal = 5;
-         private double _happinessBarVal = 1;
+         private double _happinessBarVal = 0;
 
-         double[] numbers;
-
+       
         public ICalculate Calculator;
         public IBarManager barmanager;
 
@@ -43,13 +35,13 @@ namespace AnimalModel
         /// <param name="myBarManager"></param>
         /// <param name="calculator"></param>
         /// <param name="ID"></param>
-        public Panda(IBarManager myBarManager, ICalculate calculator, int ID)
+        public GoldFish(IBarManager myBarManager, ICalculate calculator, int ID)
         {
             barmanager = myBarManager;
             Name(_imageName, ID);
             myBarManager.ConnectANIMAL(this, IDVIDUALName);
             Calculator = calculator;
-            numbers = new double[4]{ _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
+            
         }
 
         /// <summary>
@@ -58,7 +50,7 @@ namespace AnimalModel
 
         public void FristPassSetUP()
         {
-            
+            double[] numbers = new double[4]{_inHBarVal,_inEBarVal,_inFBarVal,_happinessBarVal};
             string imagename = _imageName;
             FirstPassArgs args = new FirstPassArgs(imagename, numbers);
             fPass(this, args);
@@ -97,15 +89,23 @@ namespace AnimalModel
         /// <param name="Operations"></param>
         public void Calculate(string Operations)
         {
-
+            double[] numbers = new double[3] { _inHBarVal, _inEBarVal, _inFBarVal };
             Calculator.CalculateValues(numbers, Operations);
-            numbers = Calculator.Results();
-            
+
+            int i = 0;
+            i++;
+
+        
+        
         }
+
+
+
 
         public ICalculate Getcalc()
         {
-            return Calculator;
+            throw new NotImplementedException();
         }
     }
     }
+

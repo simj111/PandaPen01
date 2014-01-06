@@ -21,17 +21,17 @@ namespace BarManager
         public void CheckIfValid(Form f, ButtonPressEventArgs args)
         {
 
-             if (args.information == "Eat" && args.IniatilID == InvidID)
+            if (args.information == "Eat" && args.IniatilID == InvidID)
             {
-                PassOutCalucaltion("Test01");
+                PassOutCalucaltion(args.information);
             }
             else if (args.information == "Sleep" && args.IniatilID == InvidID)
             {
-                PassOutCalucaltion("Test01");
+                PassOutCalucaltion(args.information);
             }
             else if (args.information == "Exercise" && args.IniatilID == InvidID)
             {
-                PassOutCalucaltion("Test01");
+                PassOutCalucaltion(args.information);
             }
         
         }

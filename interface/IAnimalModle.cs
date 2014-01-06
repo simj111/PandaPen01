@@ -11,13 +11,11 @@ namespace Interfaces
     {
 
        IBarManager Getbars();
+       ICalculate Getcalc();
        string Name(string _imageName, double ID);
        void Calculate(string Animal);              
        event FirstPassHandler fPass;
        void FristPassSetUP();
-       //stuff
-       ///kkkk
-       ////ppp
-       ///l
+
     }
 }

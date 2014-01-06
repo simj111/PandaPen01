@@ -8,8 +8,8 @@
     <ProjectGuid>{0F34A930-B577-4C35-A848-564671E3E7DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Animal_Model_</RootNamespace>
-    <AssemblyName>Animal%28Model%29</AssemblyName>
+    <RootNamespace>AnimalModel</RootNamespace>
+    <AssemblyName>%40AnimalModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoldFish.cs" />
     <Compile Include="Lion.cs" />
     <Compile Include="Panda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

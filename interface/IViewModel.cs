@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Interfaces.Events;
 
 namespace Interfaces
 {
-    interface IViewModel
+   public interface IViewModel
     {
-        void ConvertResults(double HBarValue, double EBarValue, double FBarValue, double Happiness);
-        void Subscribe ();
-        void SendResults();
+           void ConvertResultsFromCalc(ICalculate source, PassCalcResultsArgs args);
+           void Subscribe(IAnimalModle Animal, ICalculate Calculate);
+           void ReciveFirstInput(IAnimalModle source, FirstPassArgs args);
+           void SendResults();
+
+
 
     }
 }

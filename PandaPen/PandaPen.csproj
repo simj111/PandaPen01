@@ -67,7 +67,7 @@
     <Compile Include="Views\View2.Designer.cs">
       <DependentUpon>View2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views_Modles\ViewModel.cs" />
+    <Compile Include="Views_Models\ViewModel.cs" />
     <EmbeddedResource Include="Views\DefaultView.resx">
       <DependentUpon>DefaultView.cs</DependentUpon>
     </EmbeddedResource>

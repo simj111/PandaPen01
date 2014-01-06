@@ -10,5 +10,7 @@ namespace Interfaces
 	{
         void CalculateValues(double[] numbers, string Operations);
         void CalculateHappines(double[] numbers);
+        double[] Results();
+        event PassCalcResultsHandler resPass;
 	}
 }

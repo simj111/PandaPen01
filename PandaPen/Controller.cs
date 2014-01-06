@@ -13,8 +13,9 @@ namespace PandaPen
 {
     class Controller : IController
     {
-        public List<View> typeoflist = new List<View>();
-        public List<ViewModel> animallist = new List<ViewModel>();
+        public List<View> ViewList = new List<View>();
+        public List<ViewModel> ViewModelList = new List<ViewModel>();
+
         int Number = 0;
         int i = 0;
 
@@ -47,8 +48,10 @@ namespace PandaPen
                 
                 i++;
                 string Name = recviedFromCombo + i.ToString();
-                _view = new View(Name);
-                ViewM = new ViewModel(_view);
+                ViewList.Add(_view = new View(Name));
+               
+                ViewModelList.Add(ViewM = new ViewModel(_view));
+                
                 _view.Show();
             }
         }
@@ -79,16 +82,19 @@ namespace PandaPen
          
             Number++;
             IBarManager barmanager;
+            ICalculate calculator;
             
             AFac1.GeneratAnimals(recviedFromCombo, Number);
             
             listTest = AFac1.animallist;
             foreach(IAnimalModle ani in listTest)
-            {
+            {   calculator = ani.Getcalc();
                 barmanager = ani.Getbars();
                 barmanager.Subscribe(_view);
-                ViewM.Subscribe(ani);  
+                ViewM.Subscribe(ani,calculator);
                 ani.FristPassSetUP();
+               
+                
             }
            
         }

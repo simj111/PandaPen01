@@ -28,9 +28,9 @@ namespace BarManager
         /// The Class for this Is currently called View
         /// </summary>
         /// <param name="f"></param>
-        public void Subscribe(IThreeBarViewEvents f)
+        public void Subscribe(Form f)
         {
-            f.btnPress += new ButtonPressEventHandler(CheckIfValid);
+            (f as IThreeBarViewEvents).btnPress += new ButtonPressEventHandler(CheckIfValid);
         }
         /// <summary>
         /// This Methods Job is to Ensure that Any Events Recivied are Valid for the Specific Model.
@@ -52,6 +52,8 @@ namespace BarManager
                 PassOutCalucaltion(args.information);
             }
         }
+     
+
         /// <summary>
         /// Pass Out Calucation type to the Animal Modle which pass it out to the Calulator to ensure success
         /// </summary>

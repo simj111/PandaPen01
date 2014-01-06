@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
+using System.Windows.Forms;
 
 namespace PandaPen
 {
@@ -11,10 +13,10 @@ namespace PandaPen
     {
         private double[] Number01 = new double[4];
         private double[] calculate = new double[4];
-        private View VF = null;
+        private Form VF = null;
 
 
-        public ViewModel( View TheForm)
+        public ViewModel( Form TheForm)
         {
             VF = TheForm;
         }
@@ -29,6 +31,7 @@ namespace PandaPen
 
         public void ReciveFirstInput(IAnimalModle source, FirstPassArgs args)
         {
+            
            
             for (int i = 0; i < args.values.Length; i++)
             {
@@ -55,11 +58,11 @@ namespace PandaPen
 
             if (imageName == "Panda")
             {
-                VF.animalPicBox.Image = PandaPen.Properties.Resources.pandapic;
+                (VF as View).animalPicBox.Image = PandaPen.Properties.Resources.pandapic;
             }
             else if (imageName == "Lion")
             {
-                VF.animalPicBox.Image = PandaPen.Properties.Resources.lionpic;
+                (VF as View).animalPicBox.Image = PandaPen.Properties.Resources.lionpic;
             }
            
             
@@ -67,34 +70,37 @@ namespace PandaPen
 
         public void SendResults()
         {
-            VF.hungryBar.Value = Convert.ToInt32(Number01[0]);
-            VF.energyBar.Value = Convert.ToInt32(Number01[1]);
-            VF.fitnessBar.Value = Convert.ToInt32(Number01[2]);
-            VF.happinessBar.Value = Convert.ToInt32(Number01[3]);
+            (VF as View).hungryBar.Value = Convert.ToInt32(Number01[0]);
+            (VF as View).energyBar.Value = Convert.ToInt32(Number01[1]);
+            (VF as View).fitnessBar.Value = Convert.ToInt32(Number01[2]);
+            (VF as View).happinessBar.Value = Convert.ToInt32(Number01[3]);
             
         }
 
         public void ConvertResultsFromCalc(ICalculate source, PassCalcResultsArgs args)
         {
-            for (int i = 0; i < args.values.Length; i++)
+            if (args.CalculatorID == (VF as View).name)
             {
-
-                Number01[i] = args.values[i];
-            }
-
-
-            for (int i = 0; i < args.values.Length; i++)
-            {
-               
-              if (Number01[i] >= 100)
+                for (int i = 0; i < args.values.Length; i++)
                 {
-                    Number01[i] = 99;
+
+                    Number01[i] = args.values[i];
                 }
 
-              else if (Number01[i] <= 0)
-              {
-                  Number01[i] = 1;
-              }
+
+                for (int i = 0; i < args.values.Length; i++)
+                {
+
+                    if (Number01[i] >= 100)
+                    {
+                        Number01[i] = 99;
+                    }
+
+                    else if (Number01[i] <= 0)
+                    {
+                        Number01[i] = 1;
+                    }
+                }
             }
 
             SendResults();

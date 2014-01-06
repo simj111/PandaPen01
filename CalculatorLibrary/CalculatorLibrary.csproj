@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoldFishCalculator.cs" />
+    <Compile Include="LionCalculate.cs" />
     <Compile Include="PandaCalculate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -14,7 +14,7 @@ namespace PandaPen
     /// <summary>
     /// Partial Class of the Three Bar Animal Views
     /// </summary>
-    public partial class View : Form, IThreeBarViewEvents
+    public partial class View : Form, IThreeBarViewEvents, ITWOEVENTS
     {
         /// <summary>
         /// The Data Members Contains this View unguie identfire whic is name

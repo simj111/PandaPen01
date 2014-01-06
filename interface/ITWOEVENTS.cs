@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Interfaces.Events;
-namespace Interfaces
+
+namespace Interfaces.Events
 {
-    public interface IThreeBarViewEvents
-	{
+    public interface ITWOEVENTS
+    {
         event ButtonPressEventHandler btnPress;
-        event AnimalTypeHandler selectAnimal;
-	}
+
+    }
 }

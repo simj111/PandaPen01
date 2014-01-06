@@ -40,6 +40,7 @@ namespace AnimalFactory
         {
             typeoflist.Add("Panda");
             typeoflist.Add("Lion");
+            typeoflist.Add("GoldFish2Bars");
         }
         /// <summary>
         /// GenerateAnimal is used as the factory Creation method Creates ALL Modules
@@ -57,9 +58,9 @@ namespace AnimalFactory
                 {
                     IAnimalModle Panda = null;
                     IBarManager barmanager = new PandaBM();
-                    ICalculate calculator = new PandaCalculate();
+                    ICalculate calculator = new PandaCalculate(ID);
                     Panda = new AnimalModel.Panda(barmanager, calculator, ID);
-               
+
                     animallist.Add(Panda);
                 }
                 else if (Animal == "Lion")
@@ -67,9 +68,18 @@ namespace AnimalFactory
                     IBarManager barmanger;
                     IAnimalModle Lion;
                     barmanger = new LionBM2();
-                    ICalculate calculator = new PandaCalculate();
+                    ICalculate calculator = new LionCalculate(ID);
                     Lion = new AnimalModel.Lion(barmanger, calculator, ID);
                     animallist.Add(Lion);
+                }
+                else if (Animal == "GoldFish2Bars")
+                {
+                    IBarManager barmanger;
+                    IAnimalModle Goldfish;
+                    barmanger = new GoldfishBM1();
+                    ICalculate calculator = new GoldFishCalculator(ID);
+                    Goldfish = new AnimalModel.GoldFish(barmanger, calculator, ID);
+                    animallist.Add(Goldfish);
                 }
             }
            

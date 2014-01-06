@@ -61,13 +61,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\View2.cs">
+    <Compile Include="Views\View2Bars.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\View2.Designer.cs">
-      <DependentUpon>View2.cs</DependentUpon>
+    <Compile Include="Views\View2Bars.Designer.cs">
+      <DependentUpon>View2Bars.cs</DependentUpon>
     </Compile>
     <Compile Include="Views_Models\ViewModel.cs" />
+    <Compile Include="Views_Models\ViewModleFor2Bars.cs" />
     <EmbeddedResource Include="Views\DefaultView.resx">
       <DependentUpon>DefaultView.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,8 +85,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\View2.resx">
-      <DependentUpon>View2.cs</DependentUpon>
+    <EmbeddedResource Include="Views\View2Bars.resx">
+      <DependentUpon>View2Bars.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\lionpic.png" />
+    <Content Include="Resources\GoldFish2Bars.png" />
     <Content Include="Resources\pandapic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

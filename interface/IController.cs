@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Windows.Forms;
 namespace Interfaces
 {
 	public interface IController
 	{
-        void Subscribe(IThreeBarViewEvents f);
+        void Subscribe( Form f);
 	}
 }

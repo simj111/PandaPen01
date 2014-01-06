@@ -8,7 +8,7 @@ namespace Interfaces
 {
    public interface IViewModel
     {
-           void ConvertResultsFromCalc(ICalculate source, PassCalcResultsArgs args);
+           
            void Subscribe(IAnimalModle Animal, ICalculate Calculate);
            void ReciveFirstInput(IAnimalModle source, FirstPassArgs args);
            void SendResults();

@@ -18,9 +18,20 @@ namespace Interfaces.Events
             }
         }
 
-        public PassCalcResultsArgs(double[] values)
+        private string _CalcuatorID;
+        public string CalculatorID
+        {
+             get
+            {
+            return _CalcuatorID;
+            }
+        }
+
+        public PassCalcResultsArgs(double[] values, string CalculatorID)
         {
             _values = values;
+            _CalcuatorID = CalculatorID;
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PandaPen
 {
-    partial class View2
+    partial class View2Bars
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,7 @@
             this.cleanBtn.TabIndex = 23;
             this.cleanBtn.Text = "Clean";
             this.cleanBtn.UseVisualStyleBackColor = true;
+            this.cleanBtn.Click += new System.EventHandler(this.cleanBtn_Click);
             // 
             // fBtn
             // 
@@ -59,6 +60,7 @@
             this.fBtn.TabIndex = 22;
             this.fBtn.Text = "Eat";
             this.fBtn.UseVisualStyleBackColor = true;
+            this.fBtn.Click += new System.EventHandler(this.fBtn_Click);
             // 
             // happinessBar
             // 
@@ -99,6 +101,7 @@
             this.hungryBar.Name = "hungryBar";
             this.hungryBar.Size = new System.Drawing.Size(136, 23);
             this.hungryBar.TabIndex = 18;
+            this.hungryBar.Click += new System.EventHandler(this.hungryBar_Click);
             // 
             // label2
             // 
@@ -127,7 +130,7 @@
             this.panel1.Size = new System.Drawing.Size(271, 232);
             this.panel1.TabIndex = 15;
             // 
-            // View2
+            // View2Bars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +144,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Name = "View2";
+            this.Name = "View2Bars";
             this.Text = "View2";
             ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).EndInit();
             this.panel1.ResumeLayout(false);

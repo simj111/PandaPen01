@@ -13,9 +13,10 @@ namespace BarManager
         string InvidID;
         IAnimalModle Animal;
 
-        public void Subscribe(IThreeBarViewEvents f)
+        public void Subscribe(Form f)
+
         {
-            f.btnPress += new ButtonPressEventHandler(CheckIfValid);
+            (f as IThreeBarViewEvents).btnPress += new ButtonPressEventHandler(CheckIfValid);
         }
 
         public void CheckIfValid(Form f, ButtonPressEventArgs args)

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Interfaces;
 using AnimalFactory;
 using Interfaces.Events;
+using PandaPen.Views_Models;
 
 
 
@@ -13,8 +14,8 @@ namespace PandaPen
 {
     class Controller : IController
     {
-        public List<View> ViewList = new List<View>();
-        public List<ViewModel> ViewModelList = new List<ViewModel>();
+        public List<Form> ViewList = new List<Form>();
+        public List<IViewModel> ViewModelList = new List<IViewModel>();
 
         int Number = 0;
         int i = 0;
@@ -23,9 +24,10 @@ namespace PandaPen
         /// Data Members Which Contain The View
         /// </summary>
         /// 
-        DefaultView first = new DefaultView();
-        View _view = null;
-        ViewModel ViewM = null;
+        Form first = new DefaultView();
+        Form _view = null;
+        Form OtherViews;
+        IViewModel ViewM = null;
         Factory AFac1 = null;
         List<IAnimalModle> listTest = null;
         public Controller()
@@ -35,24 +37,40 @@ namespace PandaPen
             AFac1 = new Factory();
             
             AddAnimalsToBox(AFac1.typeoflist);
-            Subscribe(first as IThreeBarViewEvents);
-             ComposeContainer();
+            Subscribe(first);
+            ComposeContainer();
             
            
         }
 
         public void CreatView(string recviedFromCombo)
         {
+            string subchallange2Bars = "2Bars";
+            
             if (recviedFromCombo != null)
             {
-                
-                i++;
+            
                 string Name = recviedFromCombo + i.ToString();
-                ViewList.Add(_view = new View(Name));
-               
-                ViewModelList.Add(ViewM = new ViewModel(_view));
-                
-                _view.Show();
+
+                if (recviedFromCombo.Contains(subchallange2Bars))
+                {
+                    _view = new View2Bars(Name);
+                    ViewList.Add(_view);
+                    ViewM = new ViewModleFor2Bars(_view);
+                    ViewModelList.Add(ViewM);
+
+                    _view.Show();
+                }
+                else
+                {
+                    _view = new View(Name);
+                    ViewList.Add(_view);
+                    ViewM = new ViewModel(_view);
+                    ViewModelList.Add(ViewM);
+                    _view.Show();
+                   
+                }
+                  i++; 
             }
         }
 
@@ -61,9 +79,9 @@ namespace PandaPen
                 
         }
 
-        public void Subscribe(IThreeBarViewEvents f)
+        public void Subscribe(Form f)
         {
-            f.selectAnimal += new AnimalTypeHandler(ReciveEvents);
+            (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents);
         }
 
         public void ReciveEvents(Form f, AnimalTypeArgs args)
@@ -79,21 +97,23 @@ namespace PandaPen
 
         public void CreateFactoryAndModels(string recviedFromCombo)
         {
-         
-            Number++;
+           
+           
             IBarManager barmanager;
             ICalculate calculator;
             
             AFac1.GeneratAnimals(recviedFromCombo, Number);
             
-            listTest = AFac1.animallist;
-            foreach(IAnimalModle ani in listTest)
-            {   calculator = ani.Getcalc();
-                barmanager = ani.Getbars();
-                barmanager.Subscribe(_view);
-                ViewM.Subscribe(ani,calculator);
-                ani.FristPassSetUP();
+             listTest = AFac1.animallist;
+             
                
+            {
+                calculator = listTest[Number].Getcalc();
+                barmanager = listTest[Number].Getbars();
+                barmanager.Subscribe(_view);
+                ViewM.Subscribe(listTest[Number], calculator);
+                listTest[Number].FristPassSetUP();
+                Number++;
                 
             }
            
@@ -107,7 +127,7 @@ namespace PandaPen
         {
             foreach (string animals in animalList)
             {
-           first.animalType.Items.AddRange(new object[] {animals});
+             (first as DefaultView).animalType.Items.AddRange(new object[] {animals});
             }
         }
         public void ComposeContainer()

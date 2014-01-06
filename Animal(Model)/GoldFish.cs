@@ -7,7 +7,7 @@ using Interfaces.Events;
 
 namespace AnimalModel
 {
-    class GoldFish : IAnimalModle
+   public class GoldFish : IAnimalModle
     {
         /// <summary>
         /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
@@ -15,11 +15,11 @@ namespace AnimalModel
         /// The Events are the FristPassHandler is used to send out the Intial values when the system is Constrcuted
         /// </summary>
           private string IDVIDUALName;
-          private string _imageName = "GoldFish";
-          private double _inHBarVal = 15;
-          private double _inEBarVal = 60;
-          private double _inFBarVal = 5;
-         private double _happinessBarVal = 0;
+          private string _imageName = "GoldFish2Bars";
+          private double _Hunger = 5;
+          private double _OxygenLevel = 60;
+          double[] number;
+       
 
        
         public ICalculate Calculator;
@@ -41,6 +41,7 @@ namespace AnimalModel
             Name(_imageName, ID);
             myBarManager.ConnectANIMAL(this, IDVIDUALName);
             Calculator = calculator;
+            number = new double[2] { _Hunger, _OxygenLevel };
             
         }
 
@@ -50,9 +51,10 @@ namespace AnimalModel
 
         public void FristPassSetUP()
         {
-            double[] numbers = new double[4]{_inHBarVal,_inEBarVal,_inFBarVal,_happinessBarVal};
-            string imagename = _imageName;
-            FirstPassArgs args = new FirstPassArgs(imagename, numbers);
+            double[] numbers = new double[2] { _Hunger, _OxygenLevel };
+            
+            FirstPassArgs args = new FirstPassArgs(_imageName, numbers);
+            numbers = Calculator.Results();
             fPass(this, args);
         }
 
@@ -77,7 +79,7 @@ namespace AnimalModel
        
        public string Name(string _imageName, double ID)
         {
-           
+                
 
                IDVIDUALName = _imageName + ID.ToString();
                return IDVIDUALName;
@@ -89,14 +91,11 @@ namespace AnimalModel
         /// <param name="Operations"></param>
         public void Calculate(string Operations)
         {
-            double[] numbers = new double[3] { _inHBarVal, _inEBarVal, _inFBarVal };
-            Calculator.CalculateValues(numbers, Operations);
+            
+            Calculator.CalculateValues(number, Operations);
+            number = Calculator.Results(); 
 
-            int i = 0;
-            i++;
-
-        
-        
+            
         }
 
 
@@ -104,7 +103,8 @@ namespace AnimalModel
 
         public ICalculate Getcalc()
         {
-            throw new NotImplementedException();
+            return Calculator;
+
         }
     }
     }

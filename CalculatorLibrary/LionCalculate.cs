@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
+
 namespace CalculatorLibrary
 {
-    public class PandaCalculate : ICalculate
+
+    public class LionCalculate : ICalculate
     {
         double[] answers;
         public event PassCalcResultsHandler resPass;
         public string InvidualCalulatorValue;
-        private string _imageName = "Panda";
-        public PandaCalculate(int IDvalue)
+        private string _imageName = "Lion";
+      
+        public LionCalculate(int IDvalue)
         {
             InvidualCalulatorValue = _imageName + IDvalue.ToString();
         }
@@ -23,26 +26,26 @@ namespace CalculatorLibrary
         {
             if (Operations == "Eat")
             {
-                numbers[0] = numbers[0] + 4;
-                numbers[1]  = numbers[1] + 2;
-                numbers[2] = numbers[2] - 1;
+                numbers[0] = numbers[0] + 15;
+                numbers[1]  = numbers[1] + 5;
+                numbers[2] = numbers[2] - 10;
               
             }
 
             else if (Operations == "Sleep")
             {
               
-                numbers[0] -= 2;
-                numbers[1] += 4;
-                numbers[2] -= 1;
+                numbers[0] -= 10;
+                numbers[1] += 15;
+                numbers[2] -= 5;
                 
             }
 
             else if (Operations == "Exercise")
             {
-                numbers[0] -= 6;
-                numbers[1] -= 6;
-                numbers[2] += 10;
+                numbers[0] -= 5;
+                numbers[1] -= 10;
+                numbers[2] += 25;
                 
             }
 
@@ -78,3 +81,6 @@ namespace CalculatorLibrary
 
     }
 }
+
+    
+

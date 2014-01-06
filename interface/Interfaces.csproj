@@ -45,13 +45,14 @@
     <Compile Include="Events\ButtonPressEventArgs.cs" />
     <Compile Include="Events\EventTypes.cs" />
     <Compile Include="Events\FirstPassArgs.cs" />
+    <Compile Include="ITWOEVENTS.cs" />
     <Compile Include="Events\PassCalcResultsArgs.cs" />
     <Compile Include="IAnimalModle.cs" />
     <Compile Include="IBarManager.cs" />
     <Compile Include="ICalculate.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="ISelector.cs" />
-    <Compile Include="IThreeViewEvents.cs" />
+    <Compile Include="IViewEvents.cs" />
     <Compile Include="IViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

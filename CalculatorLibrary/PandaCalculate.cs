@@ -50,6 +50,13 @@ namespace CalculatorLibrary
 
             }
 
+            else if (Operations == "Decrease")
+            {
+                numbers[0] -= 2;
+                numbers[1] -= 2;
+                numbers[2] -= 2;
+            }
+
             for (int i = 0; i < numbers.Length; i++)
             {
                 if (numbers[i] > 100)
@@ -72,7 +79,11 @@ namespace CalculatorLibrary
 
         public void CalculateHappines(double[] numbers)
         {
-
+            if(numbers[0] >= 50 && numbers[1] >= 50 && numbers[2] >= 50)
+            {
+                numbers[3] = numbers[3] + 4; 
+            }
+            answers = numbers;
         }
 
         public double[] Results()

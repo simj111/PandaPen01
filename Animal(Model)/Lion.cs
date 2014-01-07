@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using Interfaces.Events;
+using System.Windows.Forms;
 
 namespace AnimalModel
 {
@@ -24,6 +25,8 @@ namespace AnimalModel
 
         public ICalculate Calculator;
         public IBarManager barmanager;
+        public Timer decTimer;
+        public Timer happinessTimer;
 
        public event FirstPassHandler fPass;
 
@@ -43,6 +46,18 @@ namespace AnimalModel
             myBarManager.ConnectANIMAL(this, IDVIDUALName);
             Calculator = calculator;
             numbers = new double[4]{ _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
+
+            //Decrease timer object properties
+            decTimer = new Timer();
+            decTimer.Enabled = true;
+            decTimer.Interval = 3000;
+            this.decTimer.Tick += new System.EventHandler(this.decTimer_Tick);
+
+            //Happiness timer object properties
+            happinessTimer = new Timer();
+            happinessTimer.Enabled = true;
+            happinessTimer.Interval = 3000;
+            this.happinessTimer.Tick += new System.EventHandler(this.happinessTimer_Tick);
         }
 
         /// <summary>
@@ -95,6 +110,19 @@ namespace AnimalModel
         public ICalculate Getcalc()
         {
             return Calculator;
+        }
+    
+
+        public void  decTimer_Tick(object sender, EventArgs e)
+        {
+ 	        Calculator.CalculateValues(numbers, "Decrease");
+            numbers = Calculator.Results();
+        }
+
+        public void  happinessTimer_Tick(object sender, EventArgs e)
+        {
+ 	        Calculator.CalculateHappines(numbers);
+            numbers = Calculator.Results();
         }
     }
 }

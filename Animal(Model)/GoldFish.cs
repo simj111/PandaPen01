@@ -106,6 +106,17 @@ namespace AnimalModel
             return Calculator;
 
         }
+
+
+        public void decTimer_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void happinessTimer_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
     }
 

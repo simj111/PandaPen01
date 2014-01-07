@@ -14,14 +14,14 @@ namespace PandaPen
     /// <summary>
     /// This the Defualt View and is the frist View you see
     /// </summary>
-    public partial class DefaultView : Form, IThreeBarViewEvents
+    public partial class DefaultView : Form, IViewEvents
          
     {
         /// <summary>
         /// These Data Members Contain two Events the Annimal type Events is used to select the view to display.
         /// </summary>
 
-        public event AnimalTypeHandler selectAnimal;
+          public event AnimalTypeHandler selectAnimal;
          public event ButtonPressEventHandler btnPress;
         
         public DefaultView()

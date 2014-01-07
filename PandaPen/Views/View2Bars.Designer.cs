@@ -101,7 +101,7 @@
             this.hungryBar.Name = "hungryBar";
             this.hungryBar.Size = new System.Drawing.Size(136, 23);
             this.hungryBar.TabIndex = 18;
-            this.hungryBar.Click += new System.EventHandler(this.hungryBar_Click);
+          
             // 
             // label2
             // 

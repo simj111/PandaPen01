@@ -5,7 +5,7 @@ using System.Text;
 using Interfaces.Events;
 namespace Interfaces
 {
-    public interface IThreeBarViewEvents
+    public interface IViewEvents
 	{
         event ButtonPressEventHandler btnPress;
         

@@ -18,7 +18,6 @@ namespace BarManager
         /// <summary>
         /// The Data Members Contain a Animal to store the Animal this Particular BarManger is Linked to
         /// The string InvidID Contains a string Reference which of the Object which is stored in the Modle so it can be used to deterem if the module should react]
-        /// 
         /// </summary>
         
         IAnimalModle Animal;
@@ -30,7 +29,7 @@ namespace BarManager
         /// <param name="f"></param>
         public void Subscribe(Form f)
         {
-            (f as IThreeBarViewEvents).btnPress += new ButtonPressEventHandler(CheckIfValid);
+            (f as IViewEvents).btnPress += new ButtonPressEventHandler(CheckIfValid);
         }
         /// <summary>
         /// This Methods Job is to Ensure that Any Events Recivied are Valid for the Specific Model.

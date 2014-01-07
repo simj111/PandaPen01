@@ -14,34 +14,94 @@ namespace PandaPen
 {
     class Controller : IController
     {
+        #region DataMembers
+
+        /// <summary>
+        /// Data Members Which Contain The list of View
+        /// Contains the Numbers
+        /// Containts The Factory That Creates all of the In Built IAnimalModle posstioned in the factory.
+        /// </summary>
+       
+       
         public List<Form> ViewList = new List<Form>();
         public List<IViewModel> ViewModelList = new List<IViewModel>();
 
         int Number = 0;
         int i = 0;
 
-        /// <summary>
-        /// Data Members Which Contain The View
-        /// </summary>
-        /// 
         Form first = new DefaultView();
         Form _view = null;
         Form OtherViews;
         IViewModel ViewM = null;
         Factory AFac1 = null;
         List<IAnimalModle> listTest = null;
+      
+        #endregion DataMembers
+
+
+        #region Constructors
+
+       /// <summary>
+       /// This Section Contains one Constructor. This Constructor roles it to boot up our Frist View the defualt View
+       /// Add The types of Animal to the Box on the Defuult View
+       /// Activate the Subsribe Method and Subscribe to the first View 
+       /// Creates the Factory.
+       /// Launch Method Compose Container which Binds the Mef Components 
+       /// </summary>
+        
+        
         public Controller()
         {
             first.Show();
-           
             AFac1 = new Factory();
-            
             AddAnimalsToBox(AFac1.typeoflist);
             Subscribe(first);
-            ComposeContainer();
-            
-           
+            ComposeContainer();         
         }
+        #endregion
+
+      
+        #region Methods
+
+        /// <summary>
+        /// This Section of code Contains the Methods used in this section.
+        /// it Contains Subscribe Which Subscribe the controler to AnimaltypeEventGenerated in the list
+        /// ReciveEvents is Activated when the AnimaltypeEvents is used its purpouse is to tell Pass Infomation to CreatView Method so a specific view can be created for that type of modle and pas infomation into create factory so it can creat the correct module.
+        /// Creat View Method is used to creat specific view for differnt modules based on the string that is passed in.
+        /// Creat Selctor is used to plug in Mef Components.
+        /// </summary>
+        /// <param name="recviedFromCombo"></param>
+
+        /// <summary>
+        /// Subscribes the Controler to the Animaltypes the form is passed in as F
+        /// </summary>
+
+         public void Subscribe(Form f)
+        {
+            (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents);
+        }
+
+        /// <summary>
+        /// is used to see if Animal types is not null to pass in the string Argument Animal types into the view.
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="args"></param>
+        
+        public void ReciveEvents(Form f, AnimalTypeArgs args)
+        {
+
+            if (args.animalTypes != null )
+            {   
+                CreatView(args._animalTypes);
+                CreateFactoryAndModels(args.animalTypes);
+               
+            }
+        }
+
+        /// <summary>
+        /// Create Views Based on A string Passed IN
+        /// </summary>
+        /// <param name="recviedFromCombo"></param>
 
         public void CreatView(string recviedFromCombo)
         {
@@ -61,62 +121,49 @@ namespace PandaPen
 
                     _view.Show();
                 }
-                else
-                {
+                    else
+                    {
                     _view = new View(Name);
                     ViewList.Add(_view);
                     ViewM = new ViewModel(_view);
                     ViewModelList.Add(ViewM);
                     _view.Show();
                    
-                }
-                  i++; 
+                    }
+              i++; 
             }
         }
 
+        /// <summary>
+        /// Creates the Selector for all Mef Compontes so All Imported Componets Can be used
+        /// </summary>
         public void CreateSelector()
         {
                 
         }
-
-        public void Subscribe(Form f)
-        {
-            (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents);
-        }
-
-        public void ReciveEvents(Form f, AnimalTypeArgs args)
-        {
-
-            if (args.animalTypes != null )
-            {    CreatView(args._animalTypes);
-                CreateFactoryAndModels(args.animalTypes);
-               
-            }
-
-        }
-
+        /// <summary>
+        ///  This Metod is resposnible for passing in the string from the Combox into the factory which is used to Build the correct modle for that specfic string.
+        ///  It is reposnibe for subscribing the Barmanger with view so it can recive the ButtonpressEvents
+        ///  Links the ViewModule to the Calator and its Animal together
+        /// </summary>
+        /// <param name="recviedFromCombo"></param>
         public void CreateFactoryAndModels(string recviedFromCombo)
         {
-           
-           
-            IBarManager barmanager;
-            ICalculate calculator;
-            
-            AFac1.GeneratAnimals(recviedFromCombo, Number);
-            
-             listTest = AFac1.animallist;
-             
-               
-            {
-                calculator = listTest[Number].Getcalc();
-                barmanager = listTest[Number].Getbars();
-                barmanager.Subscribe(_view);
-                ViewM.Subscribe(listTest[Number], calculator);
-                listTest[Number].FristPassSetUP();
-                Number++;
-                
-            }
-           
+
+          IBarManager barmanager;
+          ICalculate calculator;
+                                {
+                                AFac1.GeneratAnimals(recviedFromCombo, Number);
+                                listTest = AFac1.animallist;
+                                calculator = listTest[Number].Getcalc();
+                                barmanager = listTest[Number].Getbars();
+                                barmanager.Subscribe(_view);
+                                ViewM.Subscribe(listTest[Number], calculator);
+                                listTest[Number].FristPassSetUP();
+                                Number++;
+                                }
+
+
         }
 
         /// <summary>
@@ -130,13 +177,16 @@ namespace PandaPen
              (first as DefaultView).animalType.Items.AddRange(new object[] {animals});
             }
         }
-        public void ComposeContainer()
-        {
-            
-            //Make sure this is at bottom of method
-            Application.Run(first);
-        }
+        /// <summary>
+        /// Contains the Compose Container method which add all Mef Components in it.
+        /// </summary>
 
+        public void ComposeContainer()
+        {            
+       
+         Application.Run(first);
+        }
+        #endregion
 
 
     }

@@ -10,6 +10,8 @@ namespace AnimalModel
         /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
         /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
         /// The Events are the FristPassHandler is used to send out the Intial values when the system is Constrcuted
+        /// Contains a Caltor and Barmanger which it use to hear and respond to events
+        /// Contains a strings IDVIDUALNAMe which is an ID and an Image Name Lion
         /// </summary>
           private string IDVIDUALName;
           private string _imageName = "Lion";
@@ -29,6 +31,7 @@ namespace AnimalModel
         /// <summary>
         /// Is the Consructor for Panda it is used to transfer the Aninal its BarManger And Calulator
         /// Connect the Animal to its BarManger
+        /// And to use Name to give the Modles it own Indvidual Name
         /// </summary>
         /// <param name="myBarManager"></param>
         /// <param name="calculator"></param>
@@ -43,7 +46,7 @@ namespace AnimalModel
         }
 
         /// <summary>
-        /// Frist Pass Set UP is called in the Controler to pass the Inital star up Variables
+        /// Frist Pass Set UP is called in the Controler to pass the Inital star up Variables Passed out to the view modules using the fristpassEvantHandler.
         /// </summary>
 
         public void FristPassSetUP()

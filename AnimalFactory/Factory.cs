@@ -20,7 +20,7 @@ namespace AnimalFactory
 
         public List<string> typeoflist = new List<string>();
         public List<IAnimalModle> animallist = new List<IAnimalModle>();
-        double ID = 0;
+   
 
         /// <summary>
         /// the Factory Constructor Finds the Types stored in its List

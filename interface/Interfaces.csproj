@@ -45,7 +45,6 @@
     <Compile Include="Events\ButtonPressEventArgs.cs" />
     <Compile Include="Events\EventTypes.cs" />
     <Compile Include="Events\FirstPassArgs.cs" />
-    <Compile Include="ITWOEVENTS.cs" />
     <Compile Include="Events\PassCalcResultsArgs.cs" />
     <Compile Include="IAnimalModle.cs" />
     <Compile Include="IBarManager.cs" />

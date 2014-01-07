@@ -20,6 +20,7 @@ namespace AnimalModel
         /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
         /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
         /// The Events are the FristPassHandler is used to send out the Intial values when the system is Constrcuted
+        ///  And to use Name to give the Modles it own Indvidual Name
         /// </summary>
           private string IDVIDUALName;
           private string _imageName = "Panda";

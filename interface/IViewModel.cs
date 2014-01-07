@@ -8,12 +8,8 @@ namespace Interfaces
 {
    public interface IViewModel
     {
-           
            void Subscribe(IAnimalModle Animal, ICalculate Calculate);
            void ReciveFirstInput(IAnimalModle source, FirstPassArgs args);
            void SendResults();
-
-
-
     }
 }

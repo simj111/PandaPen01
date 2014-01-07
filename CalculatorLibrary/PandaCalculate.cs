@@ -8,34 +8,38 @@ namespace CalculatorLibrary
 {
     public class PandaCalculate : ICalculate
     {
+        #region DataMembers
         double[] answers;
         public event PassCalcResultsHandler resPass;
         public string InvidualCalulatorValue;
         private string _imageName = "Panda";
+        #endregion
+
+        #region Constructor
         public PandaCalculate(int IDvalue)
         {
             InvidualCalulatorValue = _imageName + IDvalue.ToString();
         }
+        #endregion
 
-        public void CalculateValues(double[] numbers,string Operations)
-          
-
+        #region Metods
+        public void CalculateValues(double[] numbers, string Operations)
         {
             if (Operations == "Eat")
             {
                 numbers[0] = numbers[0] + 4;
-                numbers[1]  = numbers[1] + 2;
+                numbers[1] = numbers[1] + 2;
                 numbers[2] = numbers[2] - 1;
-              
+
             }
 
             else if (Operations == "Sleep")
             {
-              
+
                 numbers[0] -= 2;
                 numbers[1] += 4;
                 numbers[2] -= 1;
-                
+
             }
 
             else if (Operations == "Exercise")
@@ -43,10 +47,10 @@ namespace CalculatorLibrary
                 numbers[0] -= 6;
                 numbers[1] -= 6;
                 numbers[2] += 10;
-                
+
             }
 
-            for (int i = 0; i < numbers.Length;i++ )
+            for (int i = 0; i < numbers.Length; i++)
             {
                 if (numbers[i] > 100)
                 {
@@ -56,7 +60,7 @@ namespace CalculatorLibrary
                 {
                     numbers[i] = 0;
                 }
-                
+
             }
 
             answers = numbers;
@@ -68,7 +72,7 @@ namespace CalculatorLibrary
 
         public void CalculateHappines(double[] numbers)
         {
-            
+
         }
 
         public double[] Results()
@@ -76,5 +80,8 @@ namespace CalculatorLibrary
             return answers;
         }
 
+        #endregion
+
     }
 }
+      

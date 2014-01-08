@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.Composition;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
 
 namespace AnimalModel
 {
+    
+      [Export(typeof(IAnimalModle))]
+      [ExportMetadata("description", "GoldFish2Bars")]
+    
    public class GoldFish : IAnimalModle
     {
         /// <summary>
@@ -15,11 +20,12 @@ namespace AnimalModel
         /// The Events are the FristPassHandler is used to send out the Intial values when the system is Constrcuted
         /// </summary>
           private string IDVIDUALName;
-          private string _imageName = "GoldFish2Bars";
+          public string _imageName = "GoldFish2Bars";
           private double _Hunger = 5;
           private double _OxygenLevel = 60;
           double[] number;
-       
+
+         
 
        
         public ICalculate Calculator;
@@ -35,15 +41,21 @@ namespace AnimalModel
         /// <param name="myBarManager"></param>
         /// <param name="calculator"></param>
         /// <param name="ID"></param>
-        public GoldFish(IBarManager myBarManager, ICalculate calculator, int ID)
+        /// 
+        /// 
+        /// 
+    
+
+        public void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID)
         {
             barmanager = myBarManager;
             Name(_imageName, ID);
             myBarManager.ConnectANIMAL(this, IDVIDUALName);
             Calculator = calculator;
             number = new double[2] { _Hunger, _OxygenLevel };
-            
+
         }
+
 
         /// <summary>
         /// Frist Pass Set UP is called in the Controler to pass the Inital star up Variables

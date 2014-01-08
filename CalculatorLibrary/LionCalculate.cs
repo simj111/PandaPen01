@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.Composition;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
@@ -10,6 +11,8 @@ namespace CalculatorLibrary
     /// <summary>
     /// This is the LionCalcutor and is used to Calcualte the gold fish valuse use the ICalculate Interface.
     /// </summary>
+
+    
 
     public class LionCalculate : ICalculate
     {
@@ -21,7 +24,8 @@ namespace CalculatorLibrary
         #endregion
 
         #region Constrcutor
-        public LionCalculate(int IDvalue)
+
+        public void InitialPassIn(int IDvalue)
         {
             InvidualCalulatorValue = _imageName + IDvalue.ToString();
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.Composition;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
@@ -11,6 +12,9 @@ namespace CalculatorLibrary
     /// <summary>
     /// This is the GoldFishCalator and is used to Calcualte the gold fish valuse use the ICalculate Interface.
     /// </summary>
+    
+      [Export (typeof(ICalculate))]
+
 
     public class GoldFishCalculator : ICalculate
     {
@@ -35,10 +39,7 @@ namespace CalculatorLibrary
         /// <param name="IDvalue"></param>
 
 
-        public GoldFishCalculator(int IDvalue)
-        {
-            InvidualCalulatorValue = _imageName + IDvalue.ToString();
-        }
+
         #region Methods
 
         /// <summary>
@@ -92,5 +93,11 @@ namespace CalculatorLibrary
             return answers;
         }
         #endregion Methods
+
+
+        public void InitialPassIn(int IDvalue)
+        {
+            InvidualCalulatorValue = _imageName + IDvalue.ToString();
+        }
     }
 }

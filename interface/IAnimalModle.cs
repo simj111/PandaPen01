@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Interfaces.Events;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Windows.Forms;
 
 namespace Interfaces
@@ -12,6 +14,8 @@ namespace Interfaces
     {
 
        IBarManager Getbars();
+
+       void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID);
 
        ICalculate Getcalc();
 

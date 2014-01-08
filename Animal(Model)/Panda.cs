@@ -136,5 +136,11 @@ namespace AnimalModel
             Calculator.CalculateHappines(numbers);
             numbers = Calculator.Results();
         }
+
+
+        public void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID)
+        {
+            throw new NotImplementedException();
+        }
     }
     }

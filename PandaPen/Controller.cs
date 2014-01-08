@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Windows.Forms;
 using Interfaces;
 using AnimalFactory;
 using Interfaces.Events;
 using PandaPen.Views_Models;
+using Selector;
+using System.Diagnostics;
 
 
 
@@ -21,8 +26,11 @@ namespace PandaPen
         /// Contains the Numbers
         /// Containts The Factory That Creates all of the In Built IAnimalModle posstioned in the factory.
         /// </summary>
-       
-       
+
+        [Import] private ISelector _modelSelector = null;
+
+        [Import] private Factory AFac1;
+        //[Import] private ICalutor
         public List<Form> ViewList = new List<Form>();
         public List<IViewModel> ViewModelList = new List<IViewModel>();
 
@@ -33,7 +41,7 @@ namespace PandaPen
         Form _view = null;
         Form OtherViews;
         IViewModel ViewM = null;
-        Factory AFac1 = null;
+        
         List<IAnimalModle> listTest = null;
       
         #endregion DataMembers
@@ -52,11 +60,14 @@ namespace PandaPen
         
         public Controller()
         {
-            first.Show();
-            AFac1 = new Factory();
+             ComposeContainer();
+           Subscribe(first);
+           
             AddAnimalsToBox(AFac1.typeoflist);
-            Subscribe(first);
-            ComposeContainer();         
+            
+            Application.Run(first);
+          
+                 
         }
         #endregion
 
@@ -149,21 +160,24 @@ namespace PandaPen
         /// <param name="recviedFromCombo"></param>
         public void CreateFactoryAndModels(string recviedFromCombo)
         {
-
+                                        
           IBarManager barmanager;
           ICalculate calculator;
                                 {
+                                
                                 AFac1.GeneratAnimals(recviedFromCombo, Number);
+                                (first as DefaultView).animalType.Items.Clear();
+                                AddAnimalsToBox(AFac1.typeoflist);
                                 listTest = AFac1.animallist;
                                 calculator = listTest[Number].Getcalc();
                                 barmanager = listTest[Number].Getbars();
                                 barmanager.Subscribe(_view);
                                 ViewM.Subscribe(listTest[Number], calculator);
                                 listTest[Number].FristPassSetUP();
-                                Number++;
+                              
                                 }
 
-
+ Number++;
         }
 
         /// <summary>
@@ -182,9 +196,32 @@ namespace PandaPen
         /// </summary>
 
         public void ComposeContainer()
-        {            
-       
-         Application.Run(first);
+        {
+           
+            DirectoryCatalog catalog = new DirectoryCatalog("C:\\Users\\SHEW1_11\\Documents\\GitHub\\PandaPen01\\MEFBOX");
+
+            CompositionContainer container = new CompositionContainer(catalog);
+
+            try
+            {
+              //  _modelSelector.getAvailableModels();
+
+                 container.ComposeParts(this);
+             //   _modelSelector.getAvailableModels();
+                AFac1.FindTypes();
+                
+                
+
+            }
+            catch (CompositionException e)
+            {
+                Trace.WriteLine("Composition failed");
+                Trace.WriteLine(e.Message);
+
+            }
+
+           
+
         }
         #endregion
 

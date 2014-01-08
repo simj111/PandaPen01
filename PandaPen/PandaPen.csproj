@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\MEFBOX\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -110,6 +111,10 @@
     <ProjectReference Include="..\interface\Interfaces.csproj">
       <Project>{EC58A9C8-86E3-4AB6-8780-33870B6C36B7}</Project>
       <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Selector\Selector.csproj">
+      <Project>{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}</Project>
+      <Name>Selector</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

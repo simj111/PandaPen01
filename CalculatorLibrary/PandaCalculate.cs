@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Interfaces;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using Interfaces.Events;
 namespace CalculatorLibrary
 {
@@ -16,13 +18,10 @@ namespace CalculatorLibrary
         #endregion
 
         #region Constructor
-        public PandaCalculate(int IDvalue)
-        {
-            InvidualCalulatorValue = _imageName + IDvalue.ToString();
-        }
+        
         #endregion
 
-        #region Metods
+        #region Methods
         public void CalculateValues(double[] numbers, string Operations)
         {
             if (Operations == "Eat")
@@ -57,18 +56,7 @@ namespace CalculatorLibrary
                 numbers[2] -= 2;
             }
 
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                if (numbers[i] > 100)
-                {
-                    numbers[i] = 99;
-                }
-                else if (numbers[i] < 0)
-                {
-                    numbers[i] = 0;
-                }
-
-            }
+           
 
             answers = numbers;
 
@@ -81,18 +69,36 @@ namespace CalculatorLibrary
         {
             if(numbers[0] >= 50 && numbers[1] >= 50 && numbers[2] >= 50)
             {
-                numbers[3] = numbers[3] + 4; 
+                numbers[3] = numbers[3] + 21; 
             }
             answers = numbers;
         }
 
         public double[] Results()
         {
+            for (int i = 0; i < answers.Length; i++)
+            {
+                if (answers[i] > 100)
+                {
+                    answers[i] = 100;
+                }
+                else if (answers[i] < 0)
+                {
+                    answers[i] = 0;
+                }
+
+            }
             return answers;
         }
 
         #endregion
 
+
+
+        public void InitialPassIn(int IDvalue)
+        {
+            InvidualCalulatorValue = _imageName + IDvalue.ToString();
+        }
     }
 }
       

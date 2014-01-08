@@ -78,6 +78,10 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
             }
 
             SendResults();
+            if (imageName == "GoldFish2Bars")
+            {
+                (VF as View2Bars).animalPicBox.Image = PandaPen.Properties.Resources.GoldFish2Bars;
+            }
         }
 
 

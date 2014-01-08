@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MEFComponents
+namespace Interfaces
+
 {
-    public class Class1
+  public  interface  IInformationTypeMetadata
     {
+      string description { get; }
     }
 }

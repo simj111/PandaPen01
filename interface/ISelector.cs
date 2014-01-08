@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.Composition;
 
 namespace Interfaces
 {
-	interface ISelector
+	public interface ISelector
 	{
+       
         IList<string> getAvailableModels();
         void setModel(string modelName);
 

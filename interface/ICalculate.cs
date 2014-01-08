@@ -9,6 +9,7 @@ namespace Interfaces
 	public interface ICalculate
 	{
         void CalculateValues(double[] numbers, string Operations);
+        void InitialPassIn(int IDvalue);
         void CalculateHappines(double[] numbers);
         double[] Results();
         event PassCalcResultsHandler resPass;

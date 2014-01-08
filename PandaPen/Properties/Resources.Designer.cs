@@ -60,6 +60,13 @@ namespace PandaPen.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap GoldFish2Bars {
+            get {
+                object obj = ResourceManager.GetObject("GoldFish2Bars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap lionpic {
             get {
                 object obj = ResourceManager.GetObject("lionpic", resourceCulture);

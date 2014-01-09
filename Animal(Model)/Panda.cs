@@ -81,6 +81,12 @@ namespace AnimalModel
             fPass(this, args);
         }
 
+        public void KillTimers()
+        {
+            happinessTimer.Enabled = false;
+            decTimer.Enabled = false;
+        }
+
         /// <summary>
         /// Is Used in the controler to Get the Bars.
         /// </summary>

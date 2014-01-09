@@ -30,6 +30,7 @@ namespace CalculatorLibrary
         double[] answers;
         private string _imageName = "GoldFish2Bars";
         private string InvidualCalulatorValue;
+        public event FullHappinessHandler happiness;
         #endregion DataMembers
 
         /// <summary>
@@ -80,7 +81,11 @@ namespace CalculatorLibrary
 
         public void CalculateHappines(double[] numbers)
         {
-          //  throw new NotImplementedException();
+            if (numbers[0] >= 50 && numbers[1] >= 50)
+            {
+                numbers[2] = numbers[2] + 11;
+            }
+            answers = numbers;
         }
 
         /// <summary>
@@ -90,6 +95,26 @@ namespace CalculatorLibrary
 
         public double[] Results()
         {
+            for (int i = 0; i < answers.Length; i++)
+            {
+                if (answers[i] > 100)
+                {
+                    answers[i] = 100;
+                }
+                else if (answers[i] < 0)
+                {
+                    answers[i] = 0;
+                }
+
+                if (answers[3] == 100)
+                {
+                    FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull");
+                    answers[3] = 0;
+                    happiness(this, Happiness);
+
+                }
+
+            }
             return answers;
         }
         #endregion Methods

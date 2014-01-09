@@ -12,6 +12,7 @@ using Interfaces.Events;
 using PandaPen.Views_Models;
 using Selector;
 using System.Diagnostics;
+using AnimalModel;
 
 
 
@@ -27,9 +28,11 @@ namespace PandaPen
         /// Containts The Factory That Creates all of the In Built IAnimalModle posstioned in the factory.
         /// </summary>
 
-        [Import] private ISelector _modelSelector = null;
+        [Import]
+        private ISelector _modelSelector = null;
 
-        [Import] private Factory AFac1;
+        [Import]
+        private Factory AFac1;
         //[Import] private ICalutor
         public List<Form> ViewList = new List<Form>();
         public List<IViewModel> ViewModelList = new List<IViewModel>();
@@ -41,37 +44,44 @@ namespace PandaPen
         Form _view = null;
         Form OtherViews;
         IViewModel ViewM = null;
-        
+
         List<IAnimalModle> listTest = null;
-      
+
+        IBarManager barmanager;
+        ICalculate calculator;
+
+
+
+
         #endregion DataMembers
 
 
         #region Constructors
 
-       /// <summary>
-       /// This Section Contains one Constructor. This Constructor roles it to boot up our Frist View the defualt View
-       /// Add The types of Animal to the Box on the Defuult View
-       /// Activate the Subsribe Method and Subscribe to the first View 
-       /// Creates the Factory.
-       /// Launch Method Compose Container which Binds the Mef Components 
-       /// </summary>
-        
-        
+        /// <summary>
+        /// This Section Contains one Constructor. This Constructor roles it to boot up our Frist View the defualt View
+        /// Add The types of Animal to the Box on the Defuult View
+        /// Activate the Subsribe Method and Subscribe to the first View 
+        /// Creates the Factory.
+        /// Launch Method Compose Container which Binds the Mef Components 
+        /// </summary>
+
+
         public Controller()
         {
-             ComposeContainer();
-           Subscribe(first);
-           
+            ComposeContainer();
+            Subscribe(first);
+
+
             AddAnimalsToBox(AFac1.typeoflist);
-            
+
             Application.Run(first);
-          
-                 
+
+
         }
         #endregion
 
-      
+
         #region Methods
 
         /// <summary>
@@ -87,25 +97,34 @@ namespace PandaPen
         /// Subscribes the Controler to the Animaltypes the form is passed in as F
         /// </summary>
 
-         public void Subscribe(Form f)
+        public void Subscribe(Form f)
         {
             (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents);
         }
+
+        public void CalculateSubscribe(ICalculate Cal)
+        {
+            Cal.happiness += new FullHappinessHandler(CheckWinCondition);
+
+        }
+
+
 
         /// <summary>
         /// is used to see if Animal types is not null to pass in the string Argument Animal types into the view.
         /// </summary>
         /// <param name="f"></param>
         /// <param name="args"></param>
-        
+
+
         public void ReciveEvents(Form f, AnimalTypeArgs args)
         {
 
-            if (args.animalTypes != null )
-            {   
+            if (args.animalTypes != null)
+            {
                 CreatView(args._animalTypes);
                 CreateFactoryAndModels(args.animalTypes);
-               
+
             }
         }
 
@@ -117,10 +136,10 @@ namespace PandaPen
         public void CreatView(string recviedFromCombo)
         {
             string subchallange2Bars = "2Bars";
-            
+
             if (recviedFromCombo != null)
             {
-            
+
                 string Name = recviedFromCombo + i.ToString();
 
                 if (recviedFromCombo.Contains(subchallange2Bars))
@@ -132,16 +151,16 @@ namespace PandaPen
 
                     _view.Show();
                 }
-                    else
-                    {
+                else
+                {
                     _view = new View(Name);
                     ViewList.Add(_view);
                     ViewM = new ViewModel(_view);
                     ViewModelList.Add(ViewM);
                     _view.Show();
-                   
-                    }
-              i++; 
+
+                }
+                i++;
             }
         }
 
@@ -150,7 +169,7 @@ namespace PandaPen
         /// </summary>
         public void CreateSelector()
         {
-                
+
         }
         /// <summary>
         ///  This Metod is resposnible for passing in the string from the Combox into the factory which is used to Build the correct modle for that specfic string.
@@ -160,24 +179,24 @@ namespace PandaPen
         /// <param name="recviedFromCombo"></param>
         public void CreateFactoryAndModels(string recviedFromCombo)
         {
-                                        
-          IBarManager barmanager;
-          ICalculate calculator;
-                                {
-                                
-                                AFac1.GeneratAnimals(recviedFromCombo, Number);
-                                (first as DefaultView).animalType.Items.Clear();
-                                AddAnimalsToBox(AFac1.typeoflist);
-                                listTest = AFac1.animallist;
-                                calculator = listTest[Number].Getcalc();
-                                barmanager = listTest[Number].Getbars();
-                                barmanager.Subscribe(_view);
-                                ViewM.Subscribe(listTest[Number], calculator);
-                                listTest[Number].FristPassSetUP();
-                              
-                                }
 
- Number++;
+
+            {
+
+                AFac1.GeneratAnimals(recviedFromCombo, Number);
+                (first as DefaultView).animalType.Items.Clear();
+                AddAnimalsToBox(AFac1.typeoflist);
+                listTest = AFac1.animallist;
+                calculator = listTest[Number].Getcalc();
+                CalculateSubscribe(calculator);
+                barmanager = listTest[Number].Getbars();
+                barmanager.Subscribe(_view);
+                ViewM.Subscribe(listTest[Number], calculator);
+                listTest[Number].FristPassSetUP();
+
+            }
+
+            Number++;
         }
 
         /// <summary>
@@ -188,7 +207,7 @@ namespace PandaPen
         {
             foreach (string animals in animalList)
             {
-             (first as DefaultView).animalType.Items.AddRange(new object[] {animals});
+                (first as DefaultView).animalType.Items.AddRange(new object[] { animals });
             }
         }
         /// <summary>
@@ -197,20 +216,20 @@ namespace PandaPen
 
         public void ComposeContainer()
         {
-           
+
             DirectoryCatalog catalog = new DirectoryCatalog("..\\MEFBOX\\");
 
             CompositionContainer container = new CompositionContainer(catalog);
 
             try
             {
-              //  _modelSelector.getAvailableModels();
+                //  _modelSelector.getAvailableModels();
 
-                 container.ComposeParts(this);
-             //   _modelSelector.getAvailableModels();
+                container.ComposeParts(this);
+                //   _modelSelector.getAvailableModels();
                 AFac1.FindTypes();
-                
-                
+
+
 
             }
             catch (CompositionException e)
@@ -220,11 +239,25 @@ namespace PandaPen
 
             }
 
-           
+
 
         }
+
+        public void CheckWinCondition(ICalculate f, FullHappinessArgs args)
+        {
+            if (args.happiness == "HappinessisfullLion")
+            {
+               
+                MessageBox.Show("You have won");
+                barmanager.Unsubscribe(_view);
+                _view.Close();
+            }
+        }
+
+
         #endregion
 
 
     }
-}
+    }
+

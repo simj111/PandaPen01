@@ -95,12 +95,14 @@ namespace AnimalFactory
                 }
                 else if (Animal == "Lion")
                 {
+                    
                     IBarManager barmanger;
                     IAnimalModle Lion;
                     barmanger = new LionBM2();
                     ICalculate calculator = new LionCalculate();
                                calculator.InitialPassIn(ID);
-                    Lion = new AnimalModel.Lion(barmanger, calculator, ID);
+                    Lion = new AnimalModel.Lion();
+                    Lion.PassinInatial(barmanger, calculator, ID);
                     animallist.Add(Lion);
                     typeoflist.Remove("Lion");
                 }

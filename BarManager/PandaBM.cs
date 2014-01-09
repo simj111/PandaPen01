@@ -74,5 +74,12 @@ namespace BarManager
             InvidID = Name;
 
         }
+
+
+       public void Unsubscribe(Form f)
+       {  
+           (f as IViewEvents).btnPress -= new ButtonPressEventHandler(CheckIfValid);
+           Animal.KillTimers();         
+       }
     }
 }

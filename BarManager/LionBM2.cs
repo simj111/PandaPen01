@@ -83,7 +83,11 @@ namespace BarManager
         }
 
 
-      
+        public void Unsubscribe(Form f)
+        {
+            (f as IViewEvents).btnPress -= new ButtonPressEventHandler(CheckIfValid);
+
+        }
 
 
 

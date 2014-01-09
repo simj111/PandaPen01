@@ -90,5 +90,11 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
             (VF  as View2Bars).hungryBar.Value = Convert.ToInt32(Number01[0]);
             (VF as View2Bars).oxygenBar.Value = Convert.ToInt32(Number01[1]);  
         }
-    }
+
+
+        public double CheckHappiness()
+        {
+            throw new NotImplementedException();
+        }
+  }
 }

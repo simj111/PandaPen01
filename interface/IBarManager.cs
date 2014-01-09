@@ -12,5 +12,6 @@ namespace Interfaces
         void Subscribe(Form f);
         void CheckIfValid(Form f, ButtonPressEventArgs args);
         void ConnectANIMAL(IAnimalModle LINKEDANIMAL , string Name);
+        void Unsubscribe(Form f);
 	}
 }

@@ -7,11 +7,15 @@ using Interfaces.Events;
 namespace Interfaces
 {
 	public interface ICalculate
-	{
-        void CalculateValues(double[] numbers, string Operations);
+	{  
+        event FullHappinessHandler happiness;
+        event PassCalcResultsHandler resPass;
+
         void InitialPassIn(int IDvalue);
+        void CalculateValues(double[] numbers, string Operations);
+        
         void CalculateHappines(double[] numbers);
         double[] Results();
-        event PassCalcResultsHandler resPass;
+       
 	}
 }

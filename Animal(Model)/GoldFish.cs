@@ -5,6 +5,7 @@ using System.ComponentModel.Composition;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
+using System.Windows.Forms;
 
 namespace AnimalModel
 {
@@ -24,12 +25,14 @@ namespace AnimalModel
           private double _Hunger = 5;
           private double _OxygenLevel = 60;
           double[] number;
+          public IBarManager barmanager;
+          public ICalculate Calculator;
 
-         
 
-       
-        public ICalculate Calculator;
-        public IBarManager barmanager;
+        public Timer decTimer;
+        public Timer happinessTimer;
+
+          
 
        public event FirstPassHandler fPass;
 
@@ -48,6 +51,17 @@ namespace AnimalModel
 
         public void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID)
         {
+            //Decrease timer object properties
+            decTimer = new Timer();
+            decTimer.Enabled = true;
+            decTimer.Interval = 3000;
+            this.decTimer.Tick += new System.EventHandler(this.decTimer_Tick);
+
+            //Happiness timer object properties
+            happinessTimer = new Timer();
+            happinessTimer.Enabled = true;
+            happinessTimer.Interval = 3000;
+
             barmanager = myBarManager;
             Name(_imageName, ID);
             myBarManager.ConnectANIMAL(this, IDVIDUALName);
@@ -66,8 +80,13 @@ namespace AnimalModel
             double[] numbers = new double[2] { _Hunger, _OxygenLevel };
             
             FirstPassArgs args = new FirstPassArgs(_imageName, numbers);
-            numbers = Calculator.Results();
+           
             fPass(this, args);
+        }
+        public void KillTimers()
+        {
+            happinessTimer.Enabled = false;
+            decTimer.Enabled = false;
         }
 
         /// <summary>

@@ -12,6 +12,7 @@ namespace Interfaces
 
    public interface IAnimalModle
     {
+       void KillTimers();
 
        IBarManager Getbars();
 

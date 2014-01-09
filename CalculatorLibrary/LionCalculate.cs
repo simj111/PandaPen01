@@ -21,13 +21,15 @@ namespace CalculatorLibrary
         public event PassCalcResultsHandler resPass;
         public string InvidualCalulatorValue;
         private string _imageName = "Lion";
+        public event FullHappinessHandler happiness;
         #endregion
 
         #region Constrcutor
 
-        public void InitialPassIn(int IDvalue)
+        public string InitialPassIn(int IDvalue)
         {
             InvidualCalulatorValue = _imageName + IDvalue.ToString();
+            return InvidualCalulatorValue;
         }
         #endregion
 
@@ -104,7 +106,7 @@ namespace CalculatorLibrary
         {
             if (numbers[0] >= 50 && numbers[1] >= 50 && numbers[2] >= 50)
             {
-                numbers[3] = numbers[3] + 4;
+                numbers[3] = numbers[3] + 20;
             }
             answers = numbers;
         }
@@ -117,10 +119,39 @@ namespace CalculatorLibrary
 
         public double[] Results()
         {
+            for (int i = 0; i < answers.Length; i++)
+            {
+                if (answers[i] > 100)
+                {
+                    answers[i] = 100;
+                }
+                else if (answers[i] < 0)
+                {
+                    answers[i] = 0;
+                }
+
+                if (answers[3] == 100)
+                {
+                    FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullLion");
+                    answers[3] = 0;
+                    happiness(this, Happiness);
+
+                }
+
+            }
             return answers;
         }
         #endregion
 
+
+
+
+
+
+        void ICalculate.InitialPassIn(int IDvalue)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

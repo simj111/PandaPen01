@@ -46,7 +46,7 @@ namespace PandaPen
 
                 if (Number01[i] > 100)
                 {
-                    Number01[i] = 99;
+                    Number01[i] = 100;
                 } 
                 else if (Number01[i] < 0)
                 {
@@ -93,17 +93,24 @@ namespace PandaPen
 
                     if (Number01[i] >= 100)
                     {
-                        Number01[i] = 99;
+                        Number01[i] = 100;
                     }
 
                     else if (Number01[i] <= 0)
                     {
-                        Number01[i] = 1;
+                        Number01[i] = 0;
                     }
                 }
             }
 
             SendResults();
+        
+        
+  
         }
+
+
     }
+
+
 }

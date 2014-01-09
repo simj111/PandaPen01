@@ -19,7 +19,7 @@ namespace AnimalModel
           private double _inHBarVal = 5;
           private double _inEBarVal = 60;
           private double _inFBarVal = 75;
-         private double _happinessBarVal = 1;
+          private double _happinessBarVal = 1;
 
          double[] numbers;
 
@@ -39,26 +39,7 @@ namespace AnimalModel
         /// <param name="myBarManager"></param>
         /// <param name="calculator"></param>
         /// <param name="ID"></param>
-        public Lion(IBarManager myBarManager, ICalculate calculator, int ID)
-        {
-            barmanager = myBarManager;
-            Name(_imageName, ID);
-            myBarManager.ConnectANIMAL(this, IDVIDUALName);
-            Calculator = calculator;
-            numbers = new double[4]{ _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
-
-            //Decrease timer object properties
-            decTimer = new Timer();
-            decTimer.Enabled = true;
-            decTimer.Interval = 3000;
-            this.decTimer.Tick += new System.EventHandler(this.decTimer_Tick);
-
-            //Happiness timer object properties
-            happinessTimer = new Timer();
-            happinessTimer.Enabled = true;
-            happinessTimer.Interval = 3000;
-            this.happinessTimer.Tick += new System.EventHandler(this.happinessTimer_Tick);
-        }
+    
 
         /// <summary>
         /// Frist Pass Set UP is called in the Controler to pass the Inital star up Variables Passed out to the view modules using the fristpassEvantHandler.
@@ -70,6 +51,12 @@ namespace AnimalModel
             string imagename = _imageName;
             FirstPassArgs args = new FirstPassArgs(imagename, numbers);
             fPass(this, args);
+        }
+
+        public void KillTimers()
+        {
+            happinessTimer.Enabled = false;
+            decTimer.Enabled = false;
         }
 
         /// <summary>
@@ -128,7 +115,23 @@ namespace AnimalModel
 
        public void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID)
        {
-           throw new NotImplementedException();
+           barmanager = myBarManager;
+           Name(_imageName, ID);
+           myBarManager.ConnectANIMAL(this, IDVIDUALName);
+           Calculator = calculator;
+           numbers = new double[4] { _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
+
+           //Decrease timer object properties
+           decTimer = new Timer();
+           decTimer.Enabled = true;
+           decTimer.Interval = 3000;
+           this.decTimer.Tick += new System.EventHandler(this.decTimer_Tick);
+
+           //Happiness timer object properties
+           happinessTimer = new Timer();
+           happinessTimer.Enabled = true;
+           happinessTimer.Interval = 3000;
+           this.happinessTimer.Tick += new System.EventHandler(this.happinessTimer_Tick);
        }
     }
 }

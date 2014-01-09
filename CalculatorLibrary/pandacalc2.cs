@@ -6,9 +6,12 @@ using Interfaces;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using Interfaces.Events;
+
 namespace CalculatorLibrary
 {
-    public class PandaCalculate : ICalculate
+
+
+    public class pandacalc2 : ICalculate
     {
         #region DataMembers
         double[] answers;
@@ -18,67 +21,57 @@ namespace CalculatorLibrary
         private string _imageName = "Panda";
         #endregion
 
-        #region Constructor
-        
-        #endregion
-
-        #region Methods
         public void InitialPassIn(int IDvalue)
         {
             InvidualCalulatorValue = _imageName + IDvalue.ToString();
         }
-
+       
         public void CalculateValues(double[] numbers, string Operations)
         {
             if (Operations == "Eat")
             {
-                numbers[0] = numbers[0] + 4;
-                numbers[1] = numbers[1] + 2;
-                numbers[2] = numbers[2] - 1;
+                numbers[0] = numbers[0] + 2;
+                numbers[1] = numbers[1] + 3;
+                numbers[2] = numbers[2] - 2;
 
             }
 
             else if (Operations == "Sleep")
             {
 
-                numbers[0] -= 2;
-                numbers[1] += 4;
-                numbers[2] -= 1;
+                numbers[0] -= 5;
+                numbers[1] += 6;
+                numbers[2] -= 2;
 
             }
 
             else if (Operations == "Exercise")
             {
-                numbers[0] -= 6;
-                numbers[1] -= 6;
-                numbers[2] += 10;
+                numbers[0] -= 5;
+                numbers[1] -= 7;
+                numbers[2] += 3;
 
             }
 
             else if (Operations == "Decrease")
             {
-                numbers[0] -= 2;
-                numbers[1] -= 2;
-                numbers[2] -= 2;
+                numbers[0] -= 4;
+                numbers[1] -= 4;
+                numbers[2] -= 4;
             }
 
-           
-
             answers = numbers;
-
             PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-
             resPass(this, information);
         }
 
         public void CalculateHappines(double[] numbers)
         {
-            if(numbers[0] >= 50 && numbers[1] >= 50 && numbers[2] >= 50)
+            if (numbers[0] >= 50 && numbers[1] >= 50 && numbers[2] >= 50)
             {
-                numbers[3] = numbers[3] + 21; 
+                numbers[3] = numbers[3] + 11;
             }
             answers = numbers;
-           
         }
 
         public double[] Results()
@@ -98,7 +91,7 @@ namespace CalculatorLibrary
                 {
                     FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullPanda");
                     answers[3] = 0;
-                    happiness(this,Happiness);
+                    happiness(this, Happiness);
 
                 }
 
@@ -106,11 +99,5 @@ namespace CalculatorLibrary
             return answers;
         }
 
-        #endregion
-
-
-
-        
     }
 }
-      

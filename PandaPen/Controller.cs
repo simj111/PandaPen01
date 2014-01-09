@@ -198,7 +198,7 @@ namespace PandaPen
         public void ComposeContainer()
         {
            
-            DirectoryCatalog catalog = new DirectoryCatalog("C:\\Users\\SHEW1_11\\Documents\\GitHub\\PandaPen01\\MEFBOX");
+            DirectoryCatalog catalog = new DirectoryCatalog("..\\MEFBOX\\");
 
             CompositionContainer container = new CompositionContainer(catalog);
 

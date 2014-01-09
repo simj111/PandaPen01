@@ -41,7 +41,7 @@ namespace PandaPen
         string calculatortrype;
         int Number = 0;
         int i = 0;
-        
+        int  Wincalucation = 0;
         Form first = new DefaultView();
         Form _view = null;
         IViewModel ViewM = null;
@@ -300,12 +300,23 @@ namespace PandaPen
 
         public void CheckWinCondition(ICalculate f, FullHappinessArgs args)
         {
-           // if (args.happiness == "HappinessisfullLion")
+            int i = Number;
+            if (args.happiness != null)
             {
+            
+             _view = ViewList[Wincalucation]; 
+             buttonmanager.Unsubscribe(_view);
+            Wincalucation++;
+            }
+            if (i == Wincalucation)
+            {
+                MessageBox.Show("You have won");           
+            }
+
                
-                MessageBox.Show("You have won");
-                buttonmanager.Unsubscribe(_view);
-                _view.Close();
+          
+             
+                
             }
         }
 
@@ -314,5 +325,5 @@ namespace PandaPen
 
 
     }
-    }
+    
 

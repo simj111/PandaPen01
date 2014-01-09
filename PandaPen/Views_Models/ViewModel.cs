@@ -25,9 +25,23 @@ namespace PandaPen
         {
             Animal.fPass += new FirstPassHandler(ReciveFirstInput);
             Calculate.resPass += new PassCalcResultsHandler(ConvertResultsFromCalc);
+            Calculate.happiness += new FullHappinessHandler(LastMove);
 
         }
 
+
+        public void LastMove(ICalculate calc, FullHappinessArgs args)
+        {
+            if (args.CalculatorID == (VF as View).name)
+            {
+                Number01[3] = 100;
+                SendResults();
+                (VF as View).eBtn.Enabled = false;
+                (VF as View).sBtn.Enabled = false;
+                (VF as View).fBtn.Enabled = false;
+                
+            }
+        }
 
         public void ReciveFirstInput(IAnimalModle source, FirstPassArgs args)
         {

@@ -25,6 +25,7 @@ namespace AnimalModel
         /// </summary>
           private string IDVIDUALName;
           public string _imageName = "GoldFish2Bars";
+          private double _Happinness = 1;
           private double _Hunger = 5;
           private double _OxygenLevel = 60;
           double[] number;
@@ -57,19 +58,20 @@ namespace AnimalModel
             //Decrease timer object properties
             decTimer = new Timer();
             decTimer.Enabled = true;
-            decTimer.Interval = 3000;
+            decTimer.Interval = 1500;
             this.decTimer.Tick += new System.EventHandler(this.decTimer_Tick);
 
             //Happiness timer object properties
             happinessTimer = new Timer();
             happinessTimer.Enabled = true;
-            happinessTimer.Interval = 3000;
+            happinessTimer.Interval = 1500;
+            this.happinessTimer.Tick += new System.EventHandler(this.happinessTimer_Tick);
 
             buttonmanager = mybuttonmanager;
             Name(_imageName, ID);
             mybuttonmanager.ConnectANIMAL(this, IDVIDUALName);
             Calculator = calculator;
-            number = new double[2] { _Hunger, _OxygenLevel };
+            number = new double[3] { _Hunger, _OxygenLevel, _Happinness };
 
         }
 
@@ -80,9 +82,9 @@ namespace AnimalModel
 
         public void FristPassSetUP()
         {
-            double[] numbers = new double[2] { _Hunger, _OxygenLevel };
-            
-            FirstPassArgs args = new FirstPassArgs(_imageName, numbers);
+
+
+            FirstPassArgs args = new FirstPassArgs(_imageName, number);
            
             fPass(this, args);
         }
@@ -144,12 +146,14 @@ namespace AnimalModel
 
         public void decTimer_Tick(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            Calculator.CalculateValues(number, "Decrease");
+            number = Calculator.Results();
         }
 
         public void happinessTimer_Tick(object sender, EventArgs e)
         {
-          //  throw new NotImplementedException();
+            Calculator.CalculateHappines(number);
+            number = Calculator.Results();
         }
     }
     }

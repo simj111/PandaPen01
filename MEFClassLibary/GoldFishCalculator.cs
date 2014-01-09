@@ -63,16 +63,21 @@ namespace MEFClassLibary
 
         public void CalculateValues(double[] numbers, string Operations)
         {
-            if (Operations == "EatFishFood")
+            if (Operations == "Button1")
             {
                 numbers[0] = numbers[0] + 15;
                 numbers[1] = numbers[1] + 5;
             }
 
-            else if (Operations == "CleaningAir")
+            else if (Operations == "Button2")
             {
                 numbers[0] = numbers[0] + 15;
                 numbers[1] = numbers[1] + 5;
+            }
+            else if (Operations == "Decrease")
+            {
+                numbers[0] -= 5;
+                numbers[1] -= 5;
             }
             answers = numbers;
 
@@ -112,9 +117,9 @@ namespace MEFClassLibary
                     answers[i] = 0;
                 }
 
-                if (answers[2] == 100)
+                if (answers[2] >= 100)
                 {
-                    FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull");
+                    FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalulatorValue);
                     answers[2] = 0;
                     happiness(this, Happiness);
 

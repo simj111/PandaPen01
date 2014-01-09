@@ -9,8 +9,8 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
   public  class ViewModleFor2Bars : IViewModel
   {
 
-        private double[] Number01 = new double[2];
-        private double[] calculate = new double[2];
+        private double[] Number01 = new double[3];
+ 
         private Form VF = null;
 
 
@@ -88,7 +88,8 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
         public void SendResults()
         {
             (VF  as View2Bars).hungryBar.Value = Convert.ToInt32(Number01[0]);
-            (VF as View2Bars).oxygenBar.Value = Convert.ToInt32(Number01[1]);  
+            (VF as View2Bars).oxygenBar.Value = Convert.ToInt32(Number01[1]);
+            (VF as View2Bars).happinessBar.Value = Convert.ToInt32(Number01[2]);  
         }
 
 

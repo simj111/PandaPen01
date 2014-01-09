@@ -2,9 +2,16 @@
 using Interfaces;
 using Interfaces.Events;
 using System.Windows.Forms;
+using System.ComponentModel.Composition;
 
 namespace AnimalModel
 {
+
+    [Export(typeof(IAnimalModle))]
+    [ExportMetadata("description", "Lion")]
+ 
+
+
    public class Lion : IAnimalModle
     {
     /// <summary>
@@ -24,7 +31,7 @@ namespace AnimalModel
          double[] numbers;
 
         public ICalculate Calculator;
-        public IBarManager barmanager;
+        public IButtonManager buttonmanager;
         public Timer decTimer;
         public Timer happinessTimer;
 
@@ -36,7 +43,7 @@ namespace AnimalModel
         /// Connect the Animal to its BarManger
         /// And to use Name to give the Modles it own Indvidual Name
         /// </summary>
-        /// <param name="myBarManager"></param>
+        /// <param name="mybuttonmanager"></param>
         /// <param name="calculator"></param>
         /// <param name="ID"></param>
     
@@ -64,10 +71,10 @@ namespace AnimalModel
         /// </summary>
         /// <returns></returns>
 
-        public IBarManager Getbars()
+        public IButtonManager GetButtonsForSubscibe()
         {
       
-            return barmanager;
+            return buttonmanager;
         }
 
         /// <summary>
@@ -113,11 +120,11 @@ namespace AnimalModel
         }
 
 
-       public void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID)
+       public void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID)
        {
-           barmanager = myBarManager;
+           buttonmanager = mybuttonmanager;
            Name(_imageName, ID);
-           myBarManager.ConnectANIMAL(this, IDVIDUALName);
+           mybuttonmanager.ConnectANIMAL(this, IDVIDUALName);
            Calculator = calculator;
            numbers = new double[4] { _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
 

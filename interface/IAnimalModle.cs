@@ -14,9 +14,9 @@ namespace Interfaces
     {
        void KillTimers();
 
-       IBarManager Getbars();
+       IButtonManager GetButtonsForSubscibe();
 
-       void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID);
+       void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID);
 
        ICalculate Getcalc();
 

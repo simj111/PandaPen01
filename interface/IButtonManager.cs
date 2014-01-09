@@ -7,7 +7,7 @@ using Interfaces.Events;
 
 namespace Interfaces
 {
-	public interface IBarManager
+	public interface IButtonManager
 	{
         void Subscribe(Form f);
         void CheckIfValid(Form f, ButtonPressEventArgs args);

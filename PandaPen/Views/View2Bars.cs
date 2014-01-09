@@ -15,7 +15,7 @@ namespace PandaPen
     /// This is The View used With Animal Contain two Bars The current Inhabitant of this area is the Gold fish Animal
     /// </summary>
 
-    public partial class View2Bars : Form, IViewEvents
+    public partial class View2Bars : Form, IViewEvents, IViewNoramlSelectionofCalcs
     {
         #region DataMembers
        /// <summary>
@@ -27,6 +27,7 @@ namespace PandaPen
 
         public string name;
         public event ButtonPressEventHandler btnPress;
+        public event CalcTypeHandler selectCalc;
         #endregion DataMembers;
 
 
@@ -50,7 +51,7 @@ namespace PandaPen
         #region Methods
         private void fBtn_Click(object sender, EventArgs e)
         {
-            ButtonPressEventArgs information = new ButtonPressEventArgs("EatFishFood", name);
+            ButtonPressEventArgs information = new ButtonPressEventArgs("Button1", name,1);
           
 
             btnPress(this, information);
@@ -59,7 +60,7 @@ namespace PandaPen
 
         private void cleanBtn_Click(object sender, EventArgs e)
         {
-            ButtonPressEventArgs information = new ButtonPressEventArgs("CleaningAir", name);
+            ButtonPressEventArgs information = new ButtonPressEventArgs("Button2", name,2);
             
 
             btnPress(this, information);
@@ -68,5 +69,6 @@ namespace PandaPen
         
         
         #endregion
+
     }
 }

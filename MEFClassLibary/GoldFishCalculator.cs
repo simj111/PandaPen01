@@ -14,7 +14,8 @@ namespace MEFClassLibary
     /// </summary>
     
       [Export (typeof(ICalculate))]
-
+      [ExportMetadata("description", "GoldFish2Bars")]
+      [ExportMetadata("CalDescription", "GoldFish2Bars_Easy")]
 
     public class GoldFishCalculator : ICalculate
     {
@@ -28,7 +29,7 @@ namespace MEFClassLibary
         #region DataMembers
         public event PassCalcResultsHandler resPass;
         double[] answers;
-        private string _imageName = "GoldFish2Bars";
+        public string _imageName = "GoldFish2Bars";
         private string InvidualCalulatorValue;
         public event FullHappinessHandler happiness;
         #endregion DataMembers
@@ -54,6 +55,11 @@ namespace MEFClassLibary
         /// This Method Also pass out the Events and number to the View Modles and then these are Updated.
         /// </summary>
 
+        public string InitialPassIn(int IDvalue)
+        {
+            InvidualCalulatorValue = _imageName + IDvalue.ToString();
+            return InvidualCalulatorValue;
+        }
 
         public void CalculateValues(double[] numbers, string Operations)
         {
@@ -106,10 +112,10 @@ namespace MEFClassLibary
                     answers[i] = 0;
                 }
 
-                if (answers[3] == 100)
+                if (answers[2] == 100)
                 {
                     FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull");
-                    answers[3] = 0;
+                    answers[2] = 0;
                     happiness(this, Happiness);
 
                 }
@@ -120,9 +126,5 @@ namespace MEFClassLibary
         #endregion Methods
 
 
-        public void InitialPassIn(int IDvalue)
-        {
-            InvidualCalulatorValue = _imageName + IDvalue.ToString();
-        }
     }
 }

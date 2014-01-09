@@ -31,15 +31,15 @@
             this.cleanBtn = new System.Windows.Forms.Button();
             this.fBtn = new System.Windows.Forms.Button();
             this.happinessBar = new System.Windows.Forms.ProgressBar();
-            this.animalPicBox = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.oxygenBar = new System.Windows.Forms.ProgressBar();
             this.hungryBar = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).BeginInit();
+            this.animalPicBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).BeginInit();
             this.SuspendLayout();
             // 
             // cleanBtn
@@ -69,16 +69,6 @@
             this.happinessBar.Size = new System.Drawing.Size(427, 23);
             this.happinessBar.TabIndex = 21;
             // 
-            // animalPicBox
-            // 
-            this.animalPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.animalPicBox.Location = new System.Drawing.Point(18, 14);
-            this.animalPicBox.Name = "animalPicBox";
-            this.animalPicBox.Size = new System.Drawing.Size(231, 215);
-            this.animalPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.animalPicBox.TabIndex = 0;
-            this.animalPicBox.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -90,23 +80,22 @@
             // 
             // oxygenBar
             // 
-            this.oxygenBar.Location = new System.Drawing.Point(305, 133);
+            this.oxygenBar.Location = new System.Drawing.Point(305, 175);
             this.oxygenBar.Name = "oxygenBar";
             this.oxygenBar.Size = new System.Drawing.Size(136, 23);
             this.oxygenBar.TabIndex = 19;
             // 
             // hungryBar
             // 
-            this.hungryBar.Location = new System.Drawing.Point(305, 58);
+            this.hungryBar.Location = new System.Drawing.Point(305, 100);
             this.hungryBar.Name = "hungryBar";
             this.hungryBar.Size = new System.Drawing.Size(136, 23);
             this.hungryBar.TabIndex = 18;
-          
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(336, 117);
+            this.label2.Location = new System.Drawing.Point(336, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 17;
@@ -115,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(336, 41);
+            this.label1.Location = new System.Drawing.Point(336, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 16;
@@ -129,6 +118,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(271, 232);
             this.panel1.TabIndex = 15;
+            // 
+            // animalPicBox
+            // 
+            this.animalPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.animalPicBox.Location = new System.Drawing.Point(18, 14);
+            this.animalPicBox.Name = "animalPicBox";
+            this.animalPicBox.Size = new System.Drawing.Size(231, 215);
+            this.animalPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.animalPicBox.TabIndex = 0;
+            this.animalPicBox.TabStop = false;
             // 
             // View2Bars
             // 
@@ -146,8 +145,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "View2Bars";
             this.Text = "View2";
-            ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

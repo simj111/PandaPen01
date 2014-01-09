@@ -8,6 +8,10 @@ using System.ComponentModel.Composition.Hosting;
 using Interfaces.Events;
 namespace CalculatorLibrary
 {
+    [Export(typeof(ICalculate))]
+    [ExportMetadata("description", "Panda")]
+    [ExportMetadata("CalDescription", "Panda_Medium")]
+
     public class PandaCalculate : ICalculate
     {
         #region DataMembers
@@ -23,14 +27,15 @@ namespace CalculatorLibrary
         #endregion
 
         #region Methods
-        public void InitialPassIn(int IDvalue)
+        public string InitialPassIn(int IDvalue)
         {
             InvidualCalulatorValue = _imageName + IDvalue.ToString();
+            return InvidualCalulatorValue;
         }
 
         public void CalculateValues(double[] numbers, string Operations)
         {
-            if (Operations == "Eat")
+            if (Operations == "Button1")
             {
                 numbers[0] = numbers[0] + 4;
                 numbers[1] = numbers[1] + 2;
@@ -38,7 +43,7 @@ namespace CalculatorLibrary
 
             }
 
-            else if (Operations == "Sleep")
+            else if (Operations == "Button2")
             {
 
                 numbers[0] -= 2;
@@ -47,7 +52,7 @@ namespace CalculatorLibrary
 
             }
 
-            else if (Operations == "Exercise")
+            else if (Operations == "Button3")
             {
                 numbers[0] -= 6;
                 numbers[1] -= 6;

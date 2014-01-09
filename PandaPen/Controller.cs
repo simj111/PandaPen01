@@ -12,7 +12,7 @@ using Interfaces.Events;
 using PandaPen.Views_Models;
 using Selector;
 using System.Diagnostics;
-using AnimalModel;
+
 
 
 
@@ -28,26 +28,27 @@ namespace PandaPen
         /// Containts The Factory That Creates all of the In Built IAnimalModle posstioned in the factory.
         /// </summary>
 
-        [Import]
-        private ISelector _modelSelector = null;
+   //     [Import]
+   //     private ISelector _modelSelector = null;
 
         [Import]
         private Factory AFac1;
         //[Import] private ICalutor
+        public List<IViewNoramlSelectionofCalcs> Calview = new List<IViewNoramlSelectionofCalcs>();
         public List<Form> ViewList = new List<Form>();
         public List<IViewModel> ViewModelList = new List<IViewModel>();
-
+        private string Combo;
+        string calculatortrype;
         int Number = 0;
         int i = 0;
-
+        
         Form first = new DefaultView();
         Form _view = null;
-        Form OtherViews;
         IViewModel ViewM = null;
 
         List<IAnimalModle> listTest = null;
 
-        IBarManager barmanager;
+        IButtonManager buttonmanager;
         ICalculate calculator;
 
 
@@ -71,10 +72,7 @@ namespace PandaPen
         {
             ComposeContainer();
             Subscribe(first);
-
-
             AddAnimalsToBox(AFac1.typeoflist);
-
             Application.Run(first);
 
 
@@ -99,13 +97,21 @@ namespace PandaPen
 
         public void Subscribe(Form f)
         {
-            (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents);
+            if ( (f as DefaultView) != null )
+            {
+                (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents);
+            }
+                
+               
+            if ((f as CalulationForms) != null)
+            {
+                (f as CalulationForms ).selectCalc += new CalcTypeHandler(ReciveEvents2);
+            }
         }
 
         public void CalculateSubscribe(ICalculate Cal)
         {
-            Cal.happiness += new FullHappinessHandler(CheckWinCondition);
-
+           Cal.happiness += new FullHappinessHandler(CheckWinCondition);
         }
 
 
@@ -116,33 +122,38 @@ namespace PandaPen
         /// <param name="f"></param>
         /// <param name="args"></param>
 
+        public void ReciveEvents2(Form f, CalcTypeArgs args)
+        {
+            calculatortrype = args._calcTypes;
+            f.Close();
+            CreateView();
+        }
 
         public void ReciveEvents(Form f, AnimalTypeArgs args)
         {
 
             if (args.animalTypes != null)
             {
-                CreatView(args._animalTypes);
-                CreateFactoryAndModels(args.animalTypes);
+
+
+                CreatViewCalution(args._animalTypes);
+               
+            
+
 
             }
         }
 
-        /// <summary>
-        /// Create Views Based on A string Passed IN
-        /// </summary>
-        /// <param name="recviedFromCombo"></param>
-
-        public void CreatView(string recviedFromCombo)
+        public void CreateView()
         {
-            string subchallange2Bars = "2Bars";
+             string subchallange2Bars = "2Bars";
 
-            if (recviedFromCombo != null)
+             if (Combo != null)
             {
 
-                string Name = recviedFromCombo + i.ToString();
+                string Name = Combo + i.ToString();
 
-                if (recviedFromCombo.Contains(subchallange2Bars))
+                if (Combo.Contains(subchallange2Bars))
                 {
                     _view = new View2Bars(Name);
                     ViewList.Add(_view);
@@ -160,9 +171,44 @@ namespace PandaPen
                     _view.Show();
 
                 }
-                i++;
+
+                CreateFactoryAndModels(Combo);
+                    i++;
+                
+                
+        }}
+
+
+        /// <summary>
+        /// Create Views Based on A string Passed IN
+        /// </summary>
+        /// <param name="recviedFromCombo"></param>
+
+        public void CreatViewCalution(string recviedFromCombo)
+        {
+            Combo = recviedFromCombo;
+            List<string> test = AFac1.Calculatortype;
+            IViewNoramlSelectionofCalcs Calculation = new CalulationForms();
+           
+            foreach (string Cals in test)
+            {
+                if (Cals.Contains(recviedFromCombo))
+                {
+                    (Calculation as CalulationForms).comboBox1.Items.AddRange(new object[] { Cals });
+                }
             }
-        }
+
+
+            Calview.Add(Calculation);
+            (Calculation as Form).Show();
+
+            Subscribe(Calculation as Form);
+            
+            
+            
+           
+            }
+        
 
         /// <summary>
         /// Creates the Selector for all Mef Compontes so All Imported Componets Can be used
@@ -183,14 +229,22 @@ namespace PandaPen
 
             {
 
-                AFac1.GeneratAnimals(recviedFromCombo, Number);
+
+
+
+
+                AFac1.GeneratAnimals(recviedFromCombo, Number, calculatortrype);
                 (first as DefaultView).animalType.Items.Clear();
                 AddAnimalsToBox(AFac1.typeoflist);
+                
+                
+                
+                
                 listTest = AFac1.animallist;
                 calculator = listTest[Number].Getcalc();
                 CalculateSubscribe(calculator);
-                barmanager = listTest[Number].Getbars();
-                barmanager.Subscribe(_view);
+                buttonmanager = listTest[Number].GetButtonsForSubscibe();
+                buttonmanager.Subscribe(_view);
                 ViewM.Subscribe(listTest[Number], calculator);
                 listTest[Number].FristPassSetUP();
 
@@ -228,6 +282,7 @@ namespace PandaPen
                 container.ComposeParts(this);
                 //   _modelSelector.getAvailableModels();
                 AFac1.FindTypes();
+                AFac1.FindCalctypes();
 
 
 
@@ -245,11 +300,11 @@ namespace PandaPen
 
         public void CheckWinCondition(ICalculate f, FullHappinessArgs args)
         {
-            if (args.happiness == "HappinessisfullLion")
+           // if (args.happiness == "HappinessisfullLion")
             {
                
                 MessageBox.Show("You have won");
-                barmanager.Unsubscribe(_view);
+                buttonmanager.Unsubscribe(_view);
                 _view.Close();
             }
         }

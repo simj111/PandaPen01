@@ -16,7 +16,7 @@ namespace PandaPen
     /// Partial Class of the Three Bar Animal Views is Used with the Panda and Lion Animal in the orginal Verisons of the game.
     /// </summary>
     
-    public partial class View : Form, IViewEvents
+    public partial class View : Form, IViewEvents, IViewNoramlSelectionofCalcs
     {
         #region DataMembers
         /// <summary>
@@ -25,6 +25,8 @@ namespace PandaPen
         /// </summary>
         public string name;
         public event ButtonPressEventHandler btnPress;
+        public event CalcTypeHandler selectCalc;
+        int Number = 0;
         #endregion 
 
 
@@ -53,8 +55,9 @@ namespace PandaPen
         
         private void fBtn_Click(object sender, EventArgs e)
         {
+
             {
-                ButtonPressEventArgs information = new ButtonPressEventArgs("Eat", name);
+                ButtonPressEventArgs information = new ButtonPressEventArgs("Button1", name , 1);
                 btnPress(this, information);
             }
 
@@ -62,18 +65,20 @@ namespace PandaPen
 
         private void sBtn_Click(object sender, EventArgs e)
         {
-            ButtonPressEventArgs information = new ButtonPressEventArgs("Sleep", name);
+            ButtonPressEventArgs information = new ButtonPressEventArgs("Button2", name, 2);
 
             btnPress(this, information);
         }
 
         private void eBtn_Click(object sender, EventArgs e)
         {
-            ButtonPressEventArgs information = new ButtonPressEventArgs("Exercise", name);
+            ButtonPressEventArgs information = new ButtonPressEventArgs("Button3", name, 3);
 
             btnPress(this, information);
         }
         #endregion 
+
+    
         
     }
 }

@@ -30,16 +30,26 @@ namespace Interfaces.Events
             }
         }
 
+        private int _ButtonNumber;
+        public int ButtonNumber
+        {
+            get
+            {
+                return _ButtonNumber;
+            }
+
+        }
         
 
        
        
     
 
-        public ButtonPressEventArgs(string information, string IniatilID )
+        public ButtonPressEventArgs(string information, string IniatilID, int ButtonNumber )
         {
             _information = information;
             _IniatilID = IniatilID;
+            _ButtonNumber = ButtonNumber;
         }
 
 

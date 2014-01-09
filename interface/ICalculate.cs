@@ -11,7 +11,7 @@ namespace Interfaces
         event FullHappinessHandler happiness;
         event PassCalcResultsHandler resPass;
 
-        void InitialPassIn(int IDvalue);
+        string InitialPassIn(int IDvalue);
         void CalculateValues(double[] numbers, string Operations);
         
         void CalculateHappines(double[] numbers);

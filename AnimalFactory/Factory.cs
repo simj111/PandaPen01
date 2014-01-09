@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
-using BarManager;
-using AnimalModel;
-using MEFClassLibary;
+using ButtonManager;
 using System.Diagnostics;
 using System.ComponentModel.Composition;
 using CalculatorLibrary;
 
 namespace AnimalFactory
 {
- [Export(typeof(Factory))]
+
+    [Export(typeof(Factory))]
 
 
-   public class Factory
+    public class Factory
     {
+
+        
 
         /// <summary>
         /// Contains A List of types
@@ -27,46 +28,53 @@ namespace AnimalFactory
         /// 
 
 
-
-
-        [ImportMany] 
+        [ImportMany]
         private IEnumerable<Lazy<IAnimalModle, IInformationTypeMetadata>> _AvaibaleModles;
-        [ImportMany] 
+        [ImportMany]
         private List<IAnimalModle> _avaibaleModles;
 
-                [ImportMany] 
-
-        private List<ICalculate> _MEFCALCULATORS;
-      
-
+        [ImportMany]
+        private IEnumerable<Lazy<ICalculate, IIViewMetadataCalulators>> _AvailableCaluclate;
+        [ImportMany]
+        private List<ICalculate> _MEFCalculators;
+        ICalculate calculator;
+        IButtonManager buttonmanager;
+        IAnimalModle AnimalModle;
         public List<string> typeoflist = new List<string>();
         public List<IAnimalModle> animallist = new List<IAnimalModle>();
+        public List<string> Calculatortype = new List<string>();
 
 
         /// <summary>
         /// the Factory Constructor Finds the Types stored in its List
         /// </summary>
 
-        public Factory()
-        {
-
-
-            //FindTypes();
-        }
-
         /// <summary>
         /// Method which will list all types either input manulay or used with Mef Components
         /// </summary>
         public void FindTypes()
         {
-            typeoflist.Add("Panda");
-            typeoflist.Add("Lion");
+            //typeoflist.Add("Panda");
+           
 
             foreach (Lazy<IAnimalModle, IInformationTypeMetadata> item in _AvaibaleModles)
             {
+                
                 typeoflist.Add(item.Metadata.description);
 
             }
+
+        }
+
+        public void FindCalctypes()
+        {
+
+            foreach (Lazy<ICalculate, IIViewMetadataCalulators> item in _AvailableCaluclate)
+            {
+
+             Calculatortype.Add(item.Metadata.CalDescription);
+                
+             }
 
         }
 
@@ -76,65 +84,58 @@ namespace AnimalFactory
         /// <param name="Animal"></param>
         /// <param name="ID"></param>
 
-        public void GeneratAnimals(string Animal, int ID)
+        public void GeneratAnimals(string Animal, int ID , string Calculator)
         {
             
             if (typeoflist.Any(str => str.Contains(Animal)))
             {
-
-                if (Animal == "Panda")
+                /*if (Animal == "Lion")
                 {
-                    IAnimalModle Panda = null;
-                    IBarManager barmanager = new PandaBM();
-                                
-                    ICalculate calculator = new PandaCalculate();
-                               calculator.InitialPassIn(ID);
-                    Panda = new AnimalModel.Panda(barmanager, calculator, ID);
-
-                    animallist.Add(Panda);
-                    typeoflist.Remove("Panda");
-                }
-                else if (Animal == "Lion")
-                {
-                    
-                    IBarManager barmanger;
-                    IAnimalModle Lion;
-                    barmanger = new LionBM2();
-                    ICalculate calculator = new LionCalculate();
-                               calculator.InitialPassIn(ID);
-                    Lion = new AnimalModel.Lion();
-                    Lion.PassinInatial(barmanger, calculator, ID);
-                    animallist.Add(Lion);
+                                     
+                    buttonmanager = new BUTTON_MANAGER();
+                    calculator = new LionCalculate();
+                    calculator.InitialPassIn(ID);
+                    AnimalModle = new AnimalModel.Lion();
+                    AnimalModle.PassinInatial(buttonmanager, calculator, ID);
+                    animallist.Add(AnimalModle);
                     typeoflist.Remove("Lion");
                 }
-                else if (Animal == "GoldFish2Bars" && typeoflist.Contains(Animal))
-                {
-
-                    IBarManager barmanger = new GoldfishBM1();
-                    ICalculate cally;
-                    foreach (ICalculate calculators in _MEFCALCULATORS)
+                 */
+                 
+                
+                    buttonmanager = new BUTTON_MANAGER();
+                    foreach (Lazy<IAnimalModle, IInformationTypeMetadata> item in _AvaibaleModles )
                     {
-                        cally = calculators;
-
-
-
-                        foreach (IAnimalModle animalmef in _avaibaleModles)
+                        if(Animal == item.Metadata.description)
                         {
-                            
 
-                            (animalmef as GoldFish).PassinInatial(barmanger, cally, ID);
-                            animallist.Add(animalmef);
-                            typeoflist.Remove("GoldFish2Bars");
+                            foreach (Lazy<ICalculate, IIViewMetadataCalulators> cal in _AvailableCaluclate)
+                            {
+                                if (Animal == cal.Metadata.description && Calculator == cal.Metadata.CalDescription)
+                                {
+                                  calculator = cal.Value;
+                                  calculator.InitialPassIn(ID);
+                                }
+                            }
 
+                                AnimalModle = item.Value;
+                                AnimalModle.PassinInatial(buttonmanager, calculator, ID);
+                                animallist.Add(AnimalModle);
+                                typeoflist.Remove(item.Metadata.description);  
                         }
                     }
 
+                  
+                    
+                    
+
                 }
                 }
 
-            }
-
-        }
     }
+}
+
+        
+    
 
 

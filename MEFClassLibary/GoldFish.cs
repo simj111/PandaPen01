@@ -12,6 +12,9 @@ namespace AnimalModel
     
       [Export(typeof(IAnimalModle))]
       [ExportMetadata("description", "GoldFish2Bars")]
+      
+    
+
     
    public class GoldFish : IAnimalModle
     {
@@ -25,7 +28,7 @@ namespace AnimalModel
           private double _Hunger = 5;
           private double _OxygenLevel = 60;
           double[] number;
-          public IBarManager barmanager;
+          public IButtonManager buttonmanager;
           public ICalculate Calculator;
 
 
@@ -41,15 +44,15 @@ namespace AnimalModel
         /// Is the Consructor for Panda it is used to transfer the Aninal its BarManger And Calulator
         /// Connect the Animal to its BarManger
         /// </summary>
-        /// <param name="myBarManager"></param>
+        /// <param name="mybuttonmanager"></param>
         /// <param name="calculator"></param>
         /// <param name="ID"></param>
         /// 
         /// 
         /// 
-    
 
-        public void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID)
+
+       public void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID)
         {
             //Decrease timer object properties
             decTimer = new Timer();
@@ -62,9 +65,9 @@ namespace AnimalModel
             happinessTimer.Enabled = true;
             happinessTimer.Interval = 3000;
 
-            barmanager = myBarManager;
+            buttonmanager = mybuttonmanager;
             Name(_imageName, ID);
-            myBarManager.ConnectANIMAL(this, IDVIDUALName);
+            mybuttonmanager.ConnectANIMAL(this, IDVIDUALName);
             Calculator = calculator;
             number = new double[2] { _Hunger, _OxygenLevel };
 
@@ -94,10 +97,10 @@ namespace AnimalModel
         /// </summary>
         /// <returns></returns>
 
-        public IBarManager Getbars()
+        public IButtonManager GetButtonsForSubscibe()
         {
       
-            return barmanager;
+            return buttonmanager;
         }
 
         /// <summary>
@@ -141,12 +144,12 @@ namespace AnimalModel
 
         public void decTimer_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void happinessTimer_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+          //  throw new NotImplementedException();
         }
     }
     }

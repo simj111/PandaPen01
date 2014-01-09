@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\CalulationForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CalulationForms.Designer.cs">
+      <DependentUpon>CalulationForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="Views\DefaultView.cs">
       <SubType>Form</SubType>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Views_Models\ViewModel.cs" />
     <Compile Include="Views_Models\ViewModleFor2Bars.cs" />
+    <EmbeddedResource Include="Views\CalulationForms.resx">
+      <DependentUpon>CalulationForms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DefaultView.resx">
       <DependentUpon>DefaultView.cs</DependentUpon>
     </EmbeddedResource>

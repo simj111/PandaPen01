@@ -12,7 +12,10 @@ namespace CalculatorLibrary
     /// This is the LionCalcutor and is used to Calcualte the gold fish valuse use the ICalculate Interface.
     /// </summary>
 
-    
+    [Export(typeof(ICalculate))]
+    [ExportMetadata("description", "Lion")]
+    [ExportMetadata("CalDescription", "Lion_Easy")]
+   
 
     public class LionCalculate : ICalculate
     {
@@ -26,11 +29,7 @@ namespace CalculatorLibrary
 
         #region Constrcutor
 
-        public string InitialPassIn(int IDvalue)
-        {
-            InvidualCalulatorValue = _imageName + IDvalue.ToString();
-            return InvidualCalulatorValue;
-        }
+        
         #endregion
 
         #region Methods
@@ -45,12 +44,19 @@ namespace CalculatorLibrary
         /// Caculate Values pass in the values from Anima when it called as well as the string which tell it what opereation it should prefrom inside the statement
         /// This Method Also pass out the Events and number to the View Modles and then these are Updated.
         /// </summary>
+        /// 
+
+        public string InitialPassIn(int IDvalue)
+        {
+            InvidualCalulatorValue = _imageName + IDvalue.ToString();
+            return InvidualCalulatorValue;
+        }
 
         public void CalculateValues(double[] numbers,string Operations)
           
 
         {
-            if (Operations == "Eat")
+            if (Operations == "Button1")
             {
                 numbers[0] = numbers[0] + 15;
                 numbers[1]  = numbers[1] + 5;
@@ -58,7 +64,7 @@ namespace CalculatorLibrary
               
             }
 
-            else if (Operations == "Sleep")
+            else if (Operations == "Button2")
             {
               
                 numbers[0] -= 10;
@@ -67,7 +73,7 @@ namespace CalculatorLibrary
                 
             }
 
-            else if (Operations == "Exercise")
+            else if (Operations == "Button3")
             {
                 numbers[0] -= 5;
                 numbers[1] -= 10;
@@ -148,10 +154,7 @@ namespace CalculatorLibrary
 
 
 
-        void ICalculate.InitialPassIn(int IDvalue)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }
 

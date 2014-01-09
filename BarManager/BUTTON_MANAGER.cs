@@ -7,13 +7,13 @@ using Interfaces.Events;
 using System.Windows.Forms;
 
 
-namespace BarManager
+namespace ButtonManager
 {
     /// <summary>
     /// The Purpouse of This Class is to Enterprate Events to see if its Particular Animal Should React
     /// </summary>
 
-    public class PandaBM : IBarManager
+    public class BUTTON_MANAGER : IButtonManager
     {
         /// <summary>
         /// The Data Members Contain a Animal to store the Animal this Particular BarManger is Linked to
@@ -38,20 +38,25 @@ namespace BarManager
         /// <param name="args"></param>
         public void CheckIfValid(Form f, ButtonPressEventArgs args)
         {
-            if (args.information == "Eat" && args.IniatilID == InvidID)
+            if (args.IniatilID == InvidID)
             {
-                PassOutCalucaltion(args.information);
-            }
-            else if (args.information == "Sleep" && args.IniatilID == InvidID)
-            {
-                PassOutCalucaltion(args.information);
-            }
-            else if (args.information == "Exercise" && args.IniatilID == InvidID)
-            {
-                PassOutCalucaltion(args.information);
+
+
+                if (args.information == "Button1")
+                {
+                    PassOutCalucaltion(args.information);
+                }
+                else if (args.information == "Button2")
+                {
+                    PassOutCalucaltion(args.information);
+                }
+                else if (args.information == "Button3")
+                {
+                    PassOutCalucaltion(args.information);
+                }
             }
         }
-     
+        
 
         /// <summary>
         /// Pass Out Calucation type to the Animal Modle which pass it out to the Calulator to ensure success

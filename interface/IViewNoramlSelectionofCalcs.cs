@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Interfaces.Events;
 
 namespace Interfaces
-
 {
-  public  interface  IInformationTypeMetadata
+    public interface IViewNoramlSelectionofCalcs
     {
-      string description { get; }
-    
+        event CalcTypeHandler selectCalc;
     }
 }

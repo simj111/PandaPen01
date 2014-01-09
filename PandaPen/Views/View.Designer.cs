@@ -182,7 +182,6 @@ namespace PandaPen
             this.Controls.Add(this.panel1);
             this.Name = "View";
             this.Text = "View";
-            //this.Load += new System.EventHandler(this.View_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.animalPicBox)).EndInit();
             this.ResumeLayout(false);

@@ -8,8 +8,8 @@
     <ProjectGuid>{31C8C243-AC0F-474D-A563-7DB36056AC06}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BarManager</RootNamespace>
-    <AssemblyName>BarManager</AssemblyName>
+    <RootNamespace>ButtonManager</RootNamespace>
+    <AssemblyName>ButtonManager</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,9 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoldFishBM1.cs" />
-    <Compile Include="LionBM2.cs" />
-    <Compile Include="PandaBM.cs" />
+    <Compile Include="BUTTON_MANAGER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

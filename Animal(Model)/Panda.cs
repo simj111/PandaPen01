@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Interfaces;
 using Interfaces.Events;
-using BarManager;
 using CalculatorLibrary;
 using System.Windows.Forms;
+using System.ComponentModel.Composition;
 
 
 namespace AnimalModel
@@ -14,7 +14,12 @@ namespace AnimalModel
     /// <summary>
     /// This Class is the Panda Animal Modle its main role is to store data and Carry out Calculations refering to the Panda Animal.
     /// </summary>
-
+    
+    
+    [Export(typeof(IAnimalModle))]
+    [ExportMetadata("description", "Panda")]
+ 
+    
     public class Panda : IAnimalModle
     {
 
@@ -32,7 +37,7 @@ namespace AnimalModel
           private double _happinessBarVal = 1;
           double[] numbers;
           public ICalculate Calculator;
-          public IBarManager barmanager;
+          public IButtonManager buttonmanager;
           public Timer decTimer;
           public Timer happinessTimer;
 
@@ -43,29 +48,10 @@ namespace AnimalModel
         /// Is the Consructor for Panda it is used to transfer the Aninal its BarManger And Calulator
         /// Connect the Animal to its BarManger
         /// </summary>
-        /// <param name="myBarManager"></param>
+        /// <param name="mybuttonmanager"></param>
         /// <param name="calculator"></param>
         /// <param name="ID"></param>
-        public Panda(IBarManager myBarManager, ICalculate calculator, int ID)
-        {
-            barmanager = myBarManager;
-            Name(_imageName, ID);
-            myBarManager.ConnectANIMAL(this, IDVIDUALName);
-            Calculator = calculator;
-            numbers = new double[4]{ _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
-
-            //Decrease timer object properties
-            decTimer = new Timer();
-            decTimer.Enabled = true;
-            decTimer.Interval = 3000;
-            this.decTimer.Tick += new System.EventHandler(this.decTimer_Tick);
-
-            //Happiness timer object properties
-            happinessTimer = new Timer();
-            happinessTimer.Enabled = true;
-            happinessTimer.Interval = 3000;
-            this.happinessTimer.Tick += new System.EventHandler(this.happinessTimer_Tick);
-        }
+       
 
         /// <summary>
         /// Frist Pass Set UP is called in the Controler to pass the Inital star up Variables
@@ -90,10 +76,10 @@ namespace AnimalModel
         /// </summary>
         /// <returns></returns>
 
-        public IBarManager Getbars()
+        public IButtonManager GetButtonsForSubscibe()
         {
       
-            return barmanager;
+            return buttonmanager;
         }
 
         /// <summary>
@@ -142,9 +128,26 @@ namespace AnimalModel
         }
 
 
-        public void PassinInatial(IBarManager myBarManager, ICalculate calculator, int ID)
+        public void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID)
         {
-            throw new NotImplementedException();
+            buttonmanager = mybuttonmanager;
+            Name(_imageName, ID);
+            mybuttonmanager.ConnectANIMAL(this, IDVIDUALName);
+            Calculator = calculator;
+            numbers = new double[4]{ _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
+
+            //Decrease timer object properties
+            decTimer = new Timer();
+            decTimer.Enabled = true;
+            decTimer.Interval = 3000;
+            this.decTimer.Tick += new System.EventHandler(this.decTimer_Tick);
+
+            //Happiness timer object properties
+            happinessTimer = new Timer();
+            happinessTimer.Enabled = true;
+            happinessTimer.Interval = 3000;
+            this.happinessTimer.Tick += new System.EventHandler(this.happinessTimer_Tick);
+         
         }
     }
     }

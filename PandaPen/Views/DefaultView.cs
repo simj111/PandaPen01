@@ -21,7 +21,7 @@ namespace PandaPen
         /// These Data Members Contain two Events the Annimal type Events is used to select the view to display.
         /// </summary>
 
-          public event AnimalTypeHandler selectAnimal;
+         public event AnimalTypeHandler selectAnimal;
          public event ButtonPressEventHandler btnPress;
         
         public DefaultView()

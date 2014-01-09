@@ -29,14 +29,12 @@ namespace AnimalModel
           private double _inHBarVal = 15;
           private double _inEBarVal = 60;
           private double _inFBarVal = 5;
-         private double _happinessBarVal = 1;
-
-         double[] numbers;
-
-        public ICalculate Calculator;
-        public IBarManager barmanager;
-        public Timer decTimer;
-        public Timer happinessTimer;
+          private double _happinessBarVal = 1;
+          double[] numbers;
+          public ICalculate Calculator;
+          public IBarManager barmanager;
+          public Timer decTimer;
+          public Timer happinessTimer;
 
        public event FirstPassHandler fPass;
 

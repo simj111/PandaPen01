@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarManager", "BarManager\Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selector", "Selector\Selector.csproj", "{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEFClassLibary", "MEFClassLibary\MEFClassLibary.csproj", "{BB98D689-34C8-449B-84ED-1E6827D0EE34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,16 @@ Global
 		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|x86.ActiveCfg = Release|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

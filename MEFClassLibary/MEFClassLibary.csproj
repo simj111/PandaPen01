@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9E26E656-A10C-4B76-AAAA-2AF164896330}</ProjectGuid>
+    <ProjectGuid>{BB98D689-34C8-449B-84ED-1E6827D0EE34}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CalculatorLibrary</RootNamespace>
-    <AssemblyName>CalculatorLibrary</AssemblyName>
+    <RootNamespace>MEFClassLibary</RootNamespace>
+    <AssemblyName>MEFClassLibary</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LionCalculate.cs" />
-    <Compile Include="pandacalc2.cs" />
-    <Compile Include="PandaCalculate.cs" />
+    <Compile Include="GoldFish.cs" />
+    <Compile Include="GoldFishCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

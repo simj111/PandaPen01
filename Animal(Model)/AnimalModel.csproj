@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoldFish.cs" />
     <Compile Include="Lion.cs" />
     <Compile Include="Panda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

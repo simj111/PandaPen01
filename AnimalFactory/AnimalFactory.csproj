@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\bin\Debug\</OutputPath>
+    <OutputPath>..\MEFBOX\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -60,6 +60,10 @@
     <ProjectReference Include="..\interface\Interfaces.csproj">
       <Project>{EC58A9C8-86E3-4AB6-8780-33870B6C36B7}</Project>
       <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MEFClassLibary\MEFClassLibary.csproj">
+      <Project>{BB98D689-34C8-449B-84ED-1E6827D0EE34}</Project>
+      <Name>MEFClassLibary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

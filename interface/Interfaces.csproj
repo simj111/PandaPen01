@@ -48,6 +48,7 @@
     <Compile Include="Events\FirstPassArgs.cs" />
     <Compile Include="Events\FullHappinessArgs.cs" />
     <Compile Include="Events\PassCalcResultsArgs.cs" />
+    <Compile Include="GoldFishCalculator.cs" />
     <Compile Include="IAnimalModle.cs" />
     <Compile Include="IBarManager.cs" />
     <Compile Include="ICalculate.cs" />

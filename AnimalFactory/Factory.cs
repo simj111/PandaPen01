@@ -6,6 +6,7 @@ using Interfaces;
 using Interfaces.Events;
 using BarManager;
 using AnimalModel;
+using MEFClassLibary;
 using System.Diagnostics;
 using System.ComponentModel.Composition;
 using CalculatorLibrary;

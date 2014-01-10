@@ -15,7 +15,7 @@ namespace PandaPen
     /// This is The View used With Animal Contain two Bars The current Inhabitant of this area is the Gold fish Animal
     /// </summary>
 
-    public partial class View2Bars : Form, IViewEvents, IViewNoramlSelectionofCalcs
+    public partial class View2Bars : Form, IViewEvents
     {
         #region DataMembers
        /// <summary>

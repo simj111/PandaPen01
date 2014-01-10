@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Interfaces.Events
 {
-    public delegate void FirstPassHandler(IAnimalModle source, FirstPassArgs args);
+    public delegate void FirstPassHandler(IAnimalModel source, FirstPassArgs args);
 
     public class FirstPassArgs : EventArgs
 	{

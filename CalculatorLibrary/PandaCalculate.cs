@@ -16,15 +16,12 @@ namespace CalculatorLibrary
     {
         #region DataMembers
         double[] answers;
-        public event FullHappinessHandler happiness;
-        public event PassCalcResultsHandler resPass;
         public string InvidualCalulatorValue;
         private string _imageName = "Panda";
+        public event FullHappinessHandler happiness;
+        public event PassCalcResultsHandler resPass;
         #endregion
 
-        #region Constructor
-        
-        #endregion
 
         #region Methods
         public string InitialPassIn(int IDvalue)
@@ -67,12 +64,8 @@ namespace CalculatorLibrary
                 numbers[2] -= 2;
             }
 
-           
-
             answers = numbers;
-
             PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-
             resPass(this, information);
         }
 
@@ -83,7 +76,6 @@ namespace CalculatorLibrary
                 numbers[3] = numbers[3] + 21; 
             }
             answers = numbers;
-           
         }
 
         public double[] Results()
@@ -104,9 +96,7 @@ namespace CalculatorLibrary
                     FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullPanda", InvidualCalulatorValue);
                     answers[3] = 0;
                     happiness(this,Happiness);
-
                 }
-
             }
             return answers;
         }

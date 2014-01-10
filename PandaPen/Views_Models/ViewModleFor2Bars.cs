@@ -48,13 +48,13 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
         }
 
 
-        public void Subscribe(IAnimalModle Animal, ICalculate Calculate)
+        public void Subscribe(IAnimalModel Animal, ICalculate Calculate)
         {
             Animal.fPass += new FirstPassHandler(ReciveFirstInput);
             Calculate.resPass += new PassCalcResultsHandler(ConvertResultsFromCalc1);
         }
 
-        public void ReciveFirstInput(IAnimalModle source, FirstPassArgs args)
+        public void ReciveFirstInput(IAnimalModel source, FirstPassArgs args)
         {
             for (int i = 0; i < args.values.Length; i++)
             {

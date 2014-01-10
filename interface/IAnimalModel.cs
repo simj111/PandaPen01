@@ -10,27 +10,27 @@ using System.Windows.Forms;
 namespace Interfaces
 {
 
-   public interface IAnimalModle
+   public interface IAnimalModel
     {
-       void KillTimers();
+       event FirstPassHandler fPass;
 
        IButtonManager GetButtonsForSubscibe();
-
-       void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID);
 
        ICalculate Getcalc();
 
        string Name(string _imageName, double ID);
 
-       void Calculate(string Animal);     
-         
-       event FirstPassHandler fPass;
+       void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID);
 
-       void FristPassSetUP();
+       void FirstPassSetUP();
+
+       void Calculate(string Animal);     
 
        void decTimer_Tick(object sender, EventArgs e);
 
        void happinessTimer_Tick(object sender, EventArgs e);
+
+       void KillTimers();
 
     }
 }

@@ -12,7 +12,7 @@ using Interfaces;
 namespace PandaPen
 {
     /// <summary>
-    /// This the Defualt View and is the frist View you see
+    /// This the Defualt View and is the First View you see
     /// </summary>
     public partial class DefaultView : Form, IViewEvents
          

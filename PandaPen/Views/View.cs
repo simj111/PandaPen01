@@ -16,7 +16,7 @@ namespace PandaPen
     /// Partial Class of the Three Bar Animal Views is Used with the Panda and Lion Animal in the orginal Verisons of the game.
     /// </summary>
     
-    public partial class View : Form, IViewEvents, IViewNoramlSelectionofCalcs
+    public partial class View : Form, IViewEvents
     {
         #region DataMembers
         /// <summary>

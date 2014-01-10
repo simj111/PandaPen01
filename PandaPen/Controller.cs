@@ -12,46 +12,38 @@ using Interfaces.Events;
 using PandaPen.Views_Models;
 using System.Diagnostics;
 
-
-
-
 namespace PandaPen
 {
-    class Controller : IController
+    class Controller 
     {
         #region DataMembers
 
         /// <summary>
-        /// Data Members Which Contain The list of View
+        /// Data Members Which Contain The list of Views
         /// Contains the Numbers
-        /// Containts The Factory That Creates all of the In Built IAnimalModle posstioned in the factory.
+        /// Containts The Factory That Creates all of the In Built IAnimalModel posstioned in the factory.
         /// </summary>
-
-
-
         [Import]
         private Factory AFac1;
-     
+
         public List<IViewNoramlSelectionofCalcs> Calview = new List<IViewNoramlSelectionofCalcs>();
         public List<Form> ViewList = new List<Form>();
         public List<IViewModel> ViewModelList = new List<IViewModel>();
-        private string[] Combo;
-        
-        string[] calculatortrype = new string[2];
+        private List<IAnimalModel> listTest = null;
+
+        private string[] Combo = new string[2];
+        string[] calculatortrype = new string[3];
+
         int Number = 0;
         int i = 0;
-        int  Wincalucation = 0;
+        int Wincalucation = 0;
+        int CurrentCalcViewID;
+
         Form first = new DefaultView();
         Form _view = null;
-        int CurrentCalcViewID;
         IViewModel ViewM = null;
-        List<IAnimalModle> listTest = null;
-
         IButtonManager buttonmanager;
         ICalculate calculator;
-
-
-
 
         #endregion DataMembers
 
@@ -96,21 +88,21 @@ namespace PandaPen
 
         public void Subscribe(Form f)
         {
-            if ( (f as DefaultView) != null )
+            if ((f as DefaultView) != null)
             {
                 (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents);
             }
-                
-               
+
+
             if ((f as CalulationForms) != null)
             {
-                (f as CalulationForms ).selectCalc += new CalcTypeHandler(ReciveEvents2);
+                (f as CalulationForms).selectCalc += new CalcTypeHandler(ReciveEvents2);
             }
         }
 
         public void CalculateSubscribe(ICalculate Cal)
         {
-           Cal.happiness += new FullHappinessHandler(CheckWinCondition);
+            Cal.happiness += new FullHappinessHandler(CheckWinCondition);
 
         }
 
@@ -127,6 +119,7 @@ namespace PandaPen
 
             CurrentCalcViewID = args.ID;
             calculatortrype[args.ID] = args.calcTypes;
+
             f.Close();
             CreateView();
         }
@@ -139,8 +132,8 @@ namespace PandaPen
 
 
                 CreatViewCalution(args._animalTypes);
-               
-            
+
+
 
 
             }
@@ -148,9 +141,9 @@ namespace PandaPen
 
         public void CreateView()
         {
-             string subchallange2Bars = "2Bars";
+            string subchallange2Bars = "2Bars";
 
-             if (Combo != null)
+            if (Combo != null)
             {
 
                 string Name = Combo + i.ToString();
@@ -174,11 +167,12 @@ namespace PandaPen
 
                 }
 
-                CreateFactoryAndModels(Combo);
-                    i++;
-                
-                
-        }}
+                CreateFactoryAndModels(Combo[CurrentCalcViewID]);
+                i++;
+
+
+            }
+        }
 
 
         /// <summary>
@@ -188,11 +182,11 @@ namespace PandaPen
 
         public void CreatViewCalution(string recviedFromCombo)
         {
-            
-            Combo = recviedFromCombo;
+
+            Combo[CurrentCalcViewID] = recviedFromCombo;
             List<string> test = AFac1.Calculatortype;
             IViewNoramlSelectionofCalcs Calculation = new CalulationForms(Number);
-           
+
             foreach (string Cals in test)
             {
                 if (Cals.Contains(recviedFromCombo))
@@ -206,20 +200,12 @@ namespace PandaPen
             (Calculation as Form).Show();
 
             Subscribe(Calculation as Form);
-            
-            
- 
-           
-            }
-        
+            CurrentCalcViewID++;
+            Number++;
 
-        /// <summary>
-        /// Creates the Selector for all Mef Compontes so All Imported Componets Can be used
-        /// </summary>
-        public void CreateSelector()
-        {
 
         }
+
         /// <summary>
         ///  This Metod is resposnible for passing in the string from the Combox into the factory which is used to Build the correct modle for that specfic string.
         ///  It is reposnibe for subscribing the Barmanger with view so it can recive the ButtonpressEvents
@@ -228,29 +214,19 @@ namespace PandaPen
         /// <param name="recviedFromCombo"></param>
         public void CreateFactoryAndModels(string recviedFromCombo)
         {
-
-
             {
-
-
-                AFac1.GeneratAnimals(recviedFromCombo, CurrentCalcViewID, calculatortrype[CurrentCalcViewID]);
+                AFac1.GeneratAnimals(Combo[CurrentCalcViewID], CurrentCalcViewID, calculatortrype[CurrentCalcViewID]);
                 (first as DefaultView).animalType.Items.Clear();
                 AddAnimalsToBox(AFac1.typeoflist);
-                
-                
-                
-                
                 listTest = AFac1.animallist;
-                calculator = listTest[Number].Getcalc();
+                calculator = listTest[CurrentCalcViewID].Getcalc();
                 CalculateSubscribe(calculator);
-                buttonmanager = listTest[Number].GetButtonsForSubscibe();
+                buttonmanager = listTest[CurrentCalcViewID].GetButtonsForSubscibe();
                 buttonmanager.Subscribe(_view);
-                ViewM.Subscribe(listTest[Number], calculator);
-                listTest[Number].FristPassSetUP();
-
+                ViewM.Subscribe(listTest[CurrentCalcViewID], calculator);
+                listTest[CurrentCalcViewID].FirstPassSetUP();
             }
-
-            Number++;
+            //  Number++;
         }
 
         /// <summary>
@@ -277,14 +253,11 @@ namespace PandaPen
 
             try
             {
-                //  _modelSelector.getAvailableModels();
 
                 container.ComposeParts(this);
-                //   _modelSelector.getAvailableModels();
+               
                 AFac1.FindTypes();
                 AFac1.FindCalctypes();
-
-
 
             }
             catch (CompositionException e)
@@ -303,22 +276,17 @@ namespace PandaPen
             int i = Number;
             if (args.happiness != null)
             {
-            
-             _view = ViewList[Wincalucation]; 
-             buttonmanager.Unsubscribe(_view);
-            Wincalucation++;
+
+                _view = ViewList[Wincalucation];
+                buttonmanager.Unsubscribe(_view);
+                Wincalucation++;
             }
             if (i == Wincalucation)
             {
-                MessageBox.Show("You have won");           
-            }
-
-               
-          
-             
-                
+                MessageBox.Show("You have won");
             }
         }
+    }
 
 
         #endregion

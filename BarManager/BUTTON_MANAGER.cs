@@ -19,9 +19,9 @@ namespace ButtonManager
         /// The Data Members Contain a Animal to store the Animal this Particular BarManger is Linked to
         /// The string InvidID Contains a string Reference which of the Object which is stored in the Modle so it can be used to deterem if the module should react]
         /// </summary>
-        
-        IAnimalModle Animal;
+        IAnimalModel Animal;
         public string InvidID;
+
         /// <summary>
         /// This Method is used to Subscribe to the events this Particullar Sucrbies to Button Press Recived from ButtonEventHandler and which are Genreated in the view
         /// The Class for this Is currently called View
@@ -31,6 +31,7 @@ namespace ButtonManager
         {
             (f as IViewEvents).btnPress += new ButtonPressEventHandler(CheckIfValid);
         }
+
         /// <summary>
         /// This Methods Job is to Ensure that Any Events Recivied are Valid for the Specific Model.
         /// </summary>
@@ -40,7 +41,6 @@ namespace ButtonManager
         {
             if (args.IniatilID == InvidID)
             {
-
 
                 if (args.information == "Button1")
                 {
@@ -56,7 +56,17 @@ namespace ButtonManager
                 }
             }
         }
-        
+
+        /// <summary>
+        /// This Method is used to allow the Buttonmanger to Speak to its Specific animal Modle
+        /// </summary>
+        /// <param name="LINKEDANIMAL"></param>
+        /// <param name="Name"></param>
+        public void ConnectANIMAL(IAnimalModel LINKEDANIMAL, string Name)
+        {
+            Animal = LINKEDANIMAL;
+            InvidID = Name;
+        }
 
         /// <summary>
         /// Pass Out Calucation type to the Animal Modle which pass it out to the Calulator to ensure success
@@ -66,20 +76,6 @@ namespace ButtonManager
         {
             Animal.Calculate(Clacualtion);
         }
-
-        /// <summary>
-        /// This Method is used to allow the Barmanger to Speak to its Specific animal Modle
-        /// </summary>
-        /// <param name="LINKEDANIMAL"></param>
-        /// <param name="Name"></param>
-
-       public void ConnectANIMAL(IAnimalModle LINKEDANIMAL, string Name)
-        {
-            Animal = LINKEDANIMAL;
-            InvidID = Name;
-
-        }
-
 
        public void Unsubscribe(Form f)
        {  

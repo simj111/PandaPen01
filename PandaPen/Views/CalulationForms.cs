@@ -13,8 +13,9 @@ namespace PandaPen
 {
     public partial class CalulationForms : Form , IViewNoramlSelectionofCalcs
     {
-
         int CatchthenumberID;
+        public event CalcTypeHandler selectCalc;
+
         public CalulationForms(int ID)
         {
             CatchthenumberID = ID;
@@ -26,7 +27,5 @@ namespace PandaPen
             CalcTypeArgs information = new CalcTypeArgs(comboBox1.Text,CatchthenumberID);
             selectCalc(this, information);
         }
-    
-public event Interfaces.Events.CalcTypeHandler  selectCalc;
-}
+    }
 }

@@ -9,6 +9,5 @@ namespace Interfaces.Events
     {
         string description { get; }
         string CalDescription { get; }
-
     }
 }

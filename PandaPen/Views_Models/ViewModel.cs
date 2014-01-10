@@ -21,7 +21,7 @@ namespace PandaPen
             VF = TheForm;
         }
 
-        public void Subscribe(IAnimalModle Animal, ICalculate Calculate)
+        public void Subscribe(IAnimalModel Animal, ICalculate Calculate)
         {
             Animal.fPass += new FirstPassHandler(ReciveFirstInput);
             Calculate.resPass += new PassCalcResultsHandler(ConvertResultsFromCalc);
@@ -43,7 +43,7 @@ namespace PandaPen
             }
         }
 
-        public void ReciveFirstInput(IAnimalModle source, FirstPassArgs args)
+        public void ReciveFirstInput(IAnimalModel source, FirstPassArgs args)
         {
             
            

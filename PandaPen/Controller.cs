@@ -35,15 +35,16 @@ namespace PandaPen
         public List<IViewNoramlSelectionofCalcs> Calview = new List<IViewNoramlSelectionofCalcs>();
         public List<Form> ViewList = new List<Form>();
         public List<IViewModel> ViewModelList = new List<IViewModel>();
-        private string Combo;
-        string calculatortrype;
+        private string[] Combo;
+        
+        string[] calculatortrype = new string[2];
         int Number = 0;
         int i = 0;
         int  Wincalucation = 0;
         Form first = new DefaultView();
         Form _view = null;
+        int CurrentCalcViewID;
         IViewModel ViewM = null;
-
         List<IAnimalModle> listTest = null;
 
         IButtonManager buttonmanager;
@@ -110,6 +111,7 @@ namespace PandaPen
         public void CalculateSubscribe(ICalculate Cal)
         {
            Cal.happiness += new FullHappinessHandler(CheckWinCondition);
+
         }
 
 
@@ -122,7 +124,9 @@ namespace PandaPen
 
         public void ReciveEvents2(Form f, CalcTypeArgs args)
         {
-            calculatortrype = args._calcTypes;
+
+            CurrentCalcViewID = args.ID;
+            calculatortrype[args.ID] = args.calcTypes;
             f.Close();
             CreateView();
         }
@@ -184,9 +188,10 @@ namespace PandaPen
 
         public void CreatViewCalution(string recviedFromCombo)
         {
+            
             Combo = recviedFromCombo;
             List<string> test = AFac1.Calculatortype;
-            IViewNoramlSelectionofCalcs Calculation = new CalulationForms();
+            IViewNoramlSelectionofCalcs Calculation = new CalulationForms(Number);
            
             foreach (string Cals in test)
             {
@@ -203,7 +208,7 @@ namespace PandaPen
             Subscribe(Calculation as Form);
             
             
-            
+ 
            
             }
         
@@ -228,10 +233,7 @@ namespace PandaPen
             {
 
 
-
-
-
-                AFac1.GeneratAnimals(recviedFromCombo, Number, calculatortrype);
+                AFac1.GeneratAnimals(recviedFromCombo, CurrentCalcViewID, calculatortrype[CurrentCalcViewID]);
                 (first as DefaultView).animalType.Items.Clear();
                 AddAnimalsToBox(AFac1.typeoflist);
                 

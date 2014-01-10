@@ -10,7 +10,7 @@ namespace Interfaces.Events
 
     public class CalcTypeArgs : EventArgs
     {
-        public string _calcTypes;
+        private string _calcTypes;
 
         public string calcTypes
         {
@@ -19,8 +19,22 @@ namespace Interfaces.Events
                 return _calcTypes;
             }
         }
-        public CalcTypeArgs(string calcTypes)
+
+        private int _ID;
+        public int ID
         {
+            get
+            {
+                return _ID;
+            }
+
+        }
+
+ 
+
+        public CalcTypeArgs(string calcTypes, int ID)
+        {
+            _ID = ID;
             _calcTypes = calcTypes;
         }
     }

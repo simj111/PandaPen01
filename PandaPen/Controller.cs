@@ -10,7 +10,6 @@ using Interfaces;
 using AnimalFactory;
 using Interfaces.Events;
 using PandaPen.Views_Models;
-using Selector;
 using System.Diagnostics;
 
 
@@ -28,12 +27,11 @@ namespace PandaPen
         /// Containts The Factory That Creates all of the In Built IAnimalModle posstioned in the factory.
         /// </summary>
 
-   //     [Import]
-   //     private ISelector _modelSelector = null;
+
 
         [Import]
         private Factory AFac1;
-        //[Import] private ICalutor
+     
         public List<IViewNoramlSelectionofCalcs> Calview = new List<IViewNoramlSelectionofCalcs>();
         public List<Form> ViewList = new List<Form>();
         public List<IViewModel> ViewModelList = new List<IViewModel>();

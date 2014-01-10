@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLibrary", "Calcul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonManager", "BarManager\ButtonManager.csproj", "{31C8C243-AC0F-474D-A563-7DB36056AC06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selector", "Selector\Selector.csproj", "{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEFClassLibary", "MEFClassLibary\MEFClassLibary.csproj", "{BB98D689-34C8-449B-84ED-1E6827D0EE34}"
 EndProject
 Global
@@ -87,16 +85,6 @@ Global
 		{31C8C243-AC0F-474D-A563-7DB36056AC06}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{31C8C243-AC0F-474D-A563-7DB36056AC06}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{31C8C243-AC0F-474D-A563-7DB36056AC06}.Release|x86.ActiveCfg = Release|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{79749BC8-9128-4BB7-BEFA-CB9DF27C939D}.Release|x86.ActiveCfg = Release|Any CPU
 		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB98D689-34C8-449B-84ED-1E6827D0EE34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

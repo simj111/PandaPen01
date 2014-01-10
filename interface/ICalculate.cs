@@ -7,8 +7,11 @@ using Interfaces.Events;
 namespace Interfaces
 {
     /// <summary>
-    /// This interface will be used by any calculator 
+    /// This interface will be used by any calculator and is used to perform calculations to properties of the animal using it.
     /// 
+    /// Any class that uses the interface will need the following using statements:
+    /// using Interfaces;
+    /// using Interfaces.Events;
     /// 
     /// RULE: Happiness needs to reach 100 to win the game. 
     /// This is checked within the "Results" method.

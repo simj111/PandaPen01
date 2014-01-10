@@ -31,7 +31,7 @@ namespace PandaPen
         public List<IViewModel> ViewModelList = new List<IViewModel>();
         private List<IAnimalModel> listTest = null;
 
-        private string[] Combo = new string[2];
+        private string[] Combo = new string[3];
         string[] calculatortrype = new string[3];
 
         int Number = 0;
@@ -148,7 +148,7 @@ namespace PandaPen
 
                 string Name = Combo[CurrentCalcViewID] + i.ToString();
 
-                if (Combo.Contains(subchallange2Bars))
+                if (Combo[CurrentCalcViewID].Contains(subchallange2Bars))
                 {
                     _view = new View2Bars(Name);
                     ViewList.Add(_view);

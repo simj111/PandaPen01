@@ -11,7 +11,6 @@ namespace CalculatorLibrary
     /// <summary>
     /// This is the LionCalcutor and is used to Calcualte the gold fish valuse use the ICalculate Interface.
     /// </summary>
-
     [Export(typeof(ICalculate))]
     [ExportMetadata("description", "Lion")]
     [ExportMetadata("CalDescription", "Lion_Easy")]
@@ -25,11 +24,6 @@ namespace CalculatorLibrary
         public string InvidualCalulatorValue;
         private string _imageName = "Lion";
         public event FullHappinessHandler happiness;
-        #endregion
-
-        #region Constrcutor
-
-        
         #endregion
 
         #region Methods
@@ -48,12 +42,11 @@ namespace CalculatorLibrary
 
         public string InitialPassIn(int IDvalue)
         {
-            InvidualCalulatorValue = _imageName + IDvalue.ToString();
+           InvidualCalulatorValue = _imageName + IDvalue.ToString();
             return InvidualCalulatorValue;
         }
 
         public void CalculateValues(double[] numbers,string Operations)
-          
 
         {
             if (Operations == "Button1")
@@ -88,23 +81,10 @@ namespace CalculatorLibrary
                 numbers[2] -= 2;
             }
 
-            for (int i = 0; i < numbers.Length;i++ )
-            {
-                if (numbers[i] > 100)
-                {
-                    numbers[i] = 99;
-                }
-                else if (numbers[i] < 0)
-                {
-                    numbers[i] = 0;
-                }
-                
-            }
+          
 
             answers = numbers;
-
             PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-
             resPass(this, information);
         }
 
@@ -122,29 +102,14 @@ namespace CalculatorLibrary
         /// Returns results to the relavant Animal modle for this caclotor when called
         /// </summary>
         /// <returns></returns>
-
         public double[] Results()
         {
-            for (int i = 0; i < answers.Length; i++)
-            {
-                if (answers[i] > 100)
-                {
-                    answers[i] = 100;
-                }
-                else if (answers[i] < 0)
-                {
-                    answers[i] = 0;
-                }
-
                 if (answers[3] == 100)
                 {
                     FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullLion", InvidualCalulatorValue);
-                    answers[3] = 0;
                     happiness(this, Happiness);
-
                 }
 
-            }
             return answers;
         }
         #endregion

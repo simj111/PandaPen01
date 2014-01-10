@@ -146,7 +146,7 @@ namespace PandaPen
             if (Combo != null)
             {
 
-                string Name = Combo + i.ToString();
+                string Name = Combo[CurrentCalcViewID] + i.ToString();
 
                 if (Combo.Contains(subchallange2Bars))
                 {
@@ -166,7 +166,7 @@ namespace PandaPen
                     _view.Show();
 
                 }
-
+               
                 CreateFactoryAndModels(Combo[CurrentCalcViewID]);
                 i++;
 
@@ -200,7 +200,7 @@ namespace PandaPen
             (Calculation as Form).Show();
 
             Subscribe(Calculation as Form);
-            CurrentCalcViewID++;
+            
             Number++;
 
 
@@ -225,6 +225,7 @@ namespace PandaPen
                 buttonmanager.Subscribe(_view);
                 ViewM.Subscribe(listTest[CurrentCalcViewID], calculator);
                 listTest[CurrentCalcViewID].FirstPassSetUP();
+                CurrentCalcViewID++;
             }
             //  Number++;
         }
@@ -246,29 +247,19 @@ namespace PandaPen
 
         public void ComposeContainer()
         {
-
             DirectoryCatalog catalog = new DirectoryCatalog("..\\MEFBOX\\");
-
             CompositionContainer container = new CompositionContainer(catalog);
-
             try
             {
-
                 container.ComposeParts(this);
-               
                 AFac1.FindTypes();
                 AFac1.FindCalctypes();
-
             }
             catch (CompositionException e)
             {
                 Trace.WriteLine("Composition failed");
                 Trace.WriteLine(e.Message);
-
             }
-
-
-
         }
 
         public void CheckWinCondition(ICalculate f, FullHappinessArgs args)

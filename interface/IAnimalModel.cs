@@ -9,7 +9,9 @@ using System.Windows.Forms;
 
 namespace Interfaces
 {
-
+    /// <summary>
+    /// This interface will be used by each of the Animal Classes in 
+    /// </summary>
    public interface IAnimalModel
     {
        event FirstPassHandler fPass;

@@ -21,8 +21,8 @@ namespace AnimalModel
     {
 
         /// <summary>
-        /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
-        /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
+        /// The Data Members Contain strings and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
+        /// The Doubles Contain Individual BarVaules and are the Intial Valuse.
         /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
         ///  And to use Name to give the Modles it own Indvidual Name
         /// </summary>
@@ -96,7 +96,6 @@ namespace AnimalModel
         /// <summary>
         /// First Pass Set UP is called in the Controler to pass the Inital star up Variables
         /// </summary>
-
         public void FirstPassSetUP()
         {
             string imagename = _imageName;

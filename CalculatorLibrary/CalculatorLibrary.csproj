@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LionCalc2.cs" />
     <Compile Include="LionCalculate.cs" />
     <Compile Include="pandacalc2.cs" />
     <Compile Include="PandaCalculate.cs" />

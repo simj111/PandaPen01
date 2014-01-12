@@ -14,44 +14,32 @@ namespace Interfaces
     /// </summary>
    public interface IAnimalModel
     {
-        /// <summary>
-    /// This interface will be used by each of the Animal Classes in 
-    /// </summary>
-   public interface IAnimalModel
-    {
        /// <summary>
         /// First Pass a Double Array of the Intail staring Valuesues. Into trhe view module it need to pass a string repersent the Name of the Animal such as Panda   
         /// it pass the infomation as FirstPassArgs args = new FirstPassArgs(_imageName, number);
        /// 
        /// </summary>
        event FirstPassHandler fPass;
-   /// <summary>
-       /// This Method is used my the Controler to get The Bar Manger so it can Subscribe view to them.
+       /// <summary>
+       /// This Method is used my the Controler to get The Button Manger so it can Subscribe view to them.
+       /// Is used to get the Specifc Button Manger so that that the Win Condtion can be subscribed to controler
        /// </summary>
        /// <returns></returns
        IButtonManager GetButtonsForSubscibe();
 
-    
        /// <summary>
-       /// Is used to get the Specifc Button Manger so that that the Wind Condtion can be subscribed to controler
-       /// 
-       /// </summary>
-       /// <returns></returns>
-
-
-       ICalculate Getcalc();
-       /// <summary>
-       /// is used to get the Specif Caculator so the Controller can Subscirbe to it inside the modle.
+       /// is used to get the Specific Caculator so the Controller can Subscirbe to it inside the modle.
        /// </summary>
        /// <param name="_imageName"></param>
        /// <param name="ID"></param>
        /// <returns></returns>
+       ICalculate Getcalc();
+      
 
 
        /// <summry>
        /// Is used to return an Invdialumodule Id which pass over from the modle these have to be defined in a string
        /// </summry>
-
        string Name(string _imageName, double ID);
 
        /// <summary>
@@ -61,7 +49,6 @@ namespace Interfaces
        /// <param name="mybuttonmanager"></param>
        /// <param name="calculator"></param>
        /// <param name="ID"></param>
-
        void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID);
 
 
@@ -95,12 +82,11 @@ namespace Interfaces
        /// </summary>
        /// <param name="sender"></param>
        /// <param name="e"></param>
-
        void happinessTimer_Tick(object sender, EventArgs e);
+
        /// <summary>
        /// Simply Deactive timers when game is over
        /// </summary>
-
        void KillTimers();
 
     }

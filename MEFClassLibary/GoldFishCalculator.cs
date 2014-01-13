@@ -89,7 +89,7 @@ namespace MEFClassLibary
         {
             if (numbers[0] >= 50 && numbers[1] >= 50)
             {
-                numbers[2] = numbers[2] + 50;
+                numbers[2] = numbers[2] + 11;
             }
             answers = numbers;
         }

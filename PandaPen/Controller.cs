@@ -121,7 +121,7 @@ namespace PandaPen
             CurrentCalcViewID = args.ID;
             calculatortrype[args.ID] = args.calcTypes;
 
-            f.Close();
+            f.Hide();
             CreateView();
         }
 

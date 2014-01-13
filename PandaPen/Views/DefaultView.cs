@@ -14,7 +14,7 @@ namespace PandaPen
     /// <summary>
     /// This the Defualt View and is the First View you see
     /// </summary>
-    public partial class DefaultView : Form, IViewEvents
+    public partial class DefaultView : Form 
          
     {
         /// <summary>
@@ -22,7 +22,7 @@ namespace PandaPen
         /// </summary>
 
          public event AnimalTypeHandler selectAnimal;
-         public event ButtonPressEventHandler btnPress;
+        
         
         public DefaultView()
         {

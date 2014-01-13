@@ -34,9 +34,9 @@ namespace PandaPen
         private string[] Combo = new string[3];
         string[] calculatortrype = new string[3];
 
-        int Number = 0;
+        int NumberOfViews = 0;
         int i = 0;
-        int Wincalucation = 0;
+        int WinCalculation = 0;
         int CurrentCalcViewID;
 
         Form first;
@@ -187,7 +187,7 @@ namespace PandaPen
 
             Combo[CurrentCalcViewID] = recviedFromCombo;
             List<string> test = AFac1.Calculatortype;
-            IViewNoramlSelectionofCalcs Calculation = new CalulationForms(Number);
+            IViewNoramlSelectionofCalcs Calculation = new CalulationForms(NumberOfViews);
 
             foreach (string Cals in test)
             {
@@ -202,8 +202,8 @@ namespace PandaPen
             (Calculation as Form).Show();
             first.Hide();
             Subscribe(Calculation as Form);
-            
-            Number++;
+
+            NumberOfViews++;
 
 
         }
@@ -270,17 +270,22 @@ namespace PandaPen
 
         public void CheckWinCondition(ICalculate f, FullHappinessArgs args)
         {
-            int i = Number;
-            if (args.happiness != null)
+            string names;
+            WinCalculation++;
+            foreach (IAnimalViews a in ViewList)
             {
-
-                _view = ViewList[Wincalucation];
-                buttonmanager.Unsubscribe(_view);
-                Wincalucation++;
+                names = a.fName();
+                if (args.CalculatorID == names)
+                {
+                    buttonmanager.Unsubscribe(_view);
+                }
+                if (NumberOfViews == WinCalculation)
+                {
+                    MessageBox.Show("You have won");
+                    Application.Exit();
+                }
+               
             }
-            if (i == Wincalucation)
-            {
-                MessageBox.Show("You have won");
             }
         }
     }
@@ -289,6 +294,6 @@ namespace PandaPen
         #endregion
 
 
-    }
+    
     
 

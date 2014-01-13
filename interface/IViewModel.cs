@@ -10,7 +10,9 @@ namespace Interfaces
     {
            void Subscribe(IAnimalModel Animal, ICalculate Calculate);
            void ReciveFirstInput(IAnimalModel source, FirstPassArgs args);
+           void ConvertResultsFromCalc(ICalculate source, PassCalcResultsArgs args);
            void SendResults();
+           void LastMove(ICalculate calc, FullHappinessArgs args);
            
 
     }

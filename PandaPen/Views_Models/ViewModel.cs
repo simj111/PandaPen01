@@ -38,8 +38,7 @@ namespace PandaPen
                 SendResults();
                 (VF as View).eBtn.Enabled = false;
                 (VF as View).sBtn.Enabled = false;
-                (VF as View).fBtn.Enabled = false;
-                
+                (VF as View).fBtn.Enabled = false; 
             }
         }
 
@@ -100,29 +99,11 @@ namespace PandaPen
 
                     Number01[i] = args.values[i];
                 }
-
-
-                for (int i = 0; i < args.values.Length; i++)
-                {
-
-                    if (Number01[i] >= 100)
-                    {
-                        Number01[i] = 100;
-                    }
-
-                    else if (Number01[i] <= 0)
-                    {
-                        Number01[i] = 0;
-                    }
-                }
             }
 
             SendResults();
         
-        
-  
         }
-
 
     }
 

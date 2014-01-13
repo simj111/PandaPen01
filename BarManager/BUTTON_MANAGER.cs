@@ -29,7 +29,7 @@ namespace ButtonManager
         /// <param name="f"></param>
         public void Subscribe(Form f)
         {
-            (f as IViewEvents).btnPress += new ButtonPressEventHandler(CheckIfValid);
+            (f as IAnimalViews).btnPress += new ButtonPressEventHandler(CheckIfValid);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace ButtonManager
 
        public void Unsubscribe(Form f)
        {  
-           (f as IViewEvents).btnPress -= new ButtonPressEventHandler(CheckIfValid);
+           (f as IAnimalViews).btnPress -= new ButtonPressEventHandler(CheckIfValid);
            Animal.KillTimers();         
        }
     }

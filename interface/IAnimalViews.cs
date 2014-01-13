@@ -8,8 +8,9 @@ namespace Interfaces
     /// <summary>
     /// This is used by the views which contain button presses. It fires off the event.
     /// </summary>
-    public interface IViewEvents
+    public interface IAnimalViews
 	{
         event ButtonPressEventHandler btnPress;
+        string fName();
 	}
 }

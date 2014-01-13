@@ -91,7 +91,7 @@ namespace MEFClassLibary
         {
             if (numbers[0] >= 50 && numbers[1] >= 50)
             {
-                numbers[2] = numbers[2] + 11;
+                numbers[2] = numbers[2] + 30;
             }
             answers = numbers;
         }
@@ -117,7 +117,7 @@ namespace MEFClassLibary
                 if (answers[2] == 100)
                 {
                     FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalulatorValue);
-                    answers[2] = 0;
+                    
                     happiness(this, Happiness);
                 }
             }

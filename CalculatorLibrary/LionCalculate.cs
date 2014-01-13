@@ -116,8 +116,8 @@ namespace CalculatorLibrary
 
                 if (answers[3] == 100)
                 {
-                    FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullPanda", InvidualCalulatorValue);
-                    answers[3] = 0;
+                    FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalulatorValue);
+                    
                     happiness(this, Happiness);
                 }
             }

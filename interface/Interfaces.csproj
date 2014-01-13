@@ -54,7 +54,7 @@
     <Compile Include="IButtonManager.cs" />
     <Compile Include="ICalculate.cs" />
     <Compile Include="IInformationTypeMetadata.cs" />
-    <Compile Include="IViewEvents.cs" />
+    <Compile Include="IAnimalViews.cs" />
     <Compile Include="IViewModel.cs" />
     <Compile Include="IViewNoramlSelectionofCalcs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

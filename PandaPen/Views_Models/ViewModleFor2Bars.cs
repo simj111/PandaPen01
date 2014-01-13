@@ -19,7 +19,7 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
             VF = TheForm;
         }
 
-        public void ConvertResultsFromCalc1(ICalculate source, PassCalcResultsArgs args)
+        public void ConvertResultsFromCalc(ICalculate source, PassCalcResultsArgs args)
         {
             if (args.CalculatorID == (VF as View2Bars).name)
             {
@@ -51,7 +51,8 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
         public void Subscribe(IAnimalModel Animal, ICalculate Calculate)
         {
             Animal.fPass += new FirstPassHandler(ReciveFirstInput);
-            Calculate.resPass += new PassCalcResultsHandler(ConvertResultsFromCalc1);
+            Calculate.resPass += new PassCalcResultsHandler(ConvertResultsFromCalc);
+            Calculate.happiness += new FullHappinessHandler(LastMove);
         }
 
         public void ReciveFirstInput(IAnimalModel source, FirstPassArgs args)
@@ -64,20 +65,9 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
 
             string imageName = args.imagesource;
 
-            for (int i = 0; i < args.values.Length; i++)
-            {
-
-                if (Number01[i] > 100)
-                {
-                    Number01[i] = 99;
-                }
-                else if (Number01[i] < 0)
-                {
-                    Number01[i] = 0;
-                }
-            }
 
             SendResults();
+
             if (imageName == "GoldFish2Bars")
             {
                 (VF as View2Bars).animalPicBox.Image = PandaPen.Properties.Resources.fishpic;
@@ -93,9 +83,15 @@ using System.Windows.Forms;namespace PandaPen.Views_Models
         }
 
 
-        public double CheckHappiness()
+        public void LastMove(ICalculate calc, FullHappinessArgs args)
         {
-            throw new NotImplementedException();
+            if (args.CalculatorID == (VF as View2Bars).name)
+            {
+                Number01[2] = 100;
+                SendResults();
+                (VF as View2Bars).fBtn.Enabled = false;
+                (VF as View2Bars).cleanBtn.Enabled = false;
+            }
         }
   }
 }

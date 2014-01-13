@@ -21,21 +21,21 @@ namespace PandaPen
         /// Containts The Factory That Creates all of the In Built IAnimalModel posstioned in the factory.
         /// </summary>
         [Import]
-        private Factory AFac1;
+        public Factory AFac1;
 
         private List<IViewNormalSelectionofCalcs> Calview = new List<IViewNormalSelectionofCalcs>();
         private List<Form> ViewList = new List<Form>();
         private List<IViewModel> ViewModelList = new List<IViewModel>();
-        private List<IAnimalModel> listOfAnimals = null;
+        public List<IAnimalModel> listOfAnimals = null;
 
         private string[] Combo = new string[2];
         private string[] calculatortrype = new string[2];
        
 
-        private int NumberOfViews = 0;
-        private int IDIncrement = 0;
-        private int WinCalculation = 0;
-        private int CurrentCalcViewID;
+        public int NumberOfViews = 0;
+        public int IDIncrement = 0;
+        public int WinCalculation = 0;
+        public int CurrentCalcViewID;
 
         private Form first;
         private Form _view = null;
@@ -87,7 +87,7 @@ namespace PandaPen
         /// Subscribes the Controler to the Animaltypes the form is passed in as F
         /// </summary>
 
-        private void Subscribe(Form f)
+        public void Subscribe(Form f)
         {
             if ((f as DefaultView) != null)
             {
@@ -115,7 +115,7 @@ namespace PandaPen
         /// <param name="f"></param>
         /// <param name="args"></param>
 
-        private void ReciveEvents2(Form f, CalcTypeArgs args)
+        public void ReciveEvents2(Form f, CalcTypeArgs args)
         {
 
             CurrentCalcViewID = args.ID;
@@ -125,7 +125,7 @@ namespace PandaPen
             CreateView();
         }
 
-        private void ReciveEvents(Form f, AnimalTypeArgs args)
+        public void ReciveEvents(Form f, AnimalTypeArgs args)
         {
 
             if (args.animalTypes != null)
@@ -214,7 +214,7 @@ namespace PandaPen
         ///  Links the ViewModule to the Calator and its Animal together
         /// </summary>
         /// <param name="recviedFromCombo"></param>
-        private void CreateFactoryAndModels(string recviedFromCombo)
+        public void CreateFactoryAndModels(string recviedFromCombo)
         {
             {
                 ICalculate calculator = null;
@@ -253,7 +253,7 @@ namespace PandaPen
         /// Contains the Compose Container method which add all Mef Components in it.
         /// </summary>
 
-        private void ComposeContainer()
+        public void ComposeContainer()
         {
             DirectoryCatalog catalog = new DirectoryCatalog("..\\MEFBOX\\");
             CompositionContainer container = new CompositionContainer(catalog);

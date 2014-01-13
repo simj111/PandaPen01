@@ -39,7 +39,7 @@ namespace PandaPen
         int Wincalucation = 0;
         int CurrentCalcViewID;
 
-        Form first = new DefaultView();
+        Form first;
         Form _view = null;
         IViewModel ViewM = null;
         IButtonManager buttonmanager;
@@ -59,12 +59,13 @@ namespace PandaPen
         /// </summary>
 
 
-        public Controller()
+        public Controller( Form Frist)
         {
+            first = Frist;
             ComposeContainer();
-            Subscribe(first);
+            Subscribe(Frist);
             AddAnimalsToBox(AFac1.typeoflist);
-            Application.Run(first);
+            
 
 
         }

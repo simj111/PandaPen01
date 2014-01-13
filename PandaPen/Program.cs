@@ -14,8 +14,11 @@ namespace PandaPen
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Controller ctrl = new Controller();
+            Form first = new DefaultView();
+          //  Application.SetCompatibleTextRenderingDefault(false);
+            Controller ctrl = new Controller(first);
+            
+            Application.Run(first);
         }
     }
 }

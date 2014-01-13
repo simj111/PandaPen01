@@ -16,7 +16,7 @@ namespace AnimalModel
         /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
         /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
         /// </summary>
-          private string IDVIDUALName;
+          private string INDIVIDUALName;
           private string _imageName = "GoldFish2Bars";
           private double _Happinness = 1;
           private double _Hunger = 5;
@@ -53,12 +53,18 @@ namespace AnimalModel
           /// <returns></returns>
           public string Name(string _imageName, double ID)
           {
-              IDVIDUALName = _imageName + ID.ToString();
-              return IDVIDUALName;
+              INDIVIDUALName = _imageName + ID.ToString();
+              return INDIVIDUALName;
           }
 
           public void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID)
           {
+            buttonmanager = mybuttonmanager;
+            Name(_imageName, ID);
+            mybuttonmanager.ConnectANIMAL(this, INDIVIDUALName);
+            Calculator = calculator;
+            number = new double[3] { _Hunger, _OxygenLevel, _Happinness };
+              
             //Decrease timer object properties
             decTimer = new Timer();
             decTimer.Enabled = true;
@@ -71,11 +77,7 @@ namespace AnimalModel
             happinessTimer.Interval = 1500;
             this.happinessTimer.Tick += new System.EventHandler(this.happinessTimer_Tick);
 
-            buttonmanager = mybuttonmanager;
-            Name(_imageName, ID);
-            mybuttonmanager.ConnectANIMAL(this, IDVIDUALName);
-            Calculator = calculator;
-            number = new double[3] { _Hunger, _OxygenLevel, _Happinness };
+            
           }
 
         /// <summary>
@@ -83,7 +85,8 @@ namespace AnimalModel
         /// </summary>
         public void FirstPassSetUP()
         {
-            FirstPassArgs args = new FirstPassArgs(_imageName, number);
+            string imagename = _imageName;
+            FirstPassArgs args = new FirstPassArgs(imagename, number);
             fPass(this, args);
         }
         
@@ -113,6 +116,12 @@ namespace AnimalModel
         {
             happinessTimer.Enabled = false;
             decTimer.Enabled = false;
+        }
+
+
+        public string ReturnName()
+        {
+            return INDIVIDUALName;
         }
     }
     }

@@ -83,5 +83,11 @@ namespace Interfaces
        /// </summary>
        void KillTimers();
 
+       /// <summary>
+       /// Returns name of animal
+       /// </summary>
+       /// <returns></returns>
+       string ReturnName();
+
     }
 }

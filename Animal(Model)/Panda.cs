@@ -22,7 +22,7 @@ namespace AnimalModel
         /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
         ///  And to use Name to give the Modles it own Indvidual Name
         /// </summary>
-          private string IDVIDUALName;
+          private string INDIVIDUALName;
           private string _imageName = "Panda";
           private double _inHBarVal = 15;
           private double _inEBarVal = 60;
@@ -63,15 +63,15 @@ namespace AnimalModel
           /// <returns></returns>
           public string Name(string _imageName, double ID)
           {
-              IDVIDUALName = _imageName + ID.ToString();
-              return IDVIDUALName;
+              INDIVIDUALName = _imageName + ID.ToString();
+              return INDIVIDUALName;
           }
 
           public void PassinInatial(IButtonManager mybuttonmanager, ICalculate calculator, int ID)
           {
               buttonmanager = mybuttonmanager;
               Name(_imageName, ID);
-              mybuttonmanager.ConnectANIMAL(this, IDVIDUALName);
+              mybuttonmanager.ConnectANIMAL(this, INDIVIDUALName);
               Calculator = calculator;
               numbers = new double[4] { _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
 
@@ -127,5 +127,11 @@ namespace AnimalModel
             decTimer.Enabled = false;
         }
 
+
+
+        public string ReturnName()
+        {
+            return INDIVIDUALName;
+        }
     }
     }

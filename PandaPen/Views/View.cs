@@ -20,10 +20,10 @@ namespace PandaPen
         /// </summary>
      
         private string name;
-        private int Number = 0;
+       
 
         public event ButtonPressEventHandler btnPress;
-        public event CalcTypeHandler selectCalc;
+        
        
         #endregion 
 

@@ -23,7 +23,7 @@ namespace PandaPen
         private string name;
 
         public event ButtonPressEventHandler btnPress;
-        public event CalcTypeHandler selectCalc;
+    
         #endregion DataMembers;
 
 

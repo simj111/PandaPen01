@@ -70,7 +70,7 @@ namespace PandaPen.Views_Models
 
                     if (Number01[i] >= 100)
                     {
-                        Number01[i] = 99;
+                        Number01[i] = 100;
                     }
 
                     else if (Number01[i] <= 0)

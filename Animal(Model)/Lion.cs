@@ -19,9 +19,9 @@ namespace AnimalModel
         /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
         /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
         /// Contains a Caltor and Barmanger which it use to hear and respond to events
-        /// Contains a strings IDVIDUALNAMe which is an ID and an Image Name Lion
+        /// Contains a strings INDIVIDUALName which is an ID and an Image Name Lion
         /// </summary>
-          private string IDVIDUALName;
+          private string INDIVIDUALName;
           private string _imageName = "Lion";
           private double _inHBarVal = 5;
           private double _inEBarVal = 60;
@@ -61,8 +61,8 @@ namespace AnimalModel
           /// <returns>Returns the name mixed with an ID e.g. "Lion01"</returns>
           public string Name(string _imageName, double ID)
           {
-              IDVIDUALName = _imageName + ID.ToString();
-              return IDVIDUALName;
+              INDIVIDUALName = _imageName + ID.ToString();
+              return INDIVIDUALName;
           }
 
 
@@ -70,7 +70,7 @@ namespace AnimalModel
           {
               buttonmanager = mybuttonmanager;
               Name(_imageName, ID);
-              mybuttonmanager.ConnectANIMAL(this, IDVIDUALName);
+              mybuttonmanager.ConnectANIMAL(this, INDIVIDUALName);
               Calculator = calculator;
               numbers = new double[4] { _inHBarVal, _inEBarVal, _inFBarVal, _happinessBarVal };
 
@@ -126,5 +126,11 @@ namespace AnimalModel
            decTimer.Enabled = false;
        }
 
+
+
+       public string ReturnName()
+       {
+           return INDIVIDUALName;
+       }
     }
 }

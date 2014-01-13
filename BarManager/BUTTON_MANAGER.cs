@@ -74,10 +74,10 @@ namespace ButtonManager
             Animal.Calculate(Clacualtion);
         }
 
-       public void Unsubscribe(Form f)
-       {  
+       public void Unsubscribe(IAnimalViews f)
+       {   Animal.KillTimers();   
            (f as IAnimalViews).btnPress -= new ButtonPressEventHandler(CheckIfValid);
-           Animal.KillTimers();         
+                
        }
     }
 }

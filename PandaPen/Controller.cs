@@ -272,26 +272,42 @@ namespace PandaPen
 
         private void CheckWinCondition(ICalculate f, FullHappinessArgs args)
         {
-            string formNames;
             WinCalculation++;
+            string formNames;
 
             foreach (IAnimalViews a in ViewList)
             {
                 formNames = a.fName();
                 if (args.CalculatorID == formNames)
                 {
-                    buttonmanager.Unsubscribe(_view);
+                    for (int j = 0; j < listOfAnimals.Count; j ++)
+                    {
+                    string nameOfAni = listOfAnimals[j].ReturnName();
+
+                         if (nameOfAni == args.CalculatorID)
+                          {
+                        buttonmanager = listOfAnimals[j].GetButtonsForSubscibe();
+                         }
+                    
+                      }
+                    buttonmanager.Unsubscribe(a);
                 }
+            } 
                 if (NumberOfViews == WinCalculation)
                 {
                     MessageBox.Show("You have won");
                     Application.Exit();
+                       
+                    }
+
                 }
                
-            }
+               
+             
+           
             }
         }
-    }
+    
 
 
         #endregion

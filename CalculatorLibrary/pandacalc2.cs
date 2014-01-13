@@ -88,13 +88,15 @@ namespace CalculatorLibrary
                     answers[i] = 0;
                 }
 
-                if (answers[3] == 100)
+               
+            } 
+            
+            if (answers[3] == 100)
                 {
                     FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalulatorValue);
-                    
+                    answers[3] = 100;
                     happiness(this, Happiness);
                 }
-            }
             PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
             resPass(this, information);
             return answers;

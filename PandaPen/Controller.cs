@@ -142,6 +142,7 @@ namespace PandaPen
 
         public void CreateView()
         {
+            first.Show();
             string subchallange2Bars = "2Bars";
 
             if (Combo != null)
@@ -199,7 +200,7 @@ namespace PandaPen
 
             Calview.Add(Calculation);
             (Calculation as Form).Show();
-
+            first.Hide();
             Subscribe(Calculation as Form);
             
             Number++;
@@ -227,6 +228,10 @@ namespace PandaPen
                 ViewM.Subscribe(listTest[CurrentCalcViewID], calculator);
                 listTest[CurrentCalcViewID].FirstPassSetUP();
                 CurrentCalcViewID++;
+                if (listTest.Count == 2)
+                {
+                    first.Hide();
+                }
             }
             //  Number++;
         }

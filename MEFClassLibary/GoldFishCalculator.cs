@@ -80,9 +80,6 @@ namespace MEFClassLibary
                 numbers[1] -= 5;
             }
             answers = numbers;
-
-            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-            resPass(this, information);
         }
 
         /// <summary>
@@ -117,17 +114,18 @@ namespace MEFClassLibary
                     answers[i] = 0;
                 }
 
-                if (answers[2] >= 100)
+                if (answers[2] == 100)
                 {
                     FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalulatorValue);
                     answers[2] = 0;
                     happiness(this, Happiness);
-
                 }
-
             }
+            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
+            resPass(this, information);
             return answers;
         }
+
         #endregion Methods
 
 

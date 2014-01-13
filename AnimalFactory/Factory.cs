@@ -80,20 +80,6 @@ namespace AnimalFactory
             
             if (typeoflist.Any(str => str.Contains(Animal)))
             {
-                /*if (Animal == "Lion")
-                {
-                                     
-                    buttonmanager = new BUTTON_MANAGER();
-                    calculator = new LionCalculate();
-                    calculator.InitialPassIn(ID);
-                    AnimalModle = new AnimalModel.Lion();
-                    AnimalModle.PassinInatial(buttonmanager, calculator, ID);
-                    animallist.Add(AnimalModle);
-                    typeoflist.Remove("Lion");
-                }
-                 */
-                 
-                
                     buttonmanager = new BUTTON_MANAGER();
                     foreach (Lazy<IAnimalModel, IInformationTypeMetadata> item in _AvaibaleModles )
                     {
@@ -108,21 +94,14 @@ namespace AnimalFactory
                                   calculator.InitialPassIn(ID);
                                 }
                             }
-
                                 AnimalModle = item.Value;
                                 AnimalModle.PassinInatial(buttonmanager, calculator, ID);
                                 animallist.Add(AnimalModle);
                                 typeoflist.Remove(item.Metadata.description);  
                         }
                     }
-
-                  
-                    
-                    
-
                 }
-                }
-
+        }
     }
 }
 

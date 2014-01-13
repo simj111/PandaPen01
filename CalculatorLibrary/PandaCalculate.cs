@@ -65,8 +65,7 @@ namespace CalculatorLibrary
             }
 
             answers = numbers;
-            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-            resPass(this, information);
+
         }
 
         public void CalculateHappines(double[] numbers)
@@ -98,6 +97,8 @@ namespace CalculatorLibrary
                     happiness(this,Happiness);
                 }
             }
+            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
+            resPass(this, information);
             return answers;
         }
 

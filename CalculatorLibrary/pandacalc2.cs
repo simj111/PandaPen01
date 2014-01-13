@@ -65,8 +65,7 @@ namespace CalculatorLibrary
             }
 
             answers = numbers;
-            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-            resPass(this, information);
+           
         }
 
         public void CalculateHappines(double[] numbers)
@@ -96,12 +95,13 @@ namespace CalculatorLibrary
                     FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullPanda", InvidualCalulatorValue);
                     answers[3] = 0;
                     happiness(this, Happiness);
-
                 }
-
             }
+            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
+            resPass(this, information);
             return answers;
         }
+
 
     }
 }

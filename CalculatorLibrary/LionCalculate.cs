@@ -84,8 +84,7 @@ namespace CalculatorLibrary
           
 
             answers = numbers;
-            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-            resPass(this, information);
+           
         }
 
         public void CalculateHappines(double[] numbers)
@@ -104,14 +103,29 @@ namespace CalculatorLibrary
         /// <returns></returns>
         public double[] Results()
         {
-                if (answers[3] == 100)
+            for (int i = 0; i < answers.Length; i++)
+            {
+                if (answers[i] > 100)
                 {
-                    FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullLion", InvidualCalulatorValue);
-                    happiness(this, Happiness);
+                    answers[i] = 100;
+                }
+                else if (answers[i] < 0)
+                {
+                    answers[i] = 0;
                 }
 
+                if (answers[3] == 100)
+                {
+                    FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullPanda", InvidualCalulatorValue);
+                    answers[3] = 0;
+                    happiness(this, Happiness);
+                }
+            }
+            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
+            resPass(this, information);
             return answers;
         }
+
         #endregion
 
 

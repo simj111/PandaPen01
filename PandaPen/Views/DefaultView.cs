@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using Interfaces;
 using System.Windows.Forms;
 using Interfaces.Events;
-using Interfaces;
 
 namespace PandaPen
 {
@@ -21,7 +16,7 @@ namespace PandaPen
         /// These Data Members Contain two Events the Annimal type Events is used to select the view to display.
         /// </summary>
 
-         public event AnimalTypeHandler selectAnimal;
+        public event AnimalTypeHandler selectAnimal;
         
         
         public DefaultView()
@@ -34,7 +29,7 @@ namespace PandaPen
         /// <param name="sender"></param>
         /// <param name="e"></param>
      
-            private void animalType_SelectedIndexChanged(object sender, EventArgs e)
+        private void animalType_SelectedIndexChanged(object sender, EventArgs e)
         {
             AnimalTypeArgs animalTypes = new AnimalTypeArgs(animalType.Text);
 

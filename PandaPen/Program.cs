@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PandaPen
@@ -14,10 +12,15 @@ namespace PandaPen
         static void Main()
         {
             Application.EnableVisualStyles();
-            Form first = new DefaultView();
-          //  Application.SetCompatibleTextRenderingDefault(false);
-            Controller ctrl = new Controller(first);
-            
+
+            DefaultView first = null;
+
+            if (first == null)
+            {
+                first = new DefaultView();
+                Controller ctrl = new Controller(first);
+            }
+
             Application.Run(first);
         }
     }

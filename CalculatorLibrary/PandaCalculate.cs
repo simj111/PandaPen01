@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Interfaces;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
@@ -9,15 +6,16 @@ using Interfaces.Events;
 namespace CalculatorLibrary
 {
     [Export(typeof(ICalculate))]
-    [ExportMetadata("description", "Panda")]
+    [ExportMetadata("AnimalType", "Panda")]
     [ExportMetadata("CalDescription", "Panda_Medium")]
 
     public class PandaCalculate : ICalculate
     {
         #region DataMembers
-        double[] answers;
-        public string InvidualCalulatorValue;
+        private double[] answers;
+        private string InvidualCalulatorValue;
         private string _imageName = "Panda";
+
         public event FullHappinessHandler happiness;
         public event PassCalcResultsHandler resPass;
         #endregion

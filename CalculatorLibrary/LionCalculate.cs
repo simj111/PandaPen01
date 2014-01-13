@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ComponentModel.Composition;
-using System.Text;
 using Interfaces;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using Interfaces.Events;
 
 namespace CalculatorLibrary
@@ -12,17 +10,18 @@ namespace CalculatorLibrary
     /// This is the LionCalcutor and is used to Calcualte the gold fish valuse use the ICalculate Interface.
     /// </summary>
     [Export(typeof(ICalculate))]
-    [ExportMetadata("description", "Lion")]
+    [ExportMetadata("AnimalType", "Lion")]
     [ExportMetadata("CalDescription", "Lion_Easy")]
    
 
     public class LionCalculate : ICalculate
     {
         #region DataMembers
-        double[] answers;
-        public event PassCalcResultsHandler resPass;
-        public string InvidualCalulatorValue;
+        private double[] answers;
+        private string InvidualCalulatorValue;
         private string _imageName = "Lion";
+
+        public event PassCalcResultsHandler resPass;
         public event FullHappinessHandler happiness;
         #endregion
 
@@ -116,7 +115,7 @@ namespace CalculatorLibrary
 
                 if (answers[3] == 100)
                 {
-                    FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalulatorValue);
+                    FullHappinessArgs Happiness = new FullHappinessArgs("HappinessisfullPanda", InvidualCalulatorValue);
                     
                     happiness(this, Happiness);
                 }

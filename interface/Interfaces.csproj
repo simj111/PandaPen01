@@ -45,7 +45,6 @@
     <Compile Include="Events\AnimalTypeArgs.cs" />
     <Compile Include="Events\ButtonPressEventArgs.cs" />
     <Compile Include="Events\CalcTypeArgs.cs" />
-    <Compile Include="Events\EventTypes.cs" />
     <Compile Include="Events\FirstPassArgs.cs" />
     <Compile Include="Events\FullHappinessArgs.cs" />
     <Compile Include="IIViewMetadataCalulators.cs" />
@@ -53,10 +52,10 @@
     <Compile Include="IAnimalModel.cs" />
     <Compile Include="IButtonManager.cs" />
     <Compile Include="ICalculate.cs" />
-    <Compile Include="IInformationTypeMetadata.cs" />
+    <Compile Include="IAnimalTypeMetadata.cs" />
     <Compile Include="IAnimalViews.cs" />
     <Compile Include="IViewModel.cs" />
-    <Compile Include="IViewNoramlSelectionofCalcs.cs" />
+    <Compile Include="IViewNormalSelectionofCalcs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using Interfaces;
 using System.Windows.Forms;
 using Interfaces.Events;
-using Interfaces;
 
 namespace PandaPen
 {
@@ -25,7 +20,8 @@ namespace PandaPen
         /// <param name="e"></param>
 
 
-        public string name;
+        private string name;
+
         public event ButtonPressEventHandler btnPress;
         public event CalcTypeHandler selectCalc;
         #endregion DataMembers;
@@ -39,7 +35,6 @@ namespace PandaPen
         /// The View2Bars 
         /// </summary>
         /// <param name="_name"></param>
-
         public View2Bars(string _name)
         {
             name = _name;
@@ -52,29 +47,20 @@ namespace PandaPen
         private void fBtn_Click(object sender, EventArgs e)
         {
             ButtonPressEventArgs information = new ButtonPressEventArgs("Button1", name,1);
-          
-
             btnPress(this, information);
-
         }
 
         private void cleanBtn_Click(object sender, EventArgs e)
         {
             ButtonPressEventArgs information = new ButtonPressEventArgs("Button2", name,2);
-            
-
             btnPress(this, information);
         }
 
-        
         public string fName()
         {
             return name;
         }
         #endregion
 
-
-
-        
     }
 }

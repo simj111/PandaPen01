@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows.Forms;
@@ -14,7 +11,7 @@ using System.Diagnostics;
 
 namespace PandaPen
 {
-    class Controller 
+    public class Controller 
     {
         #region DataMembers
 
@@ -26,24 +23,25 @@ namespace PandaPen
         [Import]
         private Factory AFac1;
 
-        public List<IViewNoramlSelectionofCalcs> Calview = new List<IViewNoramlSelectionofCalcs>();
-        public List<Form> ViewList = new List<Form>();
-        public List<IViewModel> ViewModelList = new List<IViewModel>();
-        private List<IAnimalModel> listTest = null;
+        private List<IViewNormalSelectionofCalcs> Calview = new List<IViewNormalSelectionofCalcs>();
+        private List<Form> ViewList = new List<Form>();
+        private List<IViewModel> ViewModelList = new List<IViewModel>();
+        private List<IAnimalModel> listOfAnimals = null;
 
-        private string[] Combo = new string[3];
-        string[] calculatortrype = new string[3];
+        private string[] Combo = new string[2];
+        private string[] calculatortrype = new string[2];
+       
 
-        int NumberOfViews = 0;
-        int i = 0;
-        int WinCalculation = 0;
-        int CurrentCalcViewID;
+        private int NumberOfViews = 0;
+        private int IDIncrement = 0;
+        private int WinCalculation = 0;
+        private int CurrentCalcViewID;
 
-        Form first;
-        Form _view = null;
-        IViewModel ViewM = null;
-        IButtonManager buttonmanager;
-        ICalculate calculator;
+        private Form first;
+        private Form _view = null;
+        private IViewModel ViewM = null;
+        private IButtonManager buttonmanager = null;
+        
 
         #endregion DataMembers
 
@@ -61,6 +59,8 @@ namespace PandaPen
 
         public Controller( Form Frist)
         {
+            //todo add comments for each line here
+
             first = Frist;
             ComposeContainer();
             Subscribe(Frist);
@@ -87,7 +87,7 @@ namespace PandaPen
         /// Subscribes the Controler to the Animaltypes the form is passed in as F
         /// </summary>
 
-        public void Subscribe(Form f)
+        private void Subscribe(Form f)
         {
             if ((f as DefaultView) != null)
             {
@@ -101,7 +101,7 @@ namespace PandaPen
             }
         }
 
-        public void CalculateSubscribe(ICalculate Cal)
+        private void CalculateSubscribe(ICalculate Cal)
         {
             Cal.happiness += new FullHappinessHandler(CheckWinCondition);
 
@@ -115,7 +115,7 @@ namespace PandaPen
         /// <param name="f"></param>
         /// <param name="args"></param>
 
-        public void ReciveEvents2(Form f, CalcTypeArgs args)
+        private void ReciveEvents2(Form f, CalcTypeArgs args)
         {
 
             CurrentCalcViewID = args.ID;
@@ -125,7 +125,7 @@ namespace PandaPen
             CreateView();
         }
 
-        public void ReciveEvents(Form f, AnimalTypeArgs args)
+        private void ReciveEvents(Form f, AnimalTypeArgs args)
         {
 
             if (args.animalTypes != null)
@@ -140,7 +140,7 @@ namespace PandaPen
             }
         }
 
-        public void CreateView()
+        private void CreateView()
         {
             first.Show();
             string subchallange2Bars = "2Bars";
@@ -148,7 +148,7 @@ namespace PandaPen
             if (Combo != null)
             {
 
-                string Name = Combo[CurrentCalcViewID] + i.ToString();
+                string Name = Combo[CurrentCalcViewID] + IDIncrement.ToString();
 
                 if (Combo[CurrentCalcViewID].Contains(subchallange2Bars))
                 {
@@ -170,7 +170,7 @@ namespace PandaPen
                 }
                
                 CreateFactoryAndModels(Combo[CurrentCalcViewID]);
-                i++;
+                IDIncrement++;
 
 
             }
@@ -182,12 +182,12 @@ namespace PandaPen
         /// </summary>
         /// <param name="recviedFromCombo"></param>
 
-        public void CreatViewCalution(string recviedFromCombo)
+        private void CreatViewCalution(string recviedFromCombo)
         {
 
             Combo[CurrentCalcViewID] = recviedFromCombo;
             List<string> test = AFac1.Calculatortype;
-            IViewNoramlSelectionofCalcs Calculation = new CalulationForms(NumberOfViews);
+            IViewNormalSelectionofCalcs Calculation = new CalulationForms(NumberOfViews);
 
             foreach (string Cals in test)
             {
@@ -214,21 +214,23 @@ namespace PandaPen
         ///  Links the ViewModule to the Calator and its Animal together
         /// </summary>
         /// <param name="recviedFromCombo"></param>
-        public void CreateFactoryAndModels(string recviedFromCombo)
+        private void CreateFactoryAndModels(string recviedFromCombo)
         {
             {
+                ICalculate calculator = null;
+
                 AFac1.GeneratAnimals(Combo[CurrentCalcViewID], CurrentCalcViewID, calculatortrype[CurrentCalcViewID]);
                 (first as DefaultView).animalType.Items.Clear();
                 AddAnimalsToBox(AFac1.typeoflist);
-                listTest = AFac1.animallist;
-                calculator = listTest[CurrentCalcViewID].Getcalc();
+                listOfAnimals = AFac1.animallist;
+                calculator = listOfAnimals[CurrentCalcViewID].Getcalc();
                 CalculateSubscribe(calculator);
-                buttonmanager = listTest[CurrentCalcViewID].GetButtonsForSubscibe();
+                buttonmanager = listOfAnimals[CurrentCalcViewID].GetButtonsForSubscibe();
                 buttonmanager.Subscribe(_view);
-                ViewM.Subscribe(listTest[CurrentCalcViewID], calculator);
-                listTest[CurrentCalcViewID].FirstPassSetUP();
+                ViewM.Subscribe(listOfAnimals[CurrentCalcViewID], calculator);
+                listOfAnimals[CurrentCalcViewID].FirstPassSetUP();
                 CurrentCalcViewID++;
-                if (listTest.Count == 2)
+                if (listOfAnimals.Count == 2)
                 {
                     first.Hide();
                 }
@@ -240,7 +242,7 @@ namespace PandaPen
         /// Add the list of animals, that the factory contains, into the combo box of the view.
         /// </summary>
         /// <param name="animalList">Used to acquire the string of animal names</param>
-        public void AddAnimalsToBox(List<string> animalList)
+        private void AddAnimalsToBox(List<string> animalList)
         {
             foreach (string animals in animalList)
             {
@@ -251,7 +253,7 @@ namespace PandaPen
         /// Contains the Compose Container method which add all Mef Components in it.
         /// </summary>
 
-        public void ComposeContainer()
+        private void ComposeContainer()
         {
             DirectoryCatalog catalog = new DirectoryCatalog("..\\MEFBOX\\");
             CompositionContainer container = new CompositionContainer(catalog);
@@ -268,14 +270,15 @@ namespace PandaPen
             }
         }
 
-        public void CheckWinCondition(ICalculate f, FullHappinessArgs args)
+        private void CheckWinCondition(ICalculate f, FullHappinessArgs args)
         {
-            string names;
+            string formNames;
             WinCalculation++;
+
             foreach (IAnimalViews a in ViewList)
             {
-                names = a.fName();
-                if (args.CalculatorID == names)
+                formNames = a.fName();
+                if (args.CalculatorID == formNames)
                 {
                     buttonmanager.Unsubscribe(_view);
                 }

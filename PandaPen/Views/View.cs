@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using Interfaces;
 using System.Windows.Forms;
 using Interfaces.Events;
-using Interfaces;
 
 namespace PandaPen
 {
@@ -20,13 +15,16 @@ namespace PandaPen
     {
         #region DataMembers
         /// <summary>
-        /// The Data Members Contains this View unguie identfire which is named by the Factory of the Animalmodle this View realtes to.
+        /// The Data Members Contains this View unguie identfire which is named by the Factory of the AnimalModel this View realtes to.
         /// Also Contains ButtonPress event handaler so it can shout out events around the Program to the Delegat In barManger
         /// </summary>
-        public string name;
+     
+        private string name;
+        private int Number = 0;
+
         public event ButtonPressEventHandler btnPress;
         public event CalcTypeHandler selectCalc;
-        int Number = 0;
+       
         #endregion 
 
 

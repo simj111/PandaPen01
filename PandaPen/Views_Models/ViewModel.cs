@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Interfaces;
 using Interfaces.Events;
 using System.Windows.Forms;
@@ -12,9 +9,9 @@ namespace PandaPen
     class ViewModel : IViewModel
     {
         private double[] Number01 = new double[4];
-        private double[] calculate = new double[4];
-        private Form VF = null;
+        private string formName;
 
+        private Form VF = null;
 
         public ViewModel( Form TheForm)
         {
@@ -29,31 +26,16 @@ namespace PandaPen
 
         }
 
-
-        public void LastMove(ICalculate calc, FullHappinessArgs args)
-        {
-            if (args.CalculatorID == (VF as View).name)
-            {
-                Number01[3] = 100;
-                SendResults();
-                (VF as View).eBtn.Enabled = false;
-                (VF as View).sBtn.Enabled = false;
-                (VF as View).fBtn.Enabled = false; 
-            }
-        }
-
         public void ReciveFirstInput(IAnimalModel source, FirstPassArgs args)
         {
-            
-           
+            string imageName = args.imagesource;
+
             for (int i = 0; i < args.values.Length; i++)
             {
             
                 Number01[i] = args.values[i];
             }
            
-            string imageName = args.imagesource;
-
             for (int i = 0; i < args.values.Length; i++)
             {
 
@@ -67,8 +49,6 @@ namespace PandaPen
                 }
             }
 
-            SendResults();
-
             if (imageName == "Panda")
             {
                 (VF as View).animalPicBox.Image = PandaPen.Properties.Resources.pandapic;
@@ -78,7 +58,7 @@ namespace PandaPen
                 (VF as View).animalPicBox.Image = PandaPen.Properties.Resources.lionpic;
             }
            
-            
+            SendResults();
         }
 
         public void SendResults()
@@ -92,7 +72,8 @@ namespace PandaPen
 
         public void ConvertResultsFromCalc(ICalculate source, PassCalcResultsArgs args)
         {
-            if (args.CalculatorID == (VF as View).name)
+            formName = (VF as IAnimalViews).fName();
+            if (args.CalculatorID == formName)
             {
                 for (int i = 0; i < args.values.Length; i++)
                 {
@@ -103,6 +84,18 @@ namespace PandaPen
 
             SendResults();
         
+        }
+
+        public void LastMove(ICalculate calc, FullHappinessArgs args)
+        {
+            if (args.CalculatorID == formName)
+            {
+                Number01[3] = 100;
+                SendResults();
+                (VF as View).eBtn.Enabled = false;
+                (VF as View).sBtn.Enabled = false;
+                (VF as View).fBtn.Enabled = false;
+            }
         }
 
     }

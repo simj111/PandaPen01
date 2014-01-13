@@ -45,17 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Animal%28Model%29\AnimalModel.csproj">
-      <Project>{0F34A930-B577-4C35-A848-564671E3E7DA}</Project>
-      <Name>AnimalModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BarManager\ButtonManager.csproj">
       <Project>{31C8C243-AC0F-474D-A563-7DB36056AC06}</Project>
       <Name>ButtonManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CalculatorLibrary\CalculatorLibrary.csproj">
-      <Project>{9E26E656-A10C-4B76-AAAA-2AF164896330}</Project>
-      <Name>CalculatorLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\interface\Interfaces.csproj">
       <Project>{EC58A9C8-86E3-4AB6-8780-33870B6C36B7}</Project>

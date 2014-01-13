@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel.Composition;
 using Interfaces;
 using Interfaces.Events;
-using CalculatorLibrary;
 using System.Windows.Forms;
-using System.ComponentModel.Composition;
 
 
 namespace AnimalModel
 {
     [Export(typeof(IAnimalModel))]
-    [ExportMetadata("description", "Panda")]
+    [ExportMetadata("AnimalType", "Panda")]
  
     /// <summary>
     /// This Class is the Panda Animal Modle its main role is to store data and Carry out Calculations refering to the Panda Animal.
@@ -32,13 +28,13 @@ namespace AnimalModel
           private double _inEBarVal = 60;
           private double _inFBarVal = 5;
           private double _happinessBarVal = 1;
-          double[] numbers;
+          private double[] numbers;
 
-          public ICalculate Calculator;
-          public IButtonManager buttonmanager;
+          private ICalculate Calculator;
+          private IButtonManager buttonmanager;
 
-          public Timer decTimer;
-          public Timer happinessTimer;
+          private Timer decTimer;
+          private Timer happinessTimer;
 
           public event FirstPassHandler fPass;
 

@@ -37,12 +37,12 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -109,10 +109,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Animal%28Model%29\AnimalModel.csproj">
-      <Project>{0F34A930-B577-4C35-A848-564671E3E7DA}</Project>
-      <Name>AnimalModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AnimalFactory\AnimalFactory.csproj">
       <Project>{55814D79-4F05-438A-BE18-0401AB170184}</Project>
       <Name>AnimalFactory</Name>

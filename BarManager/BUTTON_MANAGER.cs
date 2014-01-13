@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Interfaces;
 using Interfaces.Events;
 using System.Windows.Forms;
@@ -17,10 +14,10 @@ namespace ButtonManager
     {
         /// <summary>
         /// The Data Members Contain a Animal to store the Animal this Particular BarManger is Linked to
-        /// The string InvidID Contains a string Reference which of the Object which is stored in the Modle so it can be used to deterem if the module should react]
+        /// The string IndividualID Contains a string Reference which of the Object which is stored in the Modle so it can be used to deterem if the module should react]
         /// </summary>
         IAnimalModel Animal;
-        public string InvidID;
+        public string IndividualID;
 
         /// <summary>
         /// This Method is used to Subscribe to the events this Particullar Sucrbies to Button Press Recived from ButtonEventHandler and which are Genreated in the view
@@ -39,7 +36,7 @@ namespace ButtonManager
         /// <param name="args"></param>
         public void CheckIfValid(Form f, ButtonPressEventArgs args)
         {
-            if (args.IniatilID == InvidID)
+            if (args.IniatilID == IndividualID)
             {
 
                 if (args.information == "Button1")
@@ -65,7 +62,7 @@ namespace ButtonManager
         public void ConnectANIMAL(IAnimalModel LINKEDANIMAL, string Name)
         {
             Animal = LINKEDANIMAL;
-            InvidID = Name;
+            IndividualID = Name;
         }
 
         /// <summary>

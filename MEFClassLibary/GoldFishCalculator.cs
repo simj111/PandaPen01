@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ComponentModel.Composition;
-using System.Text;
 using Interfaces;
 using Interfaces.Events;
 
@@ -14,7 +11,7 @@ namespace MEFClassLibary
     /// </summary>
     
       [Export (typeof(ICalculate))]
-      [ExportMetadata("description", "GoldFish2Bars")]
+      [ExportMetadata("AnimalType", "GoldFish2Bars")]
       [ExportMetadata("CalDescription", "GoldFish2Bars_Easy")]
 
     public class GoldFishCalculator : ICalculate
@@ -27,10 +24,11 @@ namespace MEFClassLibary
         /// </summary>
 
         #region DataMembers
-        public event PassCalcResultsHandler resPass;
-        double[] answers;
-        public string _imageName = "GoldFish2Bars";
+        private double[] answers;
+        private string _imageName = "GoldFish2Bars";
         private string InvidualCalulatorValue;
+
+        public event PassCalcResultsHandler resPass;
         public event FullHappinessHandler happiness;
         #endregion DataMembers
 
@@ -91,7 +89,7 @@ namespace MEFClassLibary
         {
             if (numbers[0] >= 50 && numbers[1] >= 50)
             {
-                numbers[2] = numbers[2] + 30;
+                numbers[2] = numbers[2] + 11;
             }
             answers = numbers;
         }

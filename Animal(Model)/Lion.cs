@@ -1,14 +1,14 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 using Interfaces;
 using Interfaces.Events;
 using System.Windows.Forms;
-using System.ComponentModel.Composition;
 
 namespace AnimalModel
 {
 
     [Export(typeof(IAnimalModel))]
-    [ExportMetadata("description", "Lion")]
+    [ExportMetadata("AnimalType", "Lion")]
  
 
 
@@ -27,13 +27,13 @@ namespace AnimalModel
           private double _inEBarVal = 60;
           private double _inFBarVal = 75;
           private double _happinessBarVal = 1;
-          double[] numbers;
+          private double[] numbers;
 
-          public ICalculate Calculator;
-          public IButtonManager buttonmanager;
+          private ICalculate Calculator;
+          private IButtonManager buttonmanager;
 
-          public Timer decTimer;
-          public Timer happinessTimer;
+          private Timer decTimer;
+          private Timer happinessTimer;
 
           public event FirstPassHandler fPass;
 

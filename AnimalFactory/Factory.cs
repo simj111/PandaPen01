@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Interfaces;
 using Interfaces.Events;
 using ButtonManager;
 using System.Diagnostics;
 using System.ComponentModel.Composition;
-using CalculatorLibrary;
 
 namespace AnimalFactory
 {
-
     [Export(typeof(Factory))]
 
         /// <summary>
@@ -22,7 +19,7 @@ namespace AnimalFactory
     public class Factory
     {
         [ImportMany]
-        private IEnumerable<Lazy<IAnimalModel, IInformationTypeMetadata>> _AvaibaleModles;
+        private IEnumerable<Lazy<IAnimalModel, IAnimalTypeMetadata>> _AvaibaleModles;
         [ImportMany]
         private List<IAnimalModel> _avaibaleModles;
         [ImportMany]
@@ -30,43 +27,27 @@ namespace AnimalFactory
         [ImportMany]
         private List<ICalculate> _MEFCalculators;
 
-        ICalculate calculator;
-        IButtonManager buttonmanager;
-        IAnimalModel AnimalModle;
-
         public List<string> typeoflist = new List<string>();
         public List<IAnimalModel> animallist = new List<IAnimalModel>();
         public List<string> Calculatortype = new List<string>();
-
-
-        
 
         /// <summary>
         /// Method which will list all types either input manulay or used with Mef Components
         /// </summary>
         public void FindTypes()
         {
-            //typeoflist.Add("Panda");
-
-            foreach (Lazy<IAnimalModel, IInformationTypeMetadata> item in _AvaibaleModles)
+            foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModles)
             {
-                
-                typeoflist.Add(item.Metadata.description);
-
+                typeoflist.Add(item.Metadata.AnimalType);
             }
-
         }
 
         public void FindCalctypes()
         {
-
             foreach (Lazy<ICalculate, IIViewMetadataCalulators> item in _AvailableCaluclate)
             {
-
-             Calculatortype.Add(item.Metadata.CalDescription);
-                
-             }
-
+             Calculatortype.Add(item.Metadata.CalDescription); 
+            }
         }
 
         /// <summary>
@@ -74,33 +55,40 @@ namespace AnimalFactory
         /// </summary>
         /// <param name="Animal"></param>
         /// <param name="ID"></param>
-
         public void GeneratAnimals(string Animal, int ID , string Calculator)
         {
-            
+            ICalculate calculator = null;
+            IButtonManager buttonmanager = null;
+            IAnimalModel AnimalModel = null;
+
             if (typeoflist.Any(str => str.Contains(Animal)))
             {
                     buttonmanager = new BUTTON_MANAGER();
-                    foreach (Lazy<IAnimalModel, IInformationTypeMetadata> item in _AvaibaleModles )
+                    foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModles )
                     {
-                        if(Animal == item.Metadata.description)
+
+                        if (Animal == item.Metadata.AnimalType)
                         {
 
                             foreach (Lazy<ICalculate, IIViewMetadataCalulators> cal in _AvailableCaluclate)
                             {
-                                if (Animal == cal.Metadata.description && Calculator == cal.Metadata.CalDescription)
+
+                                if (Animal == cal.Metadata.AnimalType && Calculator == cal.Metadata.CalDescription)
                                 {
                                   calculator = cal.Value;
                                   calculator.InitialPassIn(ID);
                                 }
+
                             }
-                                AnimalModle = item.Value;
-                                AnimalModle.PassinInatial(buttonmanager, calculator, ID);
-                                animallist.Add(AnimalModle);
-                                typeoflist.Remove(item.Metadata.description);  
+
+                          AnimalModel = item.Value;
+                          AnimalModel.PassinInatial(buttonmanager, calculator, ID);
+                          animallist.Add(AnimalModel);
+                          typeoflist.Remove(item.Metadata.AnimalType);  
+
                         }
-                    }
-                }
+                   }
+             }
         }
     }
 }

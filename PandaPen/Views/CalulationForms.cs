@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using Interfaces;
 using System.Windows.Forms;
 using Interfaces.Events;
 
 namespace PandaPen
 {
-    public partial class CalulationForms : Form , IViewNoramlSelectionofCalcs
+    public partial class CalulationForms : Form , IViewNormalSelectionofCalcs
     {
-        int CatchthenumberID;
+        private int CatchthenumberID;
         public event CalcTypeHandler selectCalc;
 
         public CalulationForms(int ID)

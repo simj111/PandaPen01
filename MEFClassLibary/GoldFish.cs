@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ComponentModel.Composition;
-using System.Text;
 using Interfaces;
 using Interfaces.Events;
 using System.Windows.Forms;
@@ -10,7 +7,7 @@ using System.Windows.Forms;
 namespace AnimalModel
 {
       [Export(typeof(IAnimalModel))]
-      [ExportMetadata("description", "GoldFish2Bars")]
+      [ExportMetadata("AnimalType", "GoldFish2Bars")]
 
    public class GoldFish : IAnimalModel
     {
@@ -20,17 +17,17 @@ namespace AnimalModel
         /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
         /// </summary>
           private string IDVIDUALName;
-          public string _imageName = "GoldFish2Bars";
+          private string _imageName = "GoldFish2Bars";
           private double _Happinness = 1;
           private double _Hunger = 5;
           private double _OxygenLevel = 60;
-          double[] number;
+          private double[] number;
 
-          public IButtonManager buttonmanager;
-          public ICalculate Calculator;
+          private IButtonManager buttonmanager;
+          private ICalculate Calculator;
 
-          public Timer decTimer;
-          public Timer happinessTimer;
+          private Timer decTimer;
+          private Timer happinessTimer;
 
           public event FirstPassHandler fPass;
 

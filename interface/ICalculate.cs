@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Interfaces.Events;
 
 namespace Interfaces
@@ -65,8 +62,10 @@ namespace Interfaces
         /// It also checks if the value of happiness is currently 100, if it is then it fires off the FullHappinessHandler event.
         /// For example FullHappinessArgs Happinessfull = new FullHappinessArgs("Happinessisfull", IndividualCalcYouDefined).
         ///                               happiness(this, Happinessfull);
+        /// It would be prudent to add an aditional  for loop here to check any results passed out fall within 0 to 100. 
+        /// This is due to progress bars only working within this range. e.g if over 100 make value 100, and if it is under 0 then make the value 0.
         /// </summary>
-        /// <returns>This needs to return the value of your defined array e.g. </returns>
+        /// <returns>This needs to return the value of your defined array e.g. return answers </returns>
         double[] Results();
        
 	}

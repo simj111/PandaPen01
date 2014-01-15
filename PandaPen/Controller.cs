@@ -269,7 +269,7 @@ namespace PandaPen
             }
         }
 
-        private void CheckWinCondition(ICalculate f, FullHappinessArgs args)
+        public void CheckWinCondition(ICalculate f, FullHappinessArgs args)
         {
             WinCalculation++;
             string formNames;
@@ -284,9 +284,9 @@ namespace PandaPen
                     string nameOfAni = listOfAnimals[j].ReturnName();
 
                          if (nameOfAni == args.CalculatorID)
-                          {
+                      {
                         buttonmanager = listOfAnimals[j].GetButtonsForSubscibe();
-                         }
+                      }
                     
                       }
                     buttonmanager.Unsubscribe(a);

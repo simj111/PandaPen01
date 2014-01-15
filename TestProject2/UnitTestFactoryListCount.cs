@@ -1,4 +1,5 @@
 ﻿using System;
+using AnimalModel;
 using PandaPen;
 using System.Text;
 using System.Collections.Generic;
@@ -18,16 +19,17 @@ namespace TestProject2
     /// Summary description for UnitTest1
     /// </summary>
     [TestClass]
-    public class UnitTest1
+    public class FactoryAnimalListTest
     {
          DefaultView d = new DefaultView();
+         List<IAnimalModel> Expected = new List<IAnimalModel>();
 
          [Import]
          Factory alpha;
         //alpa.CreateFactoryAndModels("Panda");
-        
-        
-        public UnitTest1()
+
+
+         public FactoryAnimalListTest()
         {
             //
             // TODO: Add constructor logic here
@@ -75,14 +77,17 @@ namespace TestProject2
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void Animal_list()
         {
-         
+           
 
             Controller alpa = new Controller(d);
             alpa.ComposeContainer();
             alpa.AFac1.GeneratAnimals("Panda", 0, "Panda_Easy");
-            
+            List<IAnimalModel> actual = alpa.AFac1.animallist;
+            IAnimalModel panda = new Panda();
+            Expected.Add(panda);
+            Assert.AreEqual(actual.Count, Expected.Count);
 
            // Assert.AreEqual(Expected, Actual);
             // TODO: Add test logic here

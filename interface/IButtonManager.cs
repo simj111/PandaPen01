@@ -10,7 +10,7 @@ namespace Interfaces
 	public interface IButtonManager
 	{
         /// <summary>
-        /// Subscribes the Button subscibes to the View .
+        /// Subscribes the Button subscribes to the View .
         /// </summary>
         /// <param name="f"></param>
         void Subscribe(Form f);

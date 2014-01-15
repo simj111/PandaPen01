@@ -12,9 +12,9 @@ namespace AnimalModel
    public class GoldFish : IAnimalModel
     {
         /// <summary>
-        /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the ButtonMangers.
-        /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
-        /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
+        /// The Data Members Contain string and doubles The Indivdual name is the specific of the object passed out to the ButtonManagers.
+        /// The Doubles Contain Invidual BarValues and are the Intial Values.
+        /// The Events are the FirstPassHandler is used to send out the Initial values when the system is Constructed
         /// </summary>
           private string INDIVIDUALName;
           private string _imageName = "GoldFish2Bars";
@@ -32,7 +32,7 @@ namespace AnimalModel
           public event FirstPassHandler fPass;
 
           /// <summary>
-          /// Is Used in the controler to Get the Bars.
+          /// Is Used in the controller to Get the Bars.
           /// </summary>
           /// <returns></returns>
           public IButtonManager GetButtonsForSubscibe()
@@ -46,7 +46,7 @@ namespace AnimalModel
           }
 
           /// <summary>
-          /// used to set the indivual name of the class which is used to Generate specif Events
+          /// used to set the individual name of the class which is used to Generate specific Events
           /// </summary>
           /// <param name="_imageName"></param>
           /// <param name="ID"></param>
@@ -81,7 +81,7 @@ namespace AnimalModel
           }
 
         /// <summary>
-        /// First Pass Set UP is called in the Controler to pass the Inital star up Variables
+        /// First Pass Set UP is called in the Controller to pass the Inititial start up Variables
         /// </summary>
         public void FirstPassSetUP()
         {
@@ -91,7 +91,7 @@ namespace AnimalModel
         }
         
         /// <summary>
-        /// Pass in the valuses for the Calulators.
+        /// Pass in the values for the Calculators.
         /// </summary>
         /// <param name="Operations"></param>
         public void Calculate(string Operations)

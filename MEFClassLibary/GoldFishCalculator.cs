@@ -7,7 +7,7 @@ using Interfaces.Events;
 namespace MEFClassLibary
 {
     /// <summary>
-    /// This is the GoldFishCalculator and is used to Calculate the gold fish valuse use the ICalculate Interface.
+    /// This is the GoldFishCalculator and is used to Calculate the gold fish values use the ICalculate Interface.
     /// </summary>
     
       [Export (typeof(ICalculate))]
@@ -17,10 +17,10 @@ namespace MEFClassLibary
     public class GoldFishCalculator : ICalculate
     {
         /// <summary>
-        /// Data Members Contins 
-        /// The EventPassCaclcResult Handler which pass the vasluse to the view model through the event Handler
-        /// a double array answer which is used to cacluate all bar valuses.
-        /// The Imagename of the gold fish and an InvidualCalulatorValue passed in fomr the modle
+        /// Data Members Containers 
+        /// The EventPassCaclcResult Handler which pass the values to the view model through the event Handler
+        /// a double array answer which is used to caclulate all bar values.
+        /// The Imagename of the gold fish and an InvidualCalulatorValue passed in from the model
         /// </summary>
 
         #region DataMembers
@@ -33,8 +33,8 @@ namespace MEFClassLibary
         #endregion DataMembers
 
         /// <summary>
-        /// Constructor create A value to check the events to see if the correct Animal modle is reciving the events by passing in a number of what model it is and adding that to the string 
-        /// the image name is Constant for all Modles, Bars and views of this type .
+        /// Constructor create A value to check the events to see if the correct Animal model is recieving the events by passing in a number of what model it is and adding that to the string 
+        /// the image name is Constant for all Models, Bars and views of this type .
         /// </summary>
         /// <param name="IDvalue"></param>
 
@@ -43,14 +43,14 @@ namespace MEFClassLibary
         #region Methods
 
         /// <summary>
-        /// Contians the Methods CalcualteValues  which acaultes the valuse bassed on the string passed in so it know what Operration to carry out
-        /// Contains the Method Cacluate Happines which Calcuates the Happnines bar if a tick event has been fired.
+        /// Contians the Methods CalculateValues  which calculates the values based on the string passed in so it know what Operation to carry out
+        /// Contains the Method Calculate Happines which Calculates the Happnines bar if a tick event has been fired.
         /// </summary>
         /// <param name="IDvalue"></param>
 
         /// <summary>
-        /// Caculate Values pass in the values from Anima when it called as well as the string which tell it what opereation it should prefrom inside the statement
-        /// This Method Also pass out the Events and number to the View Modles and then these are Updated.
+        /// Calculate Values pass in the values from Animal when it called as well as the string which tell it what opereation it should prefrom inside the statement
+        /// This Method Also passes out the Events and number to the View Models and then these are Updated.
         /// </summary>
 
         public string InitialPassIn(int IDvalue)
@@ -81,7 +81,7 @@ namespace MEFClassLibary
         }
 
         /// <summary>
-        /// Calulates any Change to the Happines Bar on tick Events
+        /// Calculates any Change to the Happiness Bar on tick Events
         /// </summary>
         /// <param name="numbers"></param>
 
@@ -95,7 +95,7 @@ namespace MEFClassLibary
         }
 
         /// <summary>
-        /// Returns results to the relavant Animal modle for this caclotor when called
+        /// Returns results to the relavant Animal model for this calculator when called
         /// </summary>
         /// <returns></returns>
 

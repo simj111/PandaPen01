@@ -83,7 +83,7 @@ namespace PandaPen
         /// <param name="recviedFromCombo"></param>
 
         /// <summary>
-        /// Subscribes the Controler to the Animaltypes the form is passed in as F
+        /// Subscribes the Controller to the Animaltypes the form is passed in as F
         /// </summary>
 
         public void Subscribe(Form f)

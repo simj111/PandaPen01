@@ -166,14 +166,24 @@ namespace PandaPen
                     ViewModelList.Add(ViewM);
                     _view.Show();
 
-                }
-               
-                CreateFactoryAndModels(Combo[CurrentCalcViewID]);
+                } 
+                //CurrentCalcViewID = 4;
+                try
+                {
+                   
+                 CreateFactoryAndModels(Combo[CurrentCalcViewID]);
                 IDIncrement++;
+                   
+                }
 
+                catch ( IndexOutOfRangeException e)
+                {
+                    // Perform some action here, and then throw a new exception.
+
+                    Trace.WriteLine("You must enter a string from the array Combo for this method to work and create the factories");
 
             }
-        }
+        }}
 
 
         /// <summary>
@@ -215,10 +225,13 @@ namespace PandaPen
         /// <param name="recviedFromCombo"></param>
         public void CreateFactoryAndModels(string recviedFromCombo)
         {
+
+
+            try
             {
                 ICalculate calculator = null;
 
-                AFac1.GeneratAnimals(Combo[CurrentCalcViewID], CurrentCalcViewID, calculatortrype[CurrentCalcViewID]);
+                AFac1.GeneratAnimals(Combo[CurrentCalcViewID], CurrentCalcViewID, calculatortrype[0]);
                 (first as DefaultView).animalType.Items.Clear();
                 AddAnimalsToBox(AFac1.typeoflist);
                 listOfAnimals = AFac1.animallist;
@@ -233,6 +246,17 @@ namespace PandaPen
                 {
                     first.Hide();
                 }
+
+            }
+            catch(Exception ex)
+            {
+                Trace.WriteLine("Exception located in the CreateFactoryAndModels " + ex.Message);
+            }
+           
+        
+
+            {
+               
             }
             //  Number++;
         }

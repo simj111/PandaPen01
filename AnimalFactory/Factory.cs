@@ -34,12 +34,15 @@ namespace AnimalFactory
         /// <summary>
         /// Method which will list all types either input manually or used with Mef Components
         /// </summary>
+        /// 
+
         public void FindTypes()
         {
             foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModles)
             {
                 typeoflist.Add(item.Metadata.AnimalType);
             }
+            
         }
 
         public void FindCalctypes()
@@ -57,6 +60,7 @@ namespace AnimalFactory
         /// <param name="ID"></param>
         public void GeneratAnimals(string Animal, int ID , string Calculator)
         {
+            
             ICalculate calculator = null;
             IButtonManager buttonmanager = null;
             IAnimalModel AnimalModel = null;

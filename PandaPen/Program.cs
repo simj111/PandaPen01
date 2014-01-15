@@ -11,6 +11,9 @@ namespace PandaPen
         [STAThread]
         static void Main()
         {
+            
+            
+
             Application.EnableVisualStyles();
 
             DefaultView first = null;
@@ -20,6 +23,8 @@ namespace PandaPen
                 first = new DefaultView();
                 Controller ctrl = new Controller(first);
             }
+
+            
 
             Application.Run(first);
         }

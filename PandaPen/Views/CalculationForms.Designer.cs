@@ -1,6 +1,6 @@
 ﻿namespace PandaPen
 {
-    partial class CalulationForms
+    partial class CalculationForms
     {
         /// <summary>
         /// Required designer variable.
@@ -51,15 +51,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Animal Calculator";
             // 
-            // CalulationForms
+            // CalculationForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(244, 99);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
-            this.Name = "CalulationForms";
-            this.Text = "CalulationForms";
+            this.Name = "CalculationForms";
+            this.Text = "CalculationForms";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,22 +13,20 @@ namespace PandaPen
         [STAThread]
         static void Main()
         {
-            
-            
+            Application.EnableVisualStyles(); //Makes the windows form look nicer.
 
-            Application.EnableVisualStyles();
-
+            //Create a blank default view.
             DefaultView first = null;
 
+            //This will make it so that it will only run once at the start when first is null
             if (first == null)
             {
                 first = new DefaultView();
-                Controller ctrl = new Controller(first);
+
+                Controller ctrl = new Controller(first); //Creates a new controller, called ctrl, with the defaultview "first" passed into it's constructor
             }
 
-            
-
-            Application.Run(first);
+            Application.Run(first); //runs the form.
         }
     }
 }

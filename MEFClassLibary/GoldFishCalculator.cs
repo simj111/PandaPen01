@@ -6,61 +6,45 @@ using Interfaces.Events;
 
 namespace MEFClassLibary
 {
-    /// <summary>
-    /// This is the GoldFishCalculator and is used to Calculate the gold fish values use the ICalculate Interface.
-    /// </summary>
-    
       [Export (typeof(ICalculate))]
       [ExportMetadata("AnimalType", "GoldFish2Bars")]
       [ExportMetadata("CalDescription", "GoldFish2Bars_Easy")]
 
+    /// <summary>
+    /// The calculator classes are used to perform calculations on the animals values and return those values.
+    /// </summary>
     public class GoldFishCalculator : ICalculate
     {
-        /// <summary>
-        /// Data Members Containers 
-        /// The EventPassCaclcResult Handler which pass the values to the view model through the event Handler
-        /// a double array answer which is used to caclulate all bar values.
-        /// The Imagename of the gold fish and an InvidualCalulatorValue passed in from the model
-        /// </summary>
-
         #region DataMembers
-        private double[] answers;
-        private string _imageName = "GoldFish2Bars";
-        private string InvidualCalulatorValue;
+        private double[] answers; //This array of double's is used to store the answers after calculations have been made.
+        private string InvidualCalculatorValue; //This is used to give the calculator a unique ID that can be associated with an animal.
+        private string _imageName = "GoldFish2Bars"; //This is used to say which type of animal this calculator will be used for.
 
+        //These events are meant to trigger when happiness has reached 100, and when results are ready to be passed out.
         public event PassCalcResultsHandler resPass;
         public event FullHappinessHandler happiness;
         #endregion DataMembers
 
-        /// <summary>
-        /// Constructor create A value to check the events to see if the correct Animal model is recieving the events by passing in a number of what model it is and adding that to the string 
-        /// the image name is Constant for all Models, Bars and views of this type .
-        /// </summary>
-        /// <param name="IDvalue"></param>
-
-
-
         #region Methods
 
         /// <summary>
-        /// Contians the Methods CalculateValues  which calculates the values based on the string passed in so it know what Operation to carry out
-        /// Contains the Method Calculate Happines which Calculates the Happnines bar if a tick event has been fired.
+        /// This method is used to combine the ID value passed in, and add it to the name of the animal type the calculator is associated to.
+        /// It then returns this combination as IndividualCalculatorValue e.g. "Panda0".
         /// </summary>
-        /// <param name="IDvalue"></param>
-
-        /// <summary>
-        /// Calculate Values pass in the values from Animal when it called as well as the string which tell it what opereation it should prefrom inside the statement
-        /// This Method Also passes out the Events and number to the View Models and then these are Updated.
-        /// </summary>
-
         public string InitialPassIn(int IDvalue)
         {
-            InvidualCalulatorValue = _imageName + IDvalue.ToString();
-            return InvidualCalulatorValue;
+            InvidualCalculatorValue = _imageName + IDvalue.ToString();
+            return InvidualCalculatorValue;
         }
-
+        /// <summary>
+        /// This method is where the calculations actually happen and where the values of the associated animals are affected.
+        /// </summary>
+        /// <param name="numbers">This is the values of the animal associated to the calculator</param>
+        /// <param name="Operations">This is a string of what it is asking the calculator to do e.g. "Button2"</param>
         public void CalculateValues(double[] numbers, string Operations)
         {
+            //This checks if the button that has been pressed contains has passed through a string of "Button1".
+            //Button1 represents the "Eat" button of the associated animal of this calculator. The two values of this animal rise.
             if (Operations == "Button1")
             {
                 numbers[0] = numbers[0] + 15;
@@ -72,21 +56,25 @@ namespace MEFClassLibary
                 numbers[0] = numbers[0] + 15;
                 numbers[1] = numbers[1] + 5;
             }
+
+            //This reaches this if statement when the animals decrease timer has ticked and makes the non happiness values decrease by 5.
             else if (Operations == "Decrease")
             {
                 numbers[0] -= 5;
                 numbers[1] -= 5;
             }
+
+            //This makes the local answers array contain the values of the numbers array, which were passed in when this method was called.
             answers = numbers;
         }
 
         /// <summary>
-        /// Calculates any Change to the Happiness Bar on tick Events
+        /// This method is called every time the associated animal's happinessTimer has ticked.
         /// </summary>
-        /// <param name="numbers"></param>
-
         public void CalculateHappiness(double[] numbers)
         {
+            //If the non happiness values are all above 50 then it will make the happiness value rise by 21.
+            //This will do it every time the happiness timer ticks and these values are above 50.
             if (numbers[0] >= 50 && numbers[1] >= 50)
             {
                 numbers[2] = numbers[2] + 11;
@@ -95,12 +83,14 @@ namespace MEFClassLibary
         }
 
         /// <summary>
-        /// Returns results to the relavant Animal model for this calculator when called
+        /// This method checks if any of the values are above 100, or below 0. This needs to happen because the progress bars can only deal with numbers within this range.
+        /// It also checks if the happiness value is 100, if it is it will then fire off the FullHappinessArgs event.
+        /// It fires off the event to pass on the calculation results.
         /// </summary>
-        /// <returns></returns>
-
+        /// <returns>Returns answer, which is an array of all the animals current values</returns>
         public double[] Results()
         {
+            //This for loop makes the program check through every value in the answers array and change the value if they are above 100, or below 0.
             for (int i = 0; i < answers.Length; i++)
             {
                 if (answers[i] > 100)
@@ -112,16 +102,21 @@ namespace MEFClassLibary
                     answers[i] = 0;
                 }
              }
+                
+                //This checks if happiness is equal to 100
                 if (answers[2] == 100)
                 {
-                    FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalulatorValue);
+                    FullHappinessArgs Happiness = new FullHappinessArgs("Happinessisfull", InvidualCalculatorValue);
                     answers[2] = 100;
-                    happiness(this, Happiness);
+                    happiness(this, Happiness); //Fires off the happiness FullHappinessHandler.
                 }
-           
-            PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
-            resPass(this, information);
-            return answers;
+
+                //This event fires off the event which passes out the current animal values
+                PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalculatorValue);
+                resPass(this, information);
+
+                //Returns the array answers.
+                return answers;
         }
 
         #endregion Methods

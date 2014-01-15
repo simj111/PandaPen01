@@ -94,9 +94,9 @@ namespace PandaPen
             }
 
 
-            if ((f as CalulationForms) != null)
+            if ((f as CalculationForms) != null)
             {
-                (f as CalulationForms).selectCalc += new CalcTypeHandler(ReciveEvents2);
+                (f as CalculationForms).selectCalc += new CalcTypeHandler(ReciveEvents2);
             }
         }
 
@@ -196,13 +196,13 @@ namespace PandaPen
 
             Combo[CurrentCalcViewID] = recviedFromCombo;
             List<string> test = AFac1.Calculatortype;
-            IViewNormalSelectionofCalcs Calculation = new CalulationForms(NumberOfViews);
+            IViewNormalSelectionofCalcs Calculation = new CalculationForms(NumberOfViews);
 
             foreach (string Cals in test)
             {
                 if (Cals.Contains(recviedFromCombo))
                 {
-                    (Calculation as CalulationForms).comboBox1.Items.AddRange(new object[] { Cals });
+                    (Calculation as CalculationForms).comboBox1.Items.AddRange(new object[] { Cals });
                 }
             }
 

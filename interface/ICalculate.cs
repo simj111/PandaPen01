@@ -42,7 +42,7 @@ namespace Interfaces
         /// Another example would be if the "Decrease" operation is passed in then all values could be decreased by 4.
         /// The class will need it's own array of doubles("double[]") to store the numbers that have been affected.
         /// At the end of this method you need to fire off an argument and event, for those subscribed to recieve. PassCalcResultsArgs is needed.
-        /// this is one possible example: PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalulatorValue);
+        /// this is one possible example: PassCalcResultsArgs information = new PassCalcResultsArgs(answers, InvidualCalculatorValue);
         ///                               resPass(this, information);
         /// </summary>
         /// <param name="numbers">This paramater is the number values that are passed into the calculator from the animal. These are the properties of the animal, which are to be affected within this method.</param>

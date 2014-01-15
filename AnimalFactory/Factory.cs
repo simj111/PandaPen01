@@ -19,13 +19,9 @@ namespace AnimalFactory
     public class Factory
     {
         [ImportMany]
-        private IEnumerable<Lazy<IAnimalModel, IAnimalTypeMetadata>> _AvaibaleModels;
+        private IEnumerable<Lazy<IAnimalModel, IAnimalTypeMetadata>> _AvailableModels;
         [ImportMany]
-        private List<IAnimalModel> _avaibaleModels;
-        [ImportMany]
-        private IEnumerable<Lazy<ICalculate, IViewMetadataCalculators>> _AvailableCaluclate;
-        [ImportMany]
-        private List<ICalculate> _MEFCalculators;
+        private IEnumerable<Lazy<ICalculate, IViewMetadataCalculators>> _AvailableCalculate;
 
         public List<string> typeoflist = new List<string>();
         public List<IAnimalModel> animallist = new List<IAnimalModel>();
@@ -38,7 +34,7 @@ namespace AnimalFactory
 
         public void FindTypes()
         {
-            foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModels)
+            foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvailableModels)
             {
                 typeoflist.Add(item.Metadata.AnimalType);
             }
@@ -47,7 +43,7 @@ namespace AnimalFactory
 
         public void FindCalctypes()
         {
-            foreach (Lazy<ICalculate, IViewMetadataCalculators> item in _AvailableCaluclate)
+            foreach (Lazy<ICalculate, IViewMetadataCalculators> item in _AvailableCalculate)
             {
              Calculatortype.Add(item.Metadata.CalDescription); 
             }
@@ -68,13 +64,13 @@ namespace AnimalFactory
             if (typeoflist.Any(str => str.Contains(Animal)))
             {
                     buttonmanager = new BUTTON_MANAGER();
-                    foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModels )
+                    foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvailableModels )
                     {
 
                         if (Animal == item.Metadata.AnimalType)
                         {
 
-                            foreach (Lazy<ICalculate, IViewMetadataCalculators> cal in _AvailableCaluclate)
+                            foreach (Lazy<ICalculate, IViewMetadataCalculators> cal in _AvailableCalculate)
                             {
 
                                 if (Animal == cal.Metadata.AnimalType && Calculator == cal.Metadata.CalDescription)

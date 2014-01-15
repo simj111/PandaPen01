@@ -55,7 +55,7 @@ namespace Interfaces
         /// Like CalculateValues you need to store the values from the numbers parameter within your own defined array of doubles. e.g. answers[]
         /// </summary>
         /// <param name="numbers">This paramater contains the values of the animals properties</param>
-        void CalculateHappines(double[] numbers);
+        void CalculateHappiness(double[] numbers);
 
         /// <summary>
         /// This method is used to return your array of doubles, that you have been storing the numbers in, to the animal.

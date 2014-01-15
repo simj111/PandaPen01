@@ -47,7 +47,7 @@
     <Compile Include="Events\CalcTypeArgs.cs" />
     <Compile Include="Events\FirstPassArgs.cs" />
     <Compile Include="Events\FullHappinessArgs.cs" />
-    <Compile Include="IIViewMetadataCalulators.cs" />
+    <Compile Include="IViewMetadataCalculators.cs" />
     <Compile Include="Events\PassCalcResultsArgs.cs" />
     <Compile Include="IAnimalModel.cs" />
     <Compile Include="IButtonManager.cs" />

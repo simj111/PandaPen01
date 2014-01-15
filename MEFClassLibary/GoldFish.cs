@@ -108,7 +108,7 @@ namespace AnimalModel
 
         public void happinessTimer_Tick(object sender, EventArgs e)
         {
-            Calculator.CalculateHappines(number);
+            Calculator.CalculateHappiness(number);
             number = Calculator.Results();
         }
 

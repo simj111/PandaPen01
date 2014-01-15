@@ -66,7 +66,7 @@ namespace CalculatorLibrary
            
         }
 
-        public void CalculateHappines(double[] numbers)
+        public void CalculateHappiness(double[] numbers)
         {
             if (numbers[0] >= 50 && numbers[1] >= 50 && numbers[2] >= 50)
             {

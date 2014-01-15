@@ -23,7 +23,7 @@ namespace AnimalFactory
         [ImportMany]
         private List<IAnimalModel> _avaibaleModels;
         [ImportMany]
-        private IEnumerable<Lazy<ICalculate, IIViewMetadataCalulators>> _AvailableCaluclate;
+        private IEnumerable<Lazy<ICalculate, IViewMetadataCalculators>> _AvailableCaluclate;
         [ImportMany]
         private List<ICalculate> _MEFCalculators;
 
@@ -47,7 +47,7 @@ namespace AnimalFactory
 
         public void FindCalctypes()
         {
-            foreach (Lazy<ICalculate, IIViewMetadataCalulators> item in _AvailableCaluclate)
+            foreach (Lazy<ICalculate, IViewMetadataCalculators> item in _AvailableCaluclate)
             {
              Calculatortype.Add(item.Metadata.CalDescription); 
             }
@@ -74,7 +74,7 @@ namespace AnimalFactory
                         if (Animal == item.Metadata.AnimalType)
                         {
 
-                            foreach (Lazy<ICalculate, IIViewMetadataCalulators> cal in _AvailableCaluclate)
+                            foreach (Lazy<ICalculate, IViewMetadataCalculators> cal in _AvailableCaluclate)
                             {
 
                                 if (Animal == cal.Metadata.AnimalType && Calculator == cal.Metadata.CalDescription)

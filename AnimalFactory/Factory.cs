@@ -19,9 +19,9 @@ namespace AnimalFactory
     public class Factory
     {
         [ImportMany]
-        private IEnumerable<Lazy<IAnimalModel, IAnimalTypeMetadata>> _AvaibaleModles;
+        private IEnumerable<Lazy<IAnimalModel, IAnimalTypeMetadata>> _AvaibaleModels;
         [ImportMany]
-        private List<IAnimalModel> _avaibaleModles;
+        private List<IAnimalModel> _avaibaleModels;
         [ImportMany]
         private IEnumerable<Lazy<ICalculate, IIViewMetadataCalulators>> _AvailableCaluclate;
         [ImportMany]
@@ -38,7 +38,7 @@ namespace AnimalFactory
 
         public void FindTypes()
         {
-            foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModles)
+            foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModels)
             {
                 typeoflist.Add(item.Metadata.AnimalType);
             }
@@ -68,7 +68,7 @@ namespace AnimalFactory
             if (typeoflist.Any(str => str.Contains(Animal)))
             {
                     buttonmanager = new BUTTON_MANAGER();
-                    foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModles )
+                    foreach (Lazy<IAnimalModel, IAnimalTypeMetadata> item in _AvaibaleModels )
                     {
 
                         if (Animal == item.Metadata.AnimalType)

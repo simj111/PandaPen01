@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace PandaPen.Views_Models
 {
-  public  class ViewModleFor2Bars : IViewModel
+  public  class ViewModelFor2Bars : IViewModel
   {
 
         private double[] Number01 = new double[3];
@@ -14,7 +14,7 @@ namespace PandaPen.Views_Models
 
         private Form VF = null;
 
-        public ViewModleFor2Bars(Form TheForm)
+        public ViewModelFor2Bars(Form TheForm)
         {
             VF = TheForm;
         }

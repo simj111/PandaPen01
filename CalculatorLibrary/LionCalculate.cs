@@ -35,7 +35,7 @@ namespace CalculatorLibrary
 
         /// <summary>
         /// Caculate Values pass in the values from Anima when it called as well as the string which tell it what opereation it should prefrom inside the statement
-        /// This Method Also pass out the Events and number to the View Modles and then these are Updated.
+        /// This Method Also pass out the Events and number to the View Models and then these are Updated.
         /// </summary>
         /// 
 
@@ -97,7 +97,7 @@ namespace CalculatorLibrary
 
 
         /// <summary>
-        /// Returns results to the relavant Animal modle for this caclotor when called
+        /// Returns results to the relavant Animal Model for this caclotor when called
         /// </summary>
         /// <returns></returns>
         public double[] Results()

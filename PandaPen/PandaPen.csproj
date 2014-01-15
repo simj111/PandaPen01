@@ -75,7 +75,7 @@
       <DependentUpon>View2Bars.cs</DependentUpon>
     </Compile>
     <Compile Include="Views_Models\ViewModel.cs" />
-    <Compile Include="Views_Models\ViewModleFor2Bars.cs" />
+    <Compile Include="Views_Models\ViewModelFor2Bars.cs" />
     <EmbeddedResource Include="Views\CalulationForms.resx">
       <DependentUpon>CalulationForms.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,7 +107,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TestingPlan and Testing Plan example.zip" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnimalFactory\AnimalFactory.csproj">

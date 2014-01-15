@@ -153,7 +153,7 @@ namespace PandaPen
                 {
                     _view = new View2Bars(Name);
                     ViewList.Add(_view);
-                    ViewM = new ViewModleFor2Bars(_view);
+                    ViewM = new ViewModelFor2Bars(_view);
                     ViewModelList.Add(ViewM);
 
                     _view.Show();

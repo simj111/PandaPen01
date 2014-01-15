@@ -13,7 +13,7 @@ namespace AnimalFactory
 
         /// <summary>
         /// Contains A List of types
-        /// Contains A Animal Model
+        /// Contains An Animal Model
         /// Contains A double ID
         /// </summary> 
     public class Factory
@@ -28,7 +28,7 @@ namespace AnimalFactory
         public List<string> Calculatortype = new List<string>();
 
         /// <summary>
-        /// Method which will list all types either input manually or used with Mef Components
+        /// Method which will list all types either input manually or used with MEF Components
         /// </summary>
         /// 
 
@@ -50,11 +50,11 @@ namespace AnimalFactory
         }
 
         /// <summary>
-        /// GenerateAnimal is used as the factory Creation method Creates ALL models
+        /// GenerateAnimals is used as the factory's creation method. It creates all of the animal models.
         /// </summary>
         /// <param name="Animal"></param>
         /// <param name="ID"></param>
-        public void GeneratAnimals(string Animal, int ID , string Calculator)
+        public void GenerateAnimals(string Animal, int ID , string Calculator)
         {
             
             ICalculate calculator = null;

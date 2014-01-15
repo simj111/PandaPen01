@@ -83,7 +83,7 @@ namespace TestProject2
 
             Controller alpa = new Controller(d);
             alpa.ComposeContainer();
-            alpa.AFac1.GeneratAnimals("Panda", 0, "Panda_Easy");
+            alpa.AFac1.GenerateAnimals("Panda", 0, "Panda_Easy");
             List<IAnimalModel> actual = alpa.AFac1.animallist;
             IAnimalModel panda = new Panda();
             Expected.Add(panda);

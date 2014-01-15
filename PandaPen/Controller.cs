@@ -231,7 +231,7 @@ namespace PandaPen
             {
                 ICalculate calculator = null;
 
-                AFac1.GeneratAnimals(Combo[CurrentCalcViewID], CurrentCalcViewID, calculatortrype[CurrentCalcViewID]);
+                AFac1.GenerateAnimals(Combo[CurrentCalcViewID], CurrentCalcViewID, calculatortrype[CurrentCalcViewID]);
                 (first as DefaultView).animalType.Items.Clear();
                 AddAnimalsToBox(AFac1.typeoflist);
                 listOfAnimals = AFac1.animallist;

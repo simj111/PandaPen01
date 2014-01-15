@@ -17,13 +17,13 @@ namespace Interfaces.Events
             }
         }
 
-        private string _IniatilID;
+        private string _InitialID;
 
-        public string IniatilID
+        public string InitialID
         {
             get
             {
-                return _IniatilID;
+                return _InitialID;
             }
         }
 
@@ -42,10 +42,10 @@ namespace Interfaces.Events
        
     
 
-        public ButtonPressEventArgs(string information, string IniatilID, int ButtonNumber )
+        public ButtonPressEventArgs(string information, string InitialID, int ButtonNumber )
         {
             _information = information;
-            _IniatilID = IniatilID;
+            _InitialID = InitialID;
             _ButtonNumber = ButtonNumber;
         }
 

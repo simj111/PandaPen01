@@ -102,7 +102,7 @@ namespace AnimalModel
           {
 
                   string imagename = _imageName;
-                  FirstPassArgs args = new FirstPassArgs(imagename, numbers);
+                  FirstPassArgs args = new FirstPassArgs(imagename, number);
                   fPass(this, args); //This passes out the imagename of the animal and it's values via the fPass handler.
           }
 

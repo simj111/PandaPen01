@@ -7,20 +7,20 @@ using System.Windows.Forms;
 namespace ButtonManager
 {
     /// <summary>
-    /// The Purpouse of This Class is to Enterprate Events to see if its Particular Animal Should React
+    /// The Purpose of This Class is to Enterpret Events to see if its Particular Animal Should React
     /// </summary>
 
     public class BUTTON_MANAGER : IButtonManager
     {
         /// <summary>
-        /// The Data Members Contain a Animal to store the Animal this Particular BarManger is Linked to
-        /// The string IndividualID Contains a string Reference which of the Object which is stored in the Modle so it can be used to deterem if the module should react]
+        /// The Data Members Contain an Animal to store the Animal this Particular ButtonManager is Linked to
+        /// The string IndividualID Contains a string Reference which of the Object which is stored in the Model so it can be used to determine if the model should react
         /// </summary>
         IAnimalModel Animal;
         public string IndividualID;
 
         /// <summary>
-        /// This Method is used to Subscribe to the events this Particullar Sucrbies to Button Press Recived from ButtonEventHandler and which are Genreated in the view
+        /// This Method is used to Subscribe to the events this Particular Subscribe to Button Press Recieved from ButtonEventHandler and which are Generated in the view
         /// The Class for this Is currently called View
         /// </summary>
         /// <param name="f"></param>
@@ -55,7 +55,7 @@ namespace ButtonManager
         }
 
         /// <summary>
-        /// This Method is used to allow the Buttonmanger to Speak to its Specific animal Modle
+        /// This Method is used to allow the Buttonmanger to Speak to its Specific animal Model 
         /// </summary>
         /// <param name="LINKEDANIMAL"></param>
         /// <param name="Name"></param>
@@ -66,7 +66,7 @@ namespace ButtonManager
         }
 
         /// <summary>
-        /// Pass Out Calucation type to the Animal Modle which pass it out to the Calulator to ensure success
+        /// Pass Out Calculation type to the Animal Model which pass it out to the Calculator to ensure success
         /// </summary>
         /// <param name="Clacualtion"></param>
         public void PassOutCalucaltion(string Clacualtion)

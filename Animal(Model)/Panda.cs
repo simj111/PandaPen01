@@ -11,16 +11,16 @@ namespace AnimalModel
     [ExportMetadata("AnimalType", "Panda")]
  
     /// <summary>
-    /// This Class is the Panda Animal Modle its main role is to store data and Carry out Calculations refering to the Panda Animal.
+    /// This Class is the Panda Animal Model its main role is to store data and Carry out Calculations refering to the Panda Animal.
     /// </summary>
     public class Panda : IAnimalModel
     {
 
         /// <summary>
-        /// The Data Members Contain strings and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
+        /// The Data Members Contain strings and doubles The Individual name is the specific of the object passed out to the ButtonManager.
         /// The Doubles Contain Individual BarVaules and are the Intial Valuse.
-        /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
-        ///  And to use Name to give the Modles it own Indvidual Name
+        /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constructed
+        ///  And to use Name to give the Models it own Individual Name
         /// </summary>
           private string INDIVIDUALName;
           private string _imageName = "Panda";
@@ -90,7 +90,7 @@ namespace AnimalModel
           }
 
         /// <summary>
-        /// First Pass Set UP is called in the Controler to pass the Inital star up Variables
+        /// First Pass Set UP is called in the Controller to pass the Inital start up Variables
         /// </summary>
         public void FirstPassSetUP()
         {
@@ -100,7 +100,7 @@ namespace AnimalModel
         }
 
         /// <summary>
-        /// Pass in the valuses for the Calulators.
+        /// Pass in the values for the Calculators.
         /// </summary>
         /// <param name="Operations"></param>
         public void Calculate(string Operations)

@@ -76,10 +76,9 @@ namespace PandaPen
 
         /// <summary>
         /// This Section of code Contains the Methods used in this section.
-        /// it Contains Subscribe Which Subscribe the controler to AnimaltypeEventGenerated in the list
-        /// ReciveEvents is Activated when the AnimaltypeEvents is used its purpouse is to tell Pass Infomation to CreatView Method so a specific view can be created for that type of modle and pas infomation into create factory so it can creat the correct module.
-        /// Creat View Method is used to creat specific view for differnt modules based on the string that is passed in.
-        /// Creat Selctor is used to plug in Mef Components.
+        /// it Contains Subscribe Which Subscribe the controller to AnimaltypeEventGenerated in the list
+        /// ReciveEvents is Activated when the AnimaltypeEvents is used its purpose is to tell Pass Information to CreatView Method so a specific view can be created for that type of model and pass information into create factory so it can create the correct model.
+        /// Creat View Method is used to creat specific view for differnt models based on the string that is passed in.
         /// </summary>
         /// <param name="recviedFromCombo"></param>
 
@@ -209,9 +208,9 @@ namespace PandaPen
         }
 
         /// <summary>
-        ///  This Metod is resposnible for passing in the string from the Combox into the factory which is used to Build the correct modle for that specfic string.
-        ///  It is reposnibe for subscribing the Barmanger with view so it can recive the ButtonpressEvents
-        ///  Links the ViewModule to the Calator and its Animal together
+        ///  This Metod is responsible for passing in the string from the Combo box into the factory which is used to Build the correct model for that specific string.
+        ///  It is responsible for subscribing the ButtonManager with view so it can recieve the ButtonpressEvents
+        ///  Links the Viewmodel to the Calculator and its Animal together
         /// </summary>
         /// <param name="recviedFromCombo"></param>
         public void CreateFactoryAndModels(string recviedFromCombo)

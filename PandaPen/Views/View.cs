@@ -16,7 +16,7 @@ namespace PandaPen
         #region DataMembers
         /// <summary>
         /// The Data Members Contains this View unguie identfire which is named by the Factory of the AnimalModel this View realtes to.
-        /// Also Contains ButtonPress event handaler so it can shout out events around the Program to the Delegat In barManger
+        /// Also Contains ButtonPress event handaler so it can shout out events around the Program to the Delegat In ButtonManger
         /// </summary>
      
         private string name;
@@ -31,7 +31,7 @@ namespace PandaPen
         #region Constructor
 
         /// <summary>
-        /// Constructor Which Continas an Name which is given on creation and links to a similr string for the module paring the two together
+        /// Constructor Which Continas an Name which is given on creation and links to a similr string for the model paring the two together
         /// Contains IntializeComponets Which Boot up all Visuals for the view
         /// </summary>
         /// <param name="_name"></param>

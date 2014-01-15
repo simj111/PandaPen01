@@ -12,7 +12,7 @@ namespace AnimalModel
    public class GoldFish : IAnimalModel
     {
         /// <summary>
-        /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
+        /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the ButtonMangers.
         /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
         /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
         /// </summary>

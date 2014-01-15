@@ -7,7 +7,7 @@ using Interfaces.Events;
 namespace MEFClassLibary
 {
     /// <summary>
-    /// This is the GoldFishCalator and is used to Calcualte the gold fish valuse use the ICalculate Interface.
+    /// This is the GoldFishCalculator and is used to Calculate the gold fish valuse use the ICalculate Interface.
     /// </summary>
     
       [Export (typeof(ICalculate))]
@@ -18,7 +18,7 @@ namespace MEFClassLibary
     {
         /// <summary>
         /// Data Members Contins 
-        /// The EventPassCaclcResult Handler which pass the vasluse to the view Module through the event Handler
+        /// The EventPassCaclcResult Handler which pass the vasluse to the view model through the event Handler
         /// a double array answer which is used to cacluate all bar valuses.
         /// The Imagename of the gold fish and an InvidualCalulatorValue passed in fomr the modle
         /// </summary>
@@ -33,7 +33,7 @@ namespace MEFClassLibary
         #endregion DataMembers
 
         /// <summary>
-        /// Constructor create A value to check the events to see if the correct Animal modle is reciving the events by passing in a number of what module it is and adding that to the string 
+        /// Constructor create A value to check the events to see if the correct Animal modle is reciving the events by passing in a number of what model it is and adding that to the string 
         /// the image name is Constant for all Modles, Bars and views of this type .
         /// </summary>
         /// <param name="IDvalue"></param>

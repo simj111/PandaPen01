@@ -7,7 +7,7 @@ using Interfaces.Events;
 namespace CalculatorLibrary
 {
     /// <summary>
-    /// This is the LionCalcutor and is used to Calcualte the gold fish valuse use the ICalculate Interface.
+    /// This is the LionCalculator and is used to Calculate the gold fish valuse use the ICalculate Interface.
     /// </summary>
     [Export(typeof(ICalculate))]
     [ExportMetadata("AnimalType", "Lion")]

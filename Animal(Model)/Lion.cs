@@ -15,10 +15,10 @@ namespace AnimalModel
    public class Lion : IAnimalModel
     {
     /// <summary>
-        /// The Data Members Contain string and doubles The Indvduul name is the specif of the object passed out to the BarMangers.
+        /// The Data Members Contain string and doubles The Individual name is the specific of the object passed out to the ButtonManager.
         /// The Doubles Contain Invidual BarVaules and are the Intial Valuse.
-        /// The Events are the FirstPassHandler is used to send out the Intial values when the system is Constrcuted
-        /// Contains a Caltor and Barmanger which it use to hear and respond to events
+        /// The Events are the FirstPassHandler is used to send out the Initial values when the system is Constrcuted
+        /// Contains a Calculator and ButtonManager which it use to hear and respond to events
         /// Contains a strings INDIVIDUALName which is an ID and an Image Name Lion
         /// </summary>
           private string INDIVIDUALName;
@@ -88,7 +88,7 @@ namespace AnimalModel
           }
 
         /// <summary>
-        /// First Pass Set UP is called in the Controler to pass the Inital star up Variables Passed out to the view modules using the FirstpassEvantHandler.
+        /// First Pass Set UP is called in the Controller to pass the Inital start up Variables Passed out to the view models using the FirstpassEvantHandler.
         /// </summary>
           public void FirstPassSetUP()
           {

@@ -9,7 +9,7 @@ namespace Interfaces
    public interface IAnimalModel
     {
        /// <summary>
-        /// First Pass a Double Array of the Intail staring Valuesues. Into trhe view module it need to pass a string repersent the Name of the Animal such as Panda   
+        /// First Pass a Double Array of the Initial staring Values. Into the view model it need to pass a string repersent the Name of the Animal such as Panda   
         /// it pass the infomation as FirstPassArgs args = new FirstPassArgs(_imageName, number);
        /// 
        /// </summary>
@@ -32,7 +32,7 @@ namespace Interfaces
 
 
        /// <summry>
-       /// Is used to return an Invdialumodule Id which pass over from the modle these have to be defined in a string
+       /// Is used to return an IndividualModel Id which pass over from the modle these have to be defined in a string
        /// </summry>
        string Name(string _imageName, double ID);
 

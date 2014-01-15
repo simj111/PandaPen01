@@ -41,15 +41,15 @@ namespace ButtonManager
 
                 if (args.information == "Button1")
                 {
-                    PassOutCalucaltion(args.information);
+                    PassOutCalculation(args.information);
                 }
                 else if (args.information == "Button2")
                 {
-                    PassOutCalucaltion(args.information);
+                    PassOutCalculation(args.information);
                 }
                 else if (args.information == "Button3")
                 {
-                    PassOutCalucaltion(args.information);
+                    PassOutCalculation(args.information);
                 }
             }
         }
@@ -68,10 +68,10 @@ namespace ButtonManager
         /// <summary>
         /// Pass Out Calculation type to the Animal Model which pass it out to the Calculator to ensure success
         /// </summary>
-        /// <param name="Clacualtion"></param>
-        public void PassOutCalucaltion(string Clacualtion)
+        /// <param name="Calculation"></param>
+        public void PassOutCalculation(string Calculation)
         {
-            Animal.Calculate(Clacualtion);
+            Animal.Calculate(Calculation);
         }
 
        public void Unsubscribe(IAnimalViews f)

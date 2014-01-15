@@ -16,7 +16,7 @@ namespace Interfaces
         void Subscribe(Form f);
         void CheckIfValid(Form f, ButtonPressEventArgs args);
         void ConnectANIMAL(IAnimalModel LINKEDANIMAL , string Name);
-        void PassOutCalucaltion(string Clacualtion);
+        void PassOutCalculation(string Calculation);
         void Unsubscribe(IAnimalViews f);
 	}
 }

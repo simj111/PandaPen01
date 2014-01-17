@@ -92,13 +92,13 @@ namespace PandaPen
         {
             if ((f as DefaultView) != null)
             {
-                (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReciveEvents); 
+                (f as DefaultView).selectAnimal += new AnimalTypeHandler(ReceiveEvents); 
             }
 
 
             if ((f as CalculationForms) != null)
             {
-                (f as CalculationForms).selectCalc += new CalcTypeHandler(ReciveEvents2);
+                (f as CalculationForms).selectCalc += new CalcTypeHandler(ReceiveEvents2);
             }
         }
 

@@ -29,7 +29,7 @@ namespace AnimalFactory
 
         /// <summary>
         /// Method which will list all types either input manually or used with MEF Components
-        /// </summary>
+        /// bfs</summary>
         /// 
 
         public void FindTypes()
